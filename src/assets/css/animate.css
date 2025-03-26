@@ -1,0 +1,35 @@
+@keyframes fadeInUpSm {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 40px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translateZ(0);
+  }
+}
+@keyframes blackToWhite {
+  from {
+    background-color: var(--clr-black);
+  }
+  to {
+    background-color: var(--clr-white);
+  }
+}
+@keyframes whiteToBlack {
+  from {
+    background-color: var(--clr-black);
+  }
+  to {
+    background-color: var(--clr-white);
+  }
+}
+
+@keyframes scaleIn {
+	from {
+	  transform: scaleX(0);
+	}
+	to {
+		transform: scaleX(1);
+	}
+ }

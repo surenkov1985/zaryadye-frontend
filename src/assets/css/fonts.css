@@ -1,0 +1,13 @@
+
+@font-face {
+  font-family: "GolosTextWebVF";
+  src: url("../fonts/Golos-Text-VF.web/Golos-Text_VF.WOFF2") format("woff2"), url("../fonts/Golos-Text-VF.web/Golos-Text_VF.WOFF") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "TT-Knickerbockers";
+  src: url("../fonts/TT-Knickerbockers-Grotesk/TT-Knickerbockers-Grotesk.woff2") format("woff2"), url("../fonts/TT-Knickerbockers-Grotesk/TT-Knickerbockers-Grotesk.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
