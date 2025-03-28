@@ -1,6 +1,6 @@
 
 import gsap from "gsap";
-import $ from "jquery"
+// import $ from "jquery"
 
 import { fsSliders, locationSliders } from "./swipers";
 import { OverlayScrollbars } from 'overlayscrollbars';
@@ -8,7 +8,7 @@ import Lenis from "lenis";
 import { formatValueInput, loadScript, maskedEmail, setMap, ShapeOverlays, validationFormFields } from "./methods";
 import Typograf from "typograf";
 
-import 'overlayscrollbars/overlayscrollbars.css';
+// import 'overlayscrollbars/overlayscrollbars.css';
 
 	document.addEventListener("DOMContentLoaded", function () {
 		fsSliders();

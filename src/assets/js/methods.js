@@ -32,11 +32,11 @@ export function setMap() {
 					ButtonLayout = null,
 					button = null,
 					geolocation = ymaps.geolocation;
-				(map = new ymaps.Map(id, {
-					center: mapCoord,
-					zoom: mapZoom,
-					controls: [],
-				})),
+					(map = new ymaps.Map(id, {
+						center: mapCoord,
+						zoom: mapZoom,
+						controls: [],
+					})),
 					(pin = new ymaps.Placemark(
 						mapCoord,
 						{
@@ -319,7 +319,7 @@ export class ShapeOverlays {
 		this.elm = elm;
 		this.path = elm.querySelectorAll("path");
 		this.numPoints = 4;
-		this.duration = 1200;
+		this.duration = 12000;
 		this.delayPointsArray = [];
 		this.delayPointsMax = 0;
 		this.delayPerPath = 60;
