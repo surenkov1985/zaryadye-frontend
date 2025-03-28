@@ -1823,9 +1823,14 @@ import 'overlayscrollbars/overlayscrollbars.css';
 				let message;
 				if (response.err_code != 0) {
 					message = response.text;
-				} else message = "Подписка оформлена! Пожалуйста, перейдите на свою почту, чтобы подтвердить подписку.";
+				} else {message = "Подписка оформлена! Пожалуйста, перейдите на свою почту, чтобы подтвердить подписку."}
 				var formMessage = $(`<div class='form-message'>${response.response.msg.message}</div>`);
 				$(form).find(".form_success_title h2").text(response.response.msg.message);
+				if (response.response.msg.text === "NO-OK") {
+					$(form).find(".form_success_icon").css({"display": "none"})
+				} else {
+					$(form).find(".form_success_icon").css({"display": "flex"})
+				}
 				if (response.err_code != 0) {
 					setTimeout(function () {
 						formMessage.hide();
