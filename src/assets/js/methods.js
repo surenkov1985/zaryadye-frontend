@@ -319,7 +319,7 @@ export class ShapeOverlays {
 		this.elm = elm;
 		this.path = elm.querySelectorAll("path");
 		this.numPoints = 4;
-		this.duration = 12000;
+		this.duration = 1200;
 		this.delayPointsArray = [];
 		this.delayPointsMax = 0;
 		this.delayPerPath = 60;
@@ -333,9 +333,9 @@ export class ShapeOverlays {
 		}
 	}
 
-	toggle() {
+	toggle(duration = 1200) {
 		if (this.isAnimating || this.isThemeShapeAnimating) return;
-
+		this.duration = duration
 		this.isAnimating = true;
 		this.timeStart = Date.now();
 		// for (var i = 0; i < this.numPoints; i++) {
@@ -344,13 +344,13 @@ export class ShapeOverlays {
 
 		if (this.isOpened === false) {
 			if (this.isThemeShapeOpened === false && localStorage.colorTheme === "dark") {
-				this.open(true);
+				this.open();
 			} else {
 				this.open();
 			}
 		} else {
 			if (this.isThemeShapeOpened !== false && localStorage.colorTheme === "dark") {
-				this.close(true);
+				this.close();
 			} else {
 				this.close();
 			}
@@ -359,10 +359,11 @@ export class ShapeOverlays {
 		// 	this.themeToggle();
 		// }
 	}
-	themeToggle() {
+	themeToggle(duration = 1200) {
 
-		if (this.isAnimating || this.isThemeShapeAnimating) return;
-		this.isThemeShapeAnimating = true;
+			this.duration = duration
+			if (this.isAnimating || this.isThemeShapeAnimating) return;
+			this.isThemeShapeAnimating = true;
 
 		this.timeStart = Date.now();
 		// for (var i = 0; i < this.numPoints; i++) {

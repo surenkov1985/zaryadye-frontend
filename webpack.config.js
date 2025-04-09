@@ -132,6 +132,12 @@ const dev = {
 			},
 		},
 	},
+	output: {
+		path: path.resolve(__dirname, "public"),
+		filename: "assets/js/[name].js",
+		chunkFilename: "assets/js/[name].js",
+		clean: true,
+	},
 };
 
 module.exports = Object.assign(build, mode === "development" ? dev : {});

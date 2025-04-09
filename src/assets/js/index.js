@@ -1,6 +1,6 @@
 
 import gsap from "gsap";
-// import $ from "jquery"
+// import $ from "jquery" 
 
 import { fsSliders, locationSliders } from "./swipers";
 import { OverlayScrollbars } from 'overlayscrollbars';
@@ -280,7 +280,7 @@ import Typograf from "typograf";
 			}
 	
 			overlay.toggle();
-	
+	  
 			if (overlay.isOpened === true) {
 				for (var i = 0; i < gNavItems.length; i++) {
 					gNavItems[i].classList.add("is-opened");
@@ -290,11 +290,11 @@ import Typograf from "typograf";
 					gNavItems[i].classList.remove("is-opened");
 				}
 			}
-		});
+		});    
 		function hideMobile(){
 			let gs = gsap.timeline();
 			let header = $(".head.fixed").hasClass("show") ? document.querySelector(".head.fixed") : document.querySelector("header");
-			overlay.toggle();
+			overlay.toggle(); 
 			for (var i = 0; i < gNavItems.length; i++) {
 				gNavItems[i].classList.remove("is-opened");
 			}
@@ -310,11 +310,16 @@ import Typograf from "typograf";
 					opacity: 1,
 					visibility: "visible",
 					duration: 0.2,
+				})  
+				.to(document.querySelector(".head.fixed"), {
+					opacity: 1,
+					visibility: "visible",
+					duration: 0.2,
 				})
 				.to(".mobile__head", {
 					opacity: 0,
 					duration: 0.2,
-				})
+				})  
 				.then(() => {
 					$(".mobile").css({ "overflow-y": "hidden" });
 					$(".mobile").removeClass("show");
@@ -621,12 +626,13 @@ import Typograf from "typograf";
 		})();
 	
 		ZhConcertBtn.init();
-	
+	 
 		if ($(".head__theme input").prop("checked")) {
 			if (overlay.isAnimating || overlay.isThemeShapeAnimating) return;
 			$("body").addClass("dark");
 			localStorage.colorTheme = "dark";
 			document.cookie = "BITRIX_SM_theme=dark";
+			overlay.themeToggle(1);
 		}
 		$(document).on("click", ".head__theme input", function (e) {
 			if (overlay.isAnimating || overlay.isThemeShapeAnimating) {
@@ -642,7 +648,6 @@ import Typograf from "typograf";
 			} else {
 				document.cookie = "BITRIX_SM_theme=light";
 				localStorage.colorTheme = "light";
-	
 				overlay.themeToggle();
 				$("body").removeClass("dark");
 			}
