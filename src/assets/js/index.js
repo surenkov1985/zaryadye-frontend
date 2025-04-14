@@ -91,7 +91,7 @@ import Typograf from "typograf";
 						? window.pageYOffset
 						: (document.documentElement || document.body.parentNode || document.body).scrollTop;
 				let events = document.querySelectorAll(".events__item");
-				if (posTop >= 300) {
+				if (posTop >= 0) {
 					const head = $(".head").not(".mobile__head");
 					if (scroll.direction < 0) {
 						if (!$(".head.fixed").hasClass("show")) {
@@ -166,7 +166,7 @@ import Typograf from "typograf";
 						: (document.documentElement || document.body.parentNode || document.body).scrollTop;
 				let events = document.querySelectorAll(".events__item");
 	
-				if (posTop >= 300) {
+				if (posTop >= 0) {
 					const head = $(".head").not(".mobile__head");
 					if (scroll.direction < 0) {
 						if (!$(".head.fixed").hasClass("show")) {
@@ -306,11 +306,11 @@ import Typograf from "typograf";
 					translateY: "100%",
 					duration: 0.2,
 				})
-				.to(header, {
-					opacity: 1,
-					visibility: "visible",
-					duration: 0.2,
-				})  
+				// .to(header, {
+				// 	opacity: 1,
+				// 	visibility: "visible",
+				// 	duration: 0.2,
+				// })  
 				.to(document.querySelector(".head.fixed"), {
 					opacity: 1,
 					visibility: "visible",
@@ -660,7 +660,30 @@ import Typograf from "typograf";
 				scrolledElements.forEach((elem) => observer.observe(elem));
 			});
 		});
+		const date = new Date();
+		const time = date.getHours();
 	
+		if (!localStorage.hasOwnProperty("colorTheme")) {
+			// //console.log(time);
+			if (!$("body").hasClass("dark")) {
+				if (time >= 19) {
+					$("body").addClass("dark");
+					$(".head__theme input").prop("checked", true)
+					overlay.themeToggle(1);
+				} else if (time > 7) {
+					$("body").removeClass("dark");
+				}
+			}
+		} else if (localStorage.colorTheme === "light") {
+			$("body").removeClass("dark");
+			document.cookie = "BITRIX_SM_theme=light";
+			$(".head__theme input").prop("checked", false);
+		} else if (localStorage.colorTheme === "dark") {
+			$("body").addClass("dark");
+			document.cookie = "BITRIX_SM_theme=dark";
+			$(".head__theme input").prop("checked", true);
+			overlay.themeToggle(1);
+		}
 		// наблюдать за всем, кроме атрибутов
 		mutationObserver.observe(document.body, {
 			childList: true, // наблюдать за непосредственными детьми
@@ -1638,27 +1661,7 @@ import Typograf from "typograf";
 	
 	// темная тема
 	
-	const date = new Date();
-	const time = date.getHours();
 	
-	if (!localStorage.hasOwnProperty("colorTheme")) {
-		// //console.log(time);
-		if (!$("body").hasClass("dark")) {
-			if (time >= 19) {
-				$("body").addClass("dark");
-			} else if (time > 7) {
-				$("body").removeClass("dark");
-			}
-		}
-	} else if (localStorage.colorTheme === "light") {
-		$("body").removeClass("dark");
-		document.cookie = "BITRIX_SM_theme=light";
-		$(".head__theme input").prop("checked", false);
-	} else if (localStorage.colorTheme === "dark") {
-		$("body").addClass("dark");
-		document.cookie = "BITRIX_SM_theme=dark";
-		$(".head__theme input").prop("checked", true);
-	}
 	
 	// // For jQuery
 	$(document).on("click", ".copy_buffer", function () {

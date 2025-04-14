@@ -1,3 +1,5 @@
+import Swiper from "swiper";
+
 export function fsSliders() {
 	const imgSlider = document.querySelector(".fs__images_slider");
 
