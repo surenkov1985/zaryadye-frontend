@@ -5,11 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
 </head>
 
 <body class="is-admin">
     <div id="wrapper" class="wrapper">
-        <div class="head fixed " style="transition: 0.4s;">
+        <div class="head fixed show" style="transition: 0.4s;">
             <div class="container">
                 <div class="head__top d-flex align-end justify-between">
                     <a href="https://www.mos.ru/kultura/" class="logo depkult-logo" target="_blank"><img
@@ -46,7 +47,7 @@
                             ></IFRAME> -->
 
                                         <input size="40" name="q" id="qplSKIW" value="" class="search-suggest"
-                                            type="text" autocomplete="off" autofocus="" placeholder="Введите запрос">
+                                            type="text" autocomplete="off" autofocus="" holder="Введите запрос">
                                         <button type="reset" name="reset" class="download-link" style="display:none">
                                             <span class="text">Сбросить</span>
                                         </button>
@@ -110,7 +111,7 @@
 
                                                         <input size="40" name="q" id="qT1YQ8m" value=""
                                                             class="search-suggest" type="text" autocomplete="off"
-                                                            autofocus="" placeholder="Введите запрос">
+                                                            autofocus="" holder="Введите запрос">
                                                         <button type="reset" name="reset" class="download-link"
                                                             style="display:none">
                                                             <span class="text">Сбросить</span>
@@ -258,10 +259,10 @@
                                 </div>
                             </div>
                         </div>
-                        
+
                     </div>
                 </div>
-              </div>
+            </div>
         </div>
 
 
@@ -271,7 +272,1351 @@
 
             <!-- FS -->
 
-            <section class="section section__fs fs_indexs fs">
+            <!-- <secton class="fs section section_fs">
+                <div class="container">
+                    <div class="breadcrumbs">
+                        <div class="breadcrumbs__list">
+                            <div class="breadcrumbs__item">
+                                <a href="/" class="back_link">
+                                    <span class="btn btn_slider">
+                                        <svg width="19.000000" height="16.000000" viewBox="0 0 19 16" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            xmlns:xlink="http://www.w3.org/1999/xlink">
+                                            <path
+                                                d="M8.35352 0.146484C8.54883 0.341675 8.54883 0.658325 8.35352 0.853516L1.70703 7.5L18.5 7.5C18.7761 7.5 19 7.72388 19 8C19 8.27612 18.7761 8.5 18.5 8.5L1.70703 8.5L8.35352 15.1465C8.54883 15.3417 8.54883 15.6583 8.35352 15.8535C8.1582 16.0488 7.8418 16.0488 7.64648 15.8535L0.146484 8.35352C0.0983887 8.30566 0.0622559 8.25037 0.0378418 8.19141C0.0134277 8.13245 0 8.06775 0 8C0 7.86365 0.0546875 7.73999 0.143066 7.64978L0.144287 7.64856C0.14502 7.64783 0.145752 7.64709 0.146484 7.64648L0.146729 7.64624L7.64648 0.146484C7.8418 -0.0488281 8.1582 -0.0488281 8.35352 0.146484Z"
+                                                fill="#000000" fill-opacity="1.000000" fill-rule="evenodd" />
+                                        </svg>
+
+                                    </span>
+                                    <span class=" main_font">Назад</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="fs__page-title ">
+                        <h1 class="h1">Афиша</h1>
+                    </div>
+                </div>
+            </secton> -->
+
+            <!-- EVENTS -->
+
+            <!-- <section class="section section__events events section_pt_sm section_pb_sm">
+                <div class="container">
+
+                    <div class="events__top">
+                        <div class="events__nav">
+                            <div class="events__nav_list">
+                                <a href="/events/" class="events__nav_item active">Все события
+                                </a>
+                                <a href="/events/festivals/" class="events__nav_item">Фестивали
+                                </a>
+                                <a href="/events/lectures/" class="events__nav_item">Лекции
+                                </a>
+                                <a href="/events/excursion/" class="events__nav_item">Экскурсии
+                                </a>
+                                <a href="/events/broadcastings/" class="events__nav_item ">Трансляции
+                                </a>
+                                <a href="/events/arkhive/" class="events__nav_item">Архив
+                                </a>
+                                <a href="/events/#operacall/" class="events__nav_item">#OperaCall
+                                </a>
+                            </div>
+                            <div class="events__nav_list dropdown">
+                                <div class="dropdown__value">
+                                    <span class="value">Все события</span>
+                                    <svg width="6.929688" height="3.750000" viewBox="0 0 6.92969 3.75" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                        <path d="M3.46484 3.75L6.92969 0L0 0L3.46484 3.75Z" fill="#101010"
+                                            fill-opacity="1.000000" fill-rule="evenodd" />
+                                    </svg>
+                                </div>
+                                <div class="dropdown__list">
+                                    <a href="/events/" class="events__nav_item active dropdown__item"><span
+                                            class="value">Все
+                                            события</span>
+                                    </a>
+                                    <a href="/events/festivals/" class="events__nav_item dropdown__item"><span
+                                            class="value">Фестивали</span>
+                                    </a>
+                                    <a href="/events/lectures/" class="events__nav_item dropdown__item"><span
+                                            class="value">Лекции</span>
+                                    </a>
+                                    <a href="/events/excursion/" class="events__nav_item dropdown__item"><span
+                                            class="value">Экскурсии</span>
+                                    </a>
+                                    <a href="/events/broadcastings/" class="events__nav_item dropdown__item"><span
+                                            class="value">Трансляции</span>
+                                    </a>
+                                    <a href="/events/arkhive/" class="events__nav_item dropdown__item"><span
+                                            class="value">Архив</span>
+                                    </a>
+                                    <a href="/events/#operacall/" class="events__nav_item dropdown__item"><span
+                                            class="value">#OperaCall</span>
+                                    </a>
+                                </div>
+
+                            </div>
+                            <div class="events__nav_tools">
+                                <button class="btn btn_filter events__nav_tool" data-target="#filter_calendar">
+                                    <svg width="19.000000" height="21.000000" viewBox="0 0 19 21" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                        <path
+                                            d="M5.46545 0C5.7417 0 5.96545 0.223877 5.96545 0.5L5.96545 1.57922L13.0437 1.57922L13.0437 0.5C13.0437 0.223877 13.2676 0 13.5437 0C13.8198 0 14.0437 0.223877 14.0437 0.5L14.0437 1.58484C15.4742 1.63843 16.6931 2.07306 17.5723 2.91113C18.5126 3.80743 19 5.104 19 6.69958L19 6.72314L19 15.8475C19 17.4538 18.5099 18.7604 17.5645 19.663C16.6227 20.5623 15.2925 21 13.729 21L5.271 21C3.70959 21 2.37866 20.5538 1.43628 19.6404C0.491333 18.7245 0 17.4002 0 15.7719L0 6.72223C0 5.11517 0.49292 3.81073 1.4397 2.91064C2.32056 2.07343 3.5387 1.63861 4.96545 1.5849L4.96545 0.5C4.96545 0.223877 5.18933 0 5.46545 0ZM5.96545 2.57922L5.96545 3.79077C5.96545 4.06689 5.7417 4.29077 5.46545 4.29077C5.18933 4.29077 4.96545 4.06689 4.96545 3.79077L4.96545 2.58563C3.73584 2.63843 2.78381 3.01276 2.12866 3.63544C1.42419 4.30511 1 5.3222 1 6.72223L1 7.40424L18 7.40424L18 6.72223L18 6.7207L18 6.69934C18 5.30994 17.5804 4.30048 16.8823 3.63495C16.2296 3.01276 15.2778 2.63824 14.0437 2.58563L14.0437 3.79077C14.0437 4.06689 13.8198 4.29077 13.5437 4.29077C13.2676 4.29077 13.0437 4.06689 13.0437 3.79077L13.0437 2.57922L5.96545 2.57922ZM1 8.40424L1 15.7719C1 17.1979 1.42578 18.2376 2.1322 18.9223C2.84106 19.6094 3.89563 20 5.271 20L13.729 20C15.1116 20 16.1667 19.615 16.8739 18.9398C17.5775 18.268 18 17.2483 18 15.8475L18 8.40424L1 8.40424ZM4.55786 11.8097C4.55786 11.5336 4.78174 11.3097 5.05786 11.3097L5.06714 11.3097C5.34326 11.3097 5.56714 11.5336 5.56714 11.8097C5.56714 12.0858 5.34326 12.3097 5.06714 12.3097L5.05786 12.3097C4.78174 12.3097 4.55786 12.0858 4.55786 11.8097ZM9.00464 11.8097C9.00464 11.5336 9.22852 11.3097 9.50464 11.3097L9.51392 11.3097C9.79004 11.3097 10.0139 11.5336 10.0139 11.8097C10.0139 12.0858 9.79004 12.3097 9.51392 12.3097L9.50464 12.3097C9.22852 12.3097 9.00464 12.0858 9.00464 11.8097ZM13.442 11.8097C13.442 11.5336 13.6659 11.3097 13.942 11.3097L13.9513 11.3097C14.2275 11.3097 14.4513 11.5336 14.4513 11.8097C14.4513 12.0858 14.2275 12.3097 13.9513 12.3097L13.942 12.3097C13.6659 12.3097 13.442 12.0858 13.442 11.8097ZM4.55786 15.6962C4.55786 15.4201 4.78174 15.1962 5.05786 15.1962L5.06714 15.1962C5.34326 15.1962 5.56714 15.4201 5.56714 15.6962C5.56714 15.9724 5.34326 16.1962 5.06714 16.1962L5.05786 16.1962C4.78174 16.1962 4.55786 15.9724 4.55786 15.6962ZM9.00464 15.6962C9.00464 15.4201 9.22852 15.1962 9.50464 15.1962L9.51392 15.1962C9.79004 15.1962 10.0139 15.4201 10.0139 15.6962C10.0139 15.9724 9.79004 16.1962 9.51392 16.1962L9.50464 16.1962C9.22852 16.1962 9.00464 15.9724 9.00464 15.6962ZM13.442 15.6962C13.442 15.4201 13.6659 15.1962 13.942 15.1962L13.9513 15.1962C14.2275 15.1962 14.4513 15.4201 14.4513 15.6962C14.4513 15.9724 14.2275 16.1962 13.9513 16.1962L13.942 16.1962C13.6659 16.1962 13.442 15.9724 13.442 15.6962Z"
+                                            fill="#101010" fill-opacity="1.000000" fill-rule="evenodd" />
+                                    </svg>
+                                </button>
+                                <button class="btn btn_heart events__nav_tool">
+                                    <svg width="24" height="24" viewBox="0 0 16 16" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                            d="M1.9149 7.73221C1.19957 5.49888 2.03557 2.94621 4.38024 2.19088C5.61357 1.79288 6.9749 2.02755 8.00024 2.79888C8.97024 2.04888 10.3816 1.79555 11.6136 2.19088C13.9582 2.94621 14.7996 5.49888 14.0849 7.73221C12.9716 11.2722 8.00024 13.9989 8.00024 13.9989C8.00024 13.9989 3.06557 11.3135 1.9149 7.73221Z"
+                                            stroke="black" stroke-opacity="1" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                    </svg>
+
+                                </button>
+
+                                <button class="btn btn_filter btn_filter_icon events__nav_tool" data-target="#filter">
+                                    Фильтр
+                                    <svg width="19.000000" height="13.000000" viewBox="0 0 19 13" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                        <path
+                                            d="M0 0.5C0 0.223877 0.223877 0 0.5 0L18.5 0C18.7761 0 19 0.223877 19 0.5C19 0.776123 18.7761 1 18.5 1L0.5 1C0.223877 1 0 0.776123 0 0.5ZM3 6.5C3 6.22388 3.22388 6 3.5 6L15.5 6C15.7761 6 16 6.22388 16 6.5C16 6.77612 15.7761 7 15.5 7L3.5 7C3.22388 7 3 6.77612 3 6.5ZM6.5 12C6.22388 12 6 12.2239 6 12.5C6 12.7761 6.22388 13 6.5 13L12.5 13C12.7761 13 13 12.7761 13 12.5C13 12.2239 12.7761 12 12.5 12L6.5 12Z"
+                                            fill="#101010" fill-opacity="1.000000" fill-rule="evenodd" />
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="events__filter filter filter_calendar isDateChecked" id="filter_calendar"
+                        style="overflow: hidden; max-height: 0px;">
+                        <div class="form">
+                            <div class="loader">
+
+                            </div>
+                            <div class="calendar__form_control">
+                                <div class="calendar__months months">
+                                    <a data-href="" class="swiper_prev month_toggle disabled"><span title="">
+                                            <svg width="7.667969" height="14.337158" viewBox="0 0 7.66797 14.3372"
+                                                fill="none" xmlns="http://www.w3.org/2000/svg"
+                                                xmlns:xlink="http://www.w3.org/1999/xlink">
+                                                <path id="Vector" d="M7.16602 0.501953L0.5 7.1687L7.16602 13.8352"
+                                                    stroke="#101010" stroke-opacity="1.000000" stroke-width="1.000000"
+                                                    stroke-linejoin="round" stroke-linecap="round"></path>
+                                            </svg>
+                                        </span></a>
+                                    <div class="calendar__months_slider swiper swiper-initialized swiper-horizontal"
+                                        thumbsslider="">
+                                        <div class="swiper-wrapper" id="swiper-wrapper-6da2fa8bbb17579f"
+                                            aria-live="polite"
+                                            style="transition-duration: 0ms; transition-delay: 0ms; transform: translate3d(-621px, 0px, 0px);">
+
+                                            <div class="calendar__months_slide swiper-slide" role="group"
+                                                aria-label="1 / 12" style="width: 207px;">
+                                                <p class="numbers_xs">Январь</p>
+                                            </div>
+                                            <div class="calendar__months_slide swiper-slide" role="group"
+                                                aria-label="2 / 12" style="width: 207px;">
+                                                <p class="numbers_xs">Февраль</p>
+                                            </div>
+                                            <div class="calendar__months_slide swiper-slide swiper-slide-prev"
+                                                role="group" aria-label="3 / 12" style="width: 207px;">
+                                                <p class="numbers_xs">Март</p>
+                                            </div>
+                                            <div class="calendar__months_slide swiper-slide current swiper-slide-active"
+                                                role="group" aria-label="4 / 12" style="width: 207px;">
+                                                <p class="numbers_xs">Апрель</p>
+                                            </div>
+                                            <div class="calendar__months_slide swiper-slide swiper-slide-next"
+                                                role="group" aria-label="5 / 12" style="width: 207px;">
+                                                <p class="numbers_xs">Май</p>
+                                            </div>
+                                            <div class="calendar__months_slide swiper-slide" role="group"
+                                                aria-label="6 / 12" style="width: 207px;">
+                                                <p class="numbers_xs">Июнь</p>
+                                            </div>
+                                            <div class="calendar__months_slide swiper-slide" role="group"
+                                                aria-label="7 / 12" style="width: 207px;">
+                                                <p class="numbers_xs">Июль</p>
+                                            </div>
+                                            <div class="calendar__months_slide swiper-slide" role="group"
+                                                aria-label="8 / 12" style="width: 207px;">
+                                                <p class="numbers_xs">Август</p>
+                                            </div>
+                                            <div class="calendar__months_slide swiper-slide" role="group"
+                                                aria-label="9 / 12" style="width: 207px;">
+                                                <p class="numbers_xs">Сентябрь</p>
+                                            </div>
+                                            <div class="calendar__months_slide swiper-slide" role="group"
+                                                aria-label="10 / 12" style="width: 207px;">
+                                                <p class="numbers_xs">Октябрь</p>
+                                            </div>
+                                            <div class="calendar__months_slide swiper-slide" role="group"
+                                                aria-label="11 / 12" style="width: 207px;">
+                                                <p class="numbers_xs">Ноябрь</p>
+                                            </div>
+                                            <div class="calendar__months_slide swiper-slide" role="group"
+                                                aria-label="12 / 12" style="width: 207px;">
+                                                <p class="numbers_xs">Декабрь</p>
+                                            </div>
+                                        </div>
+                                        <span class="swiper-notification" aria-live="assertive"
+                                            aria-atomic="true"></span>
+                                    </div>
+                                    <a data-href="/events/?month=05&amp;year=2025"
+                                        class="swiper_next month_toggle "><span title="Май">
+                                            <svg width="7.666016" height="14.337158" viewBox="0 0 7.66602 14.3372"
+                                                fill="none" xmlns="http://www.w3.org/2000/svg"
+                                                xmlns:xlink="http://www.w3.org/1999/xlink">
+                                                <path id="Vector" d="M0.501953 0.501953L7.16797 7.1687L0.501953 13.8352"
+                                                    stroke="#101010" stroke-opacity="1.000000" stroke-width="1.000000"
+                                                    stroke-linejoin="round" stroke-linecap="round"></path>
+                                            </svg>
+                                        </span></a>
+                                </div>
+
+                                <div class="calendar__months years">
+                                    <a data-href="" class="swiper_prev month_toggle disabled"><span title="">
+                                            <svg width="7.667969" height="14.337158" viewBox="0 0 7.66797 14.3372"
+                                                fill="none" xmlns="http://www.w3.org/2000/svg"
+                                                xmlns:xlink="http://www.w3.org/1999/xlink">
+                                                <path id="Vector" d="M7.16602 0.501953L0.5 7.1687L7.16602 13.8352"
+                                                    stroke="#101010" stroke-opacity="1.000000" stroke-width="1.000000"
+                                                    stroke-linejoin="round" stroke-linecap="round"></path>
+                                            </svg>
+                                        </span></a>
+                                    <div class="calendar__year_slider swiper" thumbsslider="" data-year="2025">
+                                        <div class="swiper-wrapper">
+
+                                            <div class="calendar__months_slide swiper-slide  ">
+                                                <p class="numbers_xs">2025</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <a data-href="" class="swiper_next month_toggle disabled"><span title="">
+                                            <svg width="7.666016" height="14.337158" viewBox="0 0 7.66602 14.3372"
+                                                fill="none" xmlns="http://www.w3.org/2000/svg"
+                                                xmlns:xlink="http://www.w3.org/1999/xlink">
+                                                <path id="Vector" d="M0.501953 0.501953L7.16797 7.1687L0.501953 13.8352"
+                                                    stroke="#101010" stroke-opacity="1.000000" stroke-width="1.000000"
+                                                    stroke-linejoin="round" stroke-linecap="round"></path>
+                                            </svg>
+                                        </span></a>
+                                </div>
+                                <div class="filter__form_field_col">
+                                    <div class="filter__form_slider">
+                                        Весь месяц
+                                        <label class="switch">
+                                            <input type="checkbox" value="4" name="DATE_ACTIVE_MONTH">
+                                            <span class="slider round">
+                                            </span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="calendar__form_nums">
+                                <div
+                                    class="calendar__dates_slider swiper swiper-initialized swiper-horizontal swiper-backface-hidden">
+                                    <div class="swiper-wrapper" id="swiper-wrapper-10453ff1f31f148af"
+                                        aria-live="polite">
+
+                                        <div class="calendar__dates_slide swiper-slide swiper-slide-active" role="group"
+                                            aria-label="1 / 1" style="width: 1922px;">
+                                            <div class="calendar__weekdays">
+                                                <div class="calendar__weekday">
+                                                    <p class="sm_font">Пн</p>
+                                                </div>
+                                                <div class="calendar__weekday">
+                                                    <p class="sm_font">Вт</p>
+                                                </div>
+                                                <div class="calendar__weekday">
+                                                    <p class="sm_font">Ср</p>
+                                                </div>
+                                                <div class="calendar__weekday">
+                                                    <p class="sm_font">Чт</p>
+                                                </div>
+                                                <div class="calendar__weekday">
+                                                    <p class="sm_font">Пт</p>
+                                                </div>
+                                                <div class="calendar__weekday">
+                                                    <p class="sm_font">Сб</p>
+                                                </div>
+                                                <div class="calendar__weekday">
+                                                    <p class="sm_font">Вс</p>
+                                                </div>
+                                            </div>
+                                            <div class="calendar__days">
+
+
+                                                <label class="calendar__day no_events NewsCalOtherMonth prev_month">
+                                                    <span class="numbers_sm">31</span>
+                                                    <input type="checkbox" name="DATE_ACTIVE_TO" value="31.4.2025">
+
+                                                </label>
+
+
+                                                <label class="calendar__day no_events NewsCalDefault">
+                                                    <span class="numbers_sm">1</span>
+                                                    <input type="checkbox" name="DATE_ACTIVE_TO" value="1.4.2025">
+
+                                                </label>
+
+
+                                                <label class="calendar__day no_events NewsCalDefault">
+                                                    <span class="numbers_sm">2</span>
+                                                    <input type="checkbox" name="DATE_ACTIVE_TO" value="2.4.2025">
+
+                                                </label>
+
+
+                                                <label class="calendar__day no_events NewsCalDefault">
+                                                    <span class="numbers_sm">3</span>
+                                                    <input type="checkbox" name="DATE_ACTIVE_TO" value="3.4.2025">
+
+                                                </label>
+
+
+                                                <label class="calendar__day no_events NewsCalDefault">
+                                                    <span class="numbers_sm">4</span>
+                                                    <input type="checkbox" name="DATE_ACTIVE_TO" value="4.4.2025">
+
+                                                </label>
+
+
+                                                <label class="calendar__day no_events NewsCalWeekend">
+                                                    <span class="numbers_sm">5</span>
+                                                    <input type="checkbox" name="DATE_ACTIVE_TO" value="5.4.2025">
+
+                                                </label>
+
+
+                                                <label class="calendar__day no_events NewsCalWeekend">
+                                                    <span class="numbers_sm">6</span>
+                                                    <input type="checkbox" name="DATE_ACTIVE_TO" value="6.4.2025">
+
+                                                </label>
+
+
+
+
+                                                <label class="calendar__day no_events NewsCalDefault">
+                                                    <span class="numbers_sm">7</span>
+                                                    <input type="checkbox" name="DATE_ACTIVE_TO" value="7.4.2025">
+
+                                                </label>
+
+
+                                                <label class="calendar__day no_events NewsCalDefault">
+                                                    <span class="numbers_sm">8</span>
+                                                    <input type="checkbox" name="DATE_ACTIVE_TO" value="8.4.2025">
+
+                                                </label>
+
+
+                                                <label class="calendar__day no_events NewsCalDefault">
+                                                    <span class="numbers_sm">9</span>
+                                                    <input type="checkbox" name="DATE_ACTIVE_TO" value="9.4.2025">
+
+                                                </label>
+
+
+                                                <label class="calendar__day no_events NewsCalDefault">
+                                                    <span class="numbers_sm">10</span>
+                                                    <input type="checkbox" name="DATE_ACTIVE_TO" value="10.4.2025">
+
+                                                </label>
+
+
+                                                <label class="calendar__day no_events NewsCalDefault">
+                                                    <span class="numbers_sm">11</span>
+                                                    <input type="checkbox" name="DATE_ACTIVE_TO" value="11.4.2025">
+
+                                                </label>
+
+
+                                                <label class="calendar__day no_events NewsCalWeekend">
+                                                    <span class="numbers_sm">12</span>
+                                                    <input type="checkbox" name="DATE_ACTIVE_TO" value="12.4.2025">
+
+                                                </label>
+
+
+                                                <label class="calendar__day no_events NewsCalWeekend">
+                                                    <span class="numbers_sm">13</span>
+                                                    <input type="checkbox" name="DATE_ACTIVE_TO" value="13.4.2025">
+
+                                                </label>
+
+
+
+
+                                                <label class="calendar__day no_events NewsCalDefault">
+                                                    <span class="numbers_sm">14</span>
+                                                    <input type="checkbox" name="DATE_ACTIVE_TO" value="14.4.2025">
+
+                                                </label>
+
+
+                                                <label class="calendar__day no_events NewsCalDefault">
+                                                    <span class="numbers_sm">15</span>
+                                                    <input type="checkbox" name="DATE_ACTIVE_TO" value="15.4.2025">
+
+                                                </label>
+
+
+                                                <label class="calendar__day no_events NewsCalDefault">
+                                                    <span class="numbers_sm">16</span>
+                                                    <input type="checkbox" name="DATE_ACTIVE_TO" value="16.4.2025">
+
+                                                </label>
+
+
+                                                <label class="calendar__day no_events NewsCalDefault">
+                                                    <span class="numbers_sm">17</span>
+                                                    <input type="checkbox" name="DATE_ACTIVE_TO" value="17.4.2025">
+
+                                                </label>
+
+
+                                                <label class="calendar__day no_events NewsCalDefault">
+                                                    <span class="numbers_sm">18</span>
+                                                    <input type="checkbox" name="DATE_ACTIVE_TO" value="18.4.2025">
+
+                                                </label>
+
+
+                                                <label class="calendar__day no_events NewsCalWeekend">
+                                                    <span class="numbers_sm">19</span>
+                                                    <input type="checkbox" name="DATE_ACTIVE_TO" value="19.4.2025">
+
+                                                </label>
+
+
+                                                <label class="calendar__day no_events NewsCalWeekend">
+                                                    <span class="numbers_sm">20</span>
+                                                    <input type="checkbox" name="DATE_ACTIVE_TO" value="20.4.2025">
+
+                                                </label>
+
+
+
+
+                                                <label class="calendar__day no_events NewsCalDefault">
+                                                    <span class="numbers_sm">21</span>
+                                                    <input type="checkbox" name="DATE_ACTIVE_TO" value="21.4.2025">
+
+                                                </label>
+
+
+                                                <label class="calendar__day no_events NewsCalToday">
+                                                    <span class="numbers_sm">22</span>
+                                                    <input type="checkbox" name="DATE_ACTIVE_TO" value="22.4.2025">
+
+                                                </label>
+
+
+                                                <label class="calendar__day NewsCalDefault">
+                                                    <span class="numbers_sm">23</span>
+                                                    <input type="checkbox" name="DATE_ACTIVE_TO" value="23.04.2025">
+                                                    <span class="events_num m_font active">1</span>
+                                                </label>
+
+                                                <label class="calendar__day NewsCalDefault">
+                                                    <span class="numbers_sm">24</span>
+                                                    <input type="checkbox" name="DATE_ACTIVE_TO" value="24.04.2025">
+                                                    <span class="events_num m_font active">2</span>
+                                                </label>
+
+                                                <label class="calendar__day NewsCalDefault">
+                                                    <span class="numbers_sm">25</span>
+                                                    <input type="checkbox" name="DATE_ACTIVE_TO" value="25.04.2025">
+                                                    <span class="events_num m_font active">2</span>
+                                                </label>
+
+                                                <label class="calendar__day NewsCalWeekend">
+                                                    <span class="numbers_sm">26</span>
+                                                    <input type="checkbox" name="DATE_ACTIVE_TO" value="26.04.2025">
+                                                    <span class="events_num m_font active">2</span>
+                                                </label>
+
+                                                <label class="calendar__day NewsCalWeekend">
+                                                    <span class="numbers_sm">27</span>
+                                                    <input type="checkbox" name="DATE_ACTIVE_TO" value="27.04.2025">
+                                                    <span class="events_num m_font active">2</span>
+                                                </label>
+
+
+
+                                                <label class="calendar__day NewsCalDefault">
+                                                    <span class="numbers_sm">28</span>
+                                                    <input type="checkbox" name="DATE_ACTIVE_TO" value="28.04.2025">
+                                                    <span class="events_num m_font active">1</span>
+                                                </label>
+
+                                                <label class="calendar__day NewsCalDefault">
+                                                    <span class="numbers_sm">29</span>
+                                                    <input type="checkbox" name="DATE_ACTIVE_TO" value="29.04.2025">
+                                                    <span class="events_num m_font active">2</span>
+                                                </label>
+
+                                                <label class="calendar__day NewsCalDefault">
+                                                    <span class="numbers_sm">30</span>
+                                                    <input type="checkbox" name="DATE_ACTIVE_TO" value="30.04.2025">
+                                                    <span class="events_num m_font active">1</span>
+                                                </label>
+
+                                                <label class="calendar__day no_events NewsCalOtherMonth prev_month">
+                                                    <span class="numbers_sm">1</span>
+                                                    <input type="checkbox" name="DATE_ACTIVE_TO" value="1.4.2025">
+
+                                                </label>
+
+
+                                                <label class="calendar__day no_events NewsCalOtherMonth prev_month">
+                                                    <span class="numbers_sm">2</span>
+                                                    <input type="checkbox" name="DATE_ACTIVE_TO" value="2.4.2025">
+
+                                                </label>
+
+
+                                                <label class="calendar__day no_events NewsCalOtherMonth prev_month">
+                                                    <span class="numbers_sm">3</span>
+                                                    <input type="checkbox" name="DATE_ACTIVE_TO" value="3.4.2025">
+
+                                                </label>
+
+
+                                                <label class="calendar__day no_events NewsCalOtherMonth prev_month">
+                                                    <span class="numbers_sm">4</span>
+                                                    <input type="checkbox" name="DATE_ACTIVE_TO" value="4.4.2025">
+
+                                                </label>
+
+
+
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                    <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
+                                </div>
+                            </div>
+                            <div class="filter__form_field">
+                                <input class="btn  filter__form_submit" type="submit" id="set_filter" name="set_filter"
+                                    value="Показать">
+                                <button class="btn btn_filter btn_filter_icon" type="submit" id="del_calendar_filter"
+                                    name="del_filter" value="Сбросить">
+                                    Сбросить фильтр
+                                    <svg width="23.610840" height="25.665527" viewBox="0 0 23.6108 25.6655" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                        <path
+                                            d="M21.2666 9.45667C21.2666 9.45667 20.5425 18.4366 20.1226 22.2194C19.9224 24.026 18.8066 25.0847 16.9785 25.118C13.5 25.1807 10.0171 25.1847 6.54004 25.1113C4.78125 25.0753 3.68408 24.0034 3.48779 22.2286C3.06543 18.4127 2.34521 9.45667 2.34521 9.45667"
+                                            stroke="#101010" stroke-opacity="1.000000" stroke-width="1.000000"
+                                            stroke-linejoin="round" stroke-linecap="round"></path>
+                                        <path d="M23.1108 5.15204L0.5 5.15204" stroke="#101010"
+                                            stroke-opacity="1.000000" stroke-width="1.000000" stroke-linejoin="round"
+                                            stroke-linecap="round"></path>
+                                        <path
+                                            d="M18.7544 5.15198C17.7075 5.15198 16.8062 4.41199 16.6011 3.38666L16.2769 1.76532C16.0771 1.01733 15.3994 0.5 14.6274 0.5L8.9834 0.5C8.21143 0.5 7.53418 1.01733 7.33447 1.76532L7.01025 3.38666C6.80518 4.41199 5.90381 5.15198 4.85693 5.15198"
+                                            stroke="#101010" stroke-opacity="1.000000" stroke-width="1.000000"
+                                            stroke-linejoin="round" stroke-linecap="round"></path>
+                                    </svg>
+                                </button>
+                                <div class="bx-filter-popup-result " id="modef" style="display:none">
+                                    Выбрано: <span id="modef_num">0</span> <span class="arrow"></span>
+                                    <br>
+                                    <a href="" target="">Показать</a>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    
+                    <div class="events__filter filter   open" id="filter" style="overflow: visible; max-height: 620px;">
+
+                        <form name="arrFilter_form" action="/events/" method="get"
+                            class="smartfilter events__filter_form filter__form form">
+                            <div class="loader">
+
+                            </div>
+                            <div class="filter__form_fields bx-filter-parameters-box">
+                                <span class="bx-filter-container-modef"></span>
+
+                                <div class="filter__form_field">
+
+                                    <div class="title">Выбор по хэштегам</div>
+                                    <div class="filter__tags">
+                                        <label data-role="label_arrFilter_9_3042645098"
+                                            class="filter__tags_label bx-filter-param-label "
+                                            for="arrFilter_9_3042645098">
+                                            <span class="bx-filter-input-checkbox">
+                                                <input type="checkbox" value="Y" name="arrFilter_9_3042645098"
+                                                    id="arrFilter_9_3042645098" onclick="smartFilter.click(this)">
+                                               
+                                                <span class="bx-filter-param-text tag tag_theaters"
+                                                    title="#зарядисьбарокко">#зарядисьбарокко</span>
+                                            </span>
+                                        </label>
+                                        <label data-role="label_arrFilter_9_743589328"
+                                            class="filter__tags_label bx-filter-param-label "
+                                            for="arrFilter_9_743589328">
+                                            <span class="bx-filter-input-checkbox">
+                                                <input type="checkbox" value="Y" name="arrFilter_9_743589328"
+                                                    id="arrFilter_9_743589328" onclick="smartFilter.click(this)">
+                                               
+                                                <span class="bx-filter-param-text tag tag_theaters"
+                                                    title="#зарядисьджазом">#зарядисьджазом</span>
+                                            </span>
+                                        </label>
+                                        <label data-role="label_arrFilter_9_3169671233"
+                                            class="filter__tags_label bx-filter-param-label "
+                                            for="arrFilter_9_3169671233">
+                                            <span class="bx-filter-input-checkbox">
+                                                <input type="checkbox" value="Y" name="arrFilter_9_3169671233"
+                                                    id="arrFilter_9_3169671233" onclick="smartFilter.click(this)">
+                                               
+                                                <span class="bx-filter-param-text tag tag_theaters"
+                                                    title="#зарядисьзнанием">#зарядисьзнанием</span>
+                                            </span>
+                                        </label>
+                                        <label data-role="label_arrFilter_9_1547219295"
+                                            class="filter__tags_label bx-filter-param-label "
+                                            for="arrFilter_9_1547219295">
+                                            <span class="bx-filter-input-checkbox">
+                                                <input type="checkbox" value="Y" name="arrFilter_9_1547219295"
+                                                    id="arrFilter_9_1547219295" onclick="smartFilter.click(this)">
+                                                
+                                                <span class="bx-filter-param-text tag tag_theaters"
+                                                    title="#зарядиськлассикой">#зарядиськлассикой</span>
+                                            </span>
+                                        </label>
+                                        <label data-role="label_arrFilter_9_3421137111"
+                                            class="filter__tags_label bx-filter-param-label "
+                                            for="arrFilter_9_3421137111">
+                                            <span class="bx-filter-input-checkbox">
+                                                <input type="checkbox" value="Y" name="arrFilter_9_3421137111"
+                                                    id="arrFilter_9_3421137111" onclick="smartFilter.click(this)">
+                                                
+                                                <span class="bx-filter-param-text tag tag_theaters"
+                                                    title="#зарядисьнастроением">#зарядисьнастроением</span>
+                                            </span>
+                                        </label>
+                                        <label data-role="label_arrFilter_9_1532327238"
+                                            class="filter__tags_label bx-filter-param-label "
+                                            for="arrFilter_9_1532327238">
+                                            <span class="bx-filter-input-checkbox">
+                                                <input type="checkbox" value="Y" name="arrFilter_9_1532327238"
+                                                    id="arrFilter_9_1532327238" onclick="smartFilter.click(this)">
+                                               
+                                                <span class="bx-filter-param-text tag tag_theaters"
+                                                    title="#зарядисьновым">#зарядисьновым</span>
+                                            </span>
+                                        </label>
+                                        <label data-role="label_arrFilter_9_3260818684"
+                                            class="filter__tags_label bx-filter-param-label "
+                                            for="arrFilter_9_3260818684">
+                                            <span class="bx-filter-input-checkbox">
+                                                <input type="checkbox" value="Y" name="arrFilter_9_3260818684"
+                                                    id="arrFilter_9_3260818684" onclick="smartFilter.click(this)">
+                                                
+                                                <span class="bx-filter-param-text tag tag_opera"
+                                                    title="#зарядисьоперой">#зарядисьоперой</span>
+                                            </span>
+                                        </label>
+                                        <label data-role="label_arrFilter_9_1233418"
+                                            class="filter__tags_label bx-filter-param-label " for="arrFilter_9_1233418">
+                                            <span class="bx-filter-input-checkbox">
+                                                <input type="checkbox" value="Y" name="arrFilter_9_1233418"
+                                                    id="arrFilter_9_1233418" onclick="smartFilter.click(this)">
+                                                
+                                                <span class="bx-filter-param-text tag tag_theaters"
+                                                    title="#зарядисьэтно">#зарядисьэтно</span>
+                                            </span>
+                                        </label>
+                                        <label data-role="label_arrFilter_9_3994858278"
+                                            class="filter__tags_label bx-filter-param-label "
+                                            for="arrFilter_9_3994858278">
+                                            <span class="bx-filter-input-checkbox">
+                                                <input type="checkbox" value="Y" name="arrFilter_9_3994858278"
+                                                    id="arrFilter_9_3994858278" onclick="smartFilter.click(this)">
+                                                
+                                                <span class="bx-filter-param-text tag tag_theaters"
+                                                    title="#зарядьедетям">#зарядьедетям</span>
+                                            </span>
+                                        </label>
+                                        <label data-role="label_arrFilter_9_2545945474"
+                                            class="filter__tags_label bx-filter-param-label "
+                                            for="arrFilter_9_2545945474">
+                                            <span class="bx-filter-input-checkbox">
+                                                <input type="checkbox" value="Y" name="arrFilter_9_2545945474"
+                                                    id="arrFilter_9_2545945474" onclick="smartFilter.click(this)">
+                                                
+                                                <span class="bx-filter-param-text tag tag_theaters"
+                                                    title="#органзарядья">#органзарядья</span>
+                                            </span>
+                                        </label>
+                                        <label data-role="label_arrFilter_9_1846465501"
+                                            class="filter__tags_label bx-filter-param-label "
+                                            for="arrFilter_9_1846465501">
+                                            <span class="bx-filter-input-checkbox">
+                                                <input type="checkbox" value="Y" name="arrFilter_9_1846465501"
+                                                    id="arrFilter_9_1846465501" onclick="smartFilter.click(this)">
+                                                
+                                                <span class="bx-filter-param-text tag tag_theaters"
+                                                    title="#фестивальзарядье">#фестивальзарядье</span>
+                                            </span>
+                                        </label>
+                                    </div>
+
+                                </div>
+                                <div class="filter__form_field">
+                                    <div class="filter__form_field_cols">
+                                        <div class="filter__form_field_col">
+                                            <div class="title">Выбор зала</div>
+                                            <div
+                                                class="filter__form_dropdown dropdown dropdown_muliple bx-filter-select-container">
+                                                <div class="dropdown__value bx-filter-select-block"
+                                                    onclick="smartFilter.showDropDownPopup(this, '2')">
+                                                    <div class="multiple_values">
+                                                        <div class="values bx-filter-select-text"
+                                                            data-role="currentOption">
+                                                            <span>Все</span>
+                                                        </div>
+                                                    </div>
+                                                    <span class="icon ">
+                                                        <svg width="19.052734" height="10.312500"
+                                                            viewBox="0 0 19.0527 10.3125" fill="none"
+                                                            xmlns="http://www.w3.org/2000/svg"
+                                                            xmlns:xlink="http://www.w3.org/1999/xlink">
+                                                            <path d="M9.52637 10.3125L19.0527 0L0 0L9.52637 10.3125Z"
+                                                                fill="currentColor" fill-opacity="1.000000"
+                                                                fill-rule="evenodd"></path>
+                                                        </svg>
+                                                    </span>
+                                                </div>
+                                                <div class="dropdown__list bx-filter-select-popup"
+                                                    data-role="dropdownContent">
+                                                    <label class="dropdown__label" data-role="label_all_">
+                                                        <input type="checkbox" id="all_" name="" value="Все"
+                                                            onclick="smartFilter.click(this)">
+                                                        <span class="checkbox">
+                                                            <svg width="10.306152" height="7.504028"
+                                                                viewBox="0 0 10.3062 7.50403" fill="none"
+                                                                xmlns="http://www.w3.org/2000/svg"
+                                                                xmlns:xlink="http://www.w3.org/1999/xlink">
+                                                                <path id="Vector 92 (Stroke)"
+                                                                    d="M10.3062 0.713257L3.39514 7.50403L0 3.64771L0.75061 2.98694L3.44775 6.05042L9.60535 0L10.3062 0.713257Z"
+                                                                    fill="#FFFFFF" fill-opacity="1.000000"
+                                                                    fill-rule="evenodd"></path>
+                                                            </svg>
+                                                        </span>
+                                                        Все </label>
+                                                    <label class="dropdown__label"
+                                                        data-role="label_arrFilter_2_2212294583">
+                                                        <input type="checkbox" id="arrFilter_2_2212294583"
+                                                            name="arrFilter_2_2212294583" value="Y"
+                                                            onclick="smartFilter.click(this)">
+                                                        <span class="checkbox">
+                                                            <svg width="10.306152" height="7.504028"
+                                                                viewBox="0 0 10.3062 7.50403" fill="none"
+                                                                xmlns="http://www.w3.org/2000/svg"
+                                                                xmlns:xlink="http://www.w3.org/1999/xlink">
+                                                                <path id="Vector 92 (Stroke)"
+                                                                    d="M10.3062 0.713257L3.39514 7.50403L0 3.64771L0.75061 2.98694L3.44775 6.05042L9.60535 0L10.3062 0.713257Z"
+                                                                    fill="#FFFFFF" fill-opacity="1.000000"
+                                                                    fill-rule="evenodd"></path>
+                                                            </svg>
+                                                        </span>
+                                                        Большой зал </label>
+                                                    <label class="dropdown__label"
+                                                        data-role="label_arrFilter_2_450215437">
+                                                        <input type="checkbox" id="arrFilter_2_450215437"
+                                                            name="arrFilter_2_450215437" value="Y"
+                                                            onclick="smartFilter.click(this)">
+                                                        <span class="checkbox">
+                                                            <svg width="10.306152" height="7.504028"
+                                                                viewBox="0 0 10.3062 7.50403" fill="none"
+                                                                xmlns="http://www.w3.org/2000/svg"
+                                                                xmlns:xlink="http://www.w3.org/1999/xlink">
+                                                                <path id="Vector 92 (Stroke)"
+                                                                    d="M10.3062 0.713257L3.39514 7.50403L0 3.64771L0.75061 2.98694L3.44775 6.05042L9.60535 0L10.3062 0.713257Z"
+                                                                    fill="#FFFFFF" fill-opacity="1.000000"
+                                                                    fill-rule="evenodd"></path>
+                                                            </svg>
+                                                        </span>
+                                                        Малый зал </label>
+                                                    <label class="dropdown__label"
+                                                        data-role="label_arrFilter_2_4088798008">
+                                                        <input type="checkbox" id="arrFilter_2_4088798008"
+                                                            name="arrFilter_2_4088798008" value="Y"
+                                                            onclick="smartFilter.click(this)">
+                                                        <span class="checkbox">
+                                                            <svg width="10.306152" height="7.504028"
+                                                                viewBox="0 0 10.3062 7.50403" fill="none"
+                                                                xmlns="http://www.w3.org/2000/svg"
+                                                                xmlns:xlink="http://www.w3.org/1999/xlink">
+                                                                <path id="Vector 92 (Stroke)"
+                                                                    d="M10.3062 0.713257L3.39514 7.50403L0 3.64771L0.75061 2.98694L3.44775 6.05042L9.60535 0L10.3062 0.713257Z"
+                                                                    fill="#FFFFFF" fill-opacity="1.000000"
+                                                                    fill-rule="evenodd"></path>
+                                                            </svg>
+                                                        </span>
+                                                        Новое концертное пространство </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="filter__form_field_col">
+
+                                            <div class="filter__form_slider">
+                                                Пушкинская карта
+                                                <label class="switch">
+                                                    <input type="checkbox" value="Y" name="arrFilter_28_274208589"
+                                                        id="arrFilter_28_274208589" onclick="smartFilter.click(this)">
+                                                    <span class="slider round">
+
+                                                    </span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="filter__form_field">
+                                    <input class="btn  filter__form_submit" type="submit" id="set_filter"
+                                        name="set_filter" value="Показать">
+                                    <button class="btn btn_filter btn_filter_icon" type="submit" id="del_filter"
+                                        name="del_filter" value="Сбросить">
+                                        Сбросить фильтр
+                                        <svg width="23.610840" height="25.665527" viewBox="0 0 23.6108 25.6655"
+                                            fill="none" xmlns="http://www.w3.org/2000/svg"
+                                            xmlns:xlink="http://www.w3.org/1999/xlink">
+                                            <path
+                                                d="M21.2666 9.45667C21.2666 9.45667 20.5425 18.4366 20.1226 22.2194C19.9224 24.026 18.8066 25.0847 16.9785 25.118C13.5 25.1807 10.0171 25.1847 6.54004 25.1113C4.78125 25.0753 3.68408 24.0034 3.48779 22.2286C3.06543 18.4127 2.34521 9.45667 2.34521 9.45667"
+                                                stroke="currentColor" stroke-opacity="1.000000" stroke-width="1.000000"
+                                                stroke-linejoin="round" stroke-linecap="round"></path>
+                                            <path d="M23.1108 5.15204L0.5 5.15204" stroke="currentColor"
+                                                stroke-opacity="1.000000" stroke-width="1.000000"
+                                                stroke-linejoin="round" stroke-linecap="round"></path>
+                                            <path
+                                                d="M18.7544 5.15198C17.7075 5.15198 16.8062 4.41199 16.6011 3.38666L16.2769 1.76532C16.0771 1.01733 15.3994 0.5 14.6274 0.5L8.9834 0.5C8.21143 0.5 7.53418 1.01733 7.33447 1.76532L7.01025 3.38666C6.80518 4.41199 5.90381 5.15198 4.85693 5.15198"
+                                                stroke="currentColor" stroke-opacity="1.000000" stroke-width="1.000000"
+                                                stroke-linejoin="round" stroke-linecap="round"></path>
+                                        </svg>
+                                    </button>
+                                    <div class="bx-filter-popup-result left" id="modef" style="display:none">
+                                        Выбрано: <span id="modef_num">0</span> <span class="arrow"></span>
+                                        <br>
+                                        <a href="/events/?set_filter=y" target="">Показать</a>
+                                    </div>
+                                </div>
+                                <div class="clb"></div>
+                            </div>
+                        </form>
+
+                    </div>
+                
+                    <div class="events__content">
+                        <div class="events__content_row">
+                            <div class="events__date">
+                                <div class="date_xl">23.10</div>
+                                <div class="day">Пн</div>
+                            </div>
+                            <div class="events__list">
+                                <div class="events__item" data-id="4892">
+                                    <div class="events__item_top">
+                                        <div class="events__item_preview">
+                                            <img src="/assets/img/organ.png" alt="">
+                                        </div>
+                                        <div class="events__item_info">
+                                            <div class="events__item_time">
+                                                <div class="time">13:00</div>
+                                                <div class=" light_text main_font">большой зал</div>
+                                            </div>
+                                            <div class="events__item_title">
+                                                <h5><a href="/events_detail.html">Лада Лабзина, орган<br>
+                                                        Евгений Лапекин, волынка</a></h5>
+                                            </div>
+                                            <div class="events__item_desc">
+                                                <p class="light_text main_font">Московская премьера «Друидик-сюиты» М.А.
+                                                    Ганелина
+                                                    для шотландской волынки, уистлов и органа.</p>
+                                            </div>
+                                            <button class="btn btn_favourite">
+                                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                                    xmlns="http://www.w3.org/2000/svg">
+                                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                                        d="M1.9149 7.73221C1.19957 5.49888 2.03557 2.94621 4.38024 2.19088C5.61357 1.79288 6.9749 2.02755 8.00024 2.79888C8.97024 2.04888 10.3816 1.79555 11.6136 2.19088C13.9582 2.94621 14.7996 5.49888 14.0849 7.73221C12.9716 11.2722 8.00024 13.9989 8.00024 13.9989C8.00024 13.9989 3.06557 11.3135 1.9149 7.73221Z"
+                                                        stroke="black" stroke-opacity="0.4" stroke-linecap="round"
+                                                        stroke-linejoin="round" />
+                                                </svg>
+                                            </button>
+                                        </div>
+                                        <div class="events__item_control top_control">
+                                            <div class="events__item_tags tags">
+                                                <a href="" class="tag tag_opera">#органзарядья</a>
+                                                <a href="" class="tag tag_card">6+</a>
+                                            </div>
+                                            <div class="events__item_control_link">
+                                                <a href="" class="btn btn_slim">Купить билет</a>
+                                            </div>
+
+
+                                        </div>
+                                    </div>
+                                    <div class="events__item_control">
+                                        <div class="events__item_control_link">
+                                            <a href="" class="btn btn_slim">Купить билет</a>
+                                        </div>
+
+                                        <div class="events__item_tags tags">
+                                            <a href="" class="tag tag_opera">#органзарядья</a>
+                                            <a href="" class="tag tag_card">6+</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="events__item" data-id="4893">
+                                    <div class="events__item_top">
+                                        <div class="events__item_preview">
+                                            <img src="/assets/img/shubert.png" alt="">
+                                        </div>
+                                        <div class="events__item_info">
+                                            <div class="events__item_time">
+                                                <div class="time">19:00</div>
+                                                <div class=" light_text main_font">большой зал</div>
+                                            </div>
+                                            <div class="events__item_title">
+                                                <h5>Сонаты Шуберта, Елизавета Леонская, фортепиано</h5>
+                                            </div>
+                                            <div class="events__item_desc">
+                                                <p class="light_text main_font">Дирижёр – Иван Рудин </p>
+                                                <p class="light_text main_font">Фортепиано – Елизавета Леонская</p>
+                                            </div>
+
+                                            <button class="btn btn_favourite">
+                                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                                    xmlns="http://www.w3.org/2000/svg">
+                                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                                        d="M1.9149 7.73221C1.19957 5.49888 2.03557 2.94621 4.38024 2.19088C5.61357 1.79288 6.9749 2.02755 8.00024 2.79888C8.97024 2.04888 10.3816 1.79555 11.6136 2.19088C13.9582 2.94621 14.7996 5.49888 14.0849 7.73221C12.9716 11.2722 8.00024 13.9989 8.00024 13.9989C8.00024 13.9989 3.06557 11.3135 1.9149 7.73221Z"
+                                                        stroke="black" stroke-opacity="0.4" stroke-linecap="round"
+                                                        stroke-linejoin="round" />
+                                                </svg>
+                                            </button>
+                                        </div>
+                                        <div class="events__item_control top_control">
+                                            <div class="events__item_tags tags">
+                                                <a href="" class="tag tag_opera">#органзарядья</a>
+                                                <a href="" class="tag tag_card">пушкинская карта</a>
+                                                <a href="" class="tag tag_card">6+</a>
+                                            </div>
+                                            <div class="events__item_control_link">
+                                                <a href="" class="btn btn_slim">Купить билет</a>
+                                            </div>
+
+
+                                        </div>
+                                    </div>
+                                    <div class="events__item_control">
+                                        <div class="events__item_control_link">
+                                            <a href="" class="btn btn_slim">Купить билет</a>
+                                        </div>
+
+                                        <div class="events__item_tags tags">
+                                            <a href="" class="tag tag_opera">#органзарядья</a>
+                                            <a href="" class="tag tag_card">пушкинская карта</a>
+                                            <a href="" class="tag tag_card">6+</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="events__content_row">
+                            <div class="events__date">
+                                <div class="date_xl">24.10</div>
+                                <div class="day">Вт</div>
+                            </div>
+                            <div class="events__list">
+                                <div class="events__item" data-id="4895">
+                                    <div class="events__item_top">
+                                        <div class="events__item_preview">
+                                            <img src="/assets/img/mgso.png" alt="">
+                                        </div>
+                                        <div class="events__item_info">
+                                            <div class="events__item_time">
+                                                <div class="time">13:00</div>
+                                                <div class=" light_text main_font">большой зал</div>
+                                            </div>
+                                            <div class="events__item_title">
+                                                <h5>Московский государственный симфонический оркестр</h5>
+                                            </div>
+                                            <div class="events__item_desc">
+                                                <p class="light_text main_font">Дирижёр – Иван Рудин </p>
+                                                <p class="light_text main_font">Фортепиано – Елизавета Леонская</p>
+                                            </div>
+                                            <button class="btn btn_favourite">
+                                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                                    xmlns="http://www.w3.org/2000/svg">
+                                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                                        d="M1.9149 7.73221C1.19957 5.49888 2.03557 2.94621 4.38024 2.19088C5.61357 1.79288 6.9749 2.02755 8.00024 2.79888C8.97024 2.04888 10.3816 1.79555 11.6136 2.19088C13.9582 2.94621 14.7996 5.49888 14.0849 7.73221C12.9716 11.2722 8.00024 13.9989 8.00024 13.9989C8.00024 13.9989 3.06557 11.3135 1.9149 7.73221Z"
+                                                        stroke="black" stroke-opacity="0.4" stroke-linecap="round"
+                                                        stroke-linejoin="round" />
+                                                </svg>
+                                            </button>
+                                        </div>
+                                        <div class="events__item_control top_control">
+                                            <div class="events__item_tags tags">
+                                                <a href="" class="tag tag_opera">#зарядиськлассикой</a>
+                                                <a href="" class="tag tag_card">6+</a>
+                                            </div>
+                                            <div class="events__item_control_link">
+                                                <a href="" class="btn btn_slim">Купить билет</a>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <div class="events__item_control">
+                                        <div class="events__item_control_link">
+                                            <a href="" class="btn btn_slim">Купить билет</a>
+                                        </div>
+
+                                        <div class="events__item_tags tags">
+                                            <a href="" class="tag tag_opera">#зарядиськлассикой</a>
+                                            <a href="" class="tag tag_card">6+</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="events__content_row">
+                            <div class="events__date">
+                                <div class="date_xl">25.10</div>
+                                <div class="day">Ср</div>
+                            </div>
+                            <div class="events__list">
+                                <div class="events__item" data-id="4897">
+                                    <div class="events__item_top">
+                                        <div class="events__item_preview">
+                                            <img src="/assets/img/mgso.png" alt="">
+                                        </div>
+                                        <div class="events__item_info">
+                                            <div class="events__item_time">
+                                                <div class="time">13:00</div>
+                                                <div class=" light_text main_font">большой зал</div>
+                                            </div>
+                                            <div class="events__item_title">
+                                                <h5>Московский государственный симфонический оркестр</h5>
+                                            </div>
+                                            <div class="events__item_desc">
+                                                <p class="light_text main_font">Дирижёр – Иван Рудин </p>
+                                                <p class="light_text main_font">Фортепиано – Елизавета Леонская</p>
+                                            </div>
+                                            <button class="btn btn_favourite">
+                                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                                    xmlns="http://www.w3.org/2000/svg">
+                                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                                        d="M1.9149 7.73221C1.19957 5.49888 2.03557 2.94621 4.38024 2.19088C5.61357 1.79288 6.9749 2.02755 8.00024 2.79888C8.97024 2.04888 10.3816 1.79555 11.6136 2.19088C13.9582 2.94621 14.7996 5.49888 14.0849 7.73221C12.9716 11.2722 8.00024 13.9989 8.00024 13.9989C8.00024 13.9989 3.06557 11.3135 1.9149 7.73221Z"
+                                                        stroke="black" stroke-opacity="0.4" stroke-linecap="round"
+                                                        stroke-linejoin="round" />
+                                                </svg>
+                                            </button>
+                                        </div>
+                                        <div class="events__item_control top_control">
+                                            <div class="events__item_tags tags">
+                                                <a href="" class="tag tag_opera">#зарядиськлассикой</a>
+                                                <a href="" class="tag tag_card">6+</a>
+                                            </div>
+                                            <div class="events__item_control_link">
+                                                <a href="" class="btn btn_slim">Купить билет</a>
+                                            </div>
+
+
+                                        </div>
+                                    </div>
+                                    <div class="events__item_control">
+                                        <div class="events__item_control_link">
+                                            <a href="" class="btn btn_slim">Купить билет</a>
+                                        </div>
+
+                                        <div class="events__item_tags tags">
+                                            <a href="" class="tag tag_opera">#зарядиськлассикой</a>
+                                            <a href="" class="tag tag_card">6+</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="events__content_row">
+                            <div class="events__date">
+                                <div class="date_xl">26.10</div>
+                                <div class="day">Чт</div>
+                            </div>
+                            <div class="events__list">
+                                <div class="events__item">
+                                    <div class="events__item_top">
+                                        <div class="events__item_preview">
+                                            <img src="/assets/img/spivakov.png" alt="">
+                                        </div>
+                                        <div class="events__item_info">
+                                            <div class="events__item_time">
+                                                <div class="time">13:00</div>
+                                                <div class=" light_text main_font">большой зал</div>
+                                            </div>
+                                            <div class="events__item_title">
+                                                <h5>XII Московский музыкальный фестиваль «Владимир Спиваков приглашает»
+                                                </h5>
+                                            </div>
+                                            <div class="events__item_desc">
+                                                <p class="light_text main_font">Государственный камерный оркестр
+                                                    «Виртуозы Москвы»</p>
+                                            </div>
+                                        </div>
+                                        <div class="events__item_control top_control">
+                                            <div class="events__item_control_link">
+                                                <a href="" class="btn btn_slim">Купить билет</a>
+                                            </div>
+
+                                            <div class="events__item_tags tags">
+                                                <a href="" class="tag tag_card">6+</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="events__item_control">
+
+
+                                        <div class="events__item_tags tags">
+                                            <a href="" class="tag tag_card">6+</a>
+                                        </div>
+                                        <div class="events__item_control_link">
+                                            <a href="" class="btn btn_slim">Купить билет</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="events__more">
+                        <a href="/afisha.html" class="events__more_link btn">Показать ещё</a>
+                        <div class="events__pagination">
+                            <a href="" class="pagination_prev btn btn_slider">
+                                <svg width="19.000000" height="16.000000" viewBox="0 0 19 16" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                    <path
+                                        d="M8.35352 0.146484C8.54883 0.341675 8.54883 0.658325 8.35352 0.853516L1.70703 7.5L18.5 7.5C18.7761 7.5 19 7.72388 19 8C19 8.27612 18.7761 8.5 18.5 8.5L1.70703 8.5L8.35352 15.1465C8.54883 15.3417 8.54883 15.6583 8.35352 15.8535C8.1582 16.0488 7.8418 16.0488 7.64648 15.8535L0.146484 8.35352C0.0983887 8.30566 0.0622559 8.25037 0.0378418 8.19141C0.0134277 8.13245 0 8.06775 0 8C0 7.86365 0.0546875 7.73999 0.143066 7.64978L0.144287 7.64856C0.14502 7.64783 0.145752 7.64709 0.146484 7.64648L0.146729 7.64624L7.64648 0.146484C7.8418 -0.0488281 8.1582 -0.0488281 8.35352 0.146484Z"
+                                        fill="#000000" fill-opacity="1.000000" fill-rule="evenodd" />
+                                </svg>
+                            </a>
+                            <div class="events__pagination_list">
+                                <a class="events__pagination_item active">1</a>
+                                <a class="events__pagination_item">2</a>
+                                <a class="events__pagination_item">3</a>
+                                <a class="events__pagination_item">...</a>
+                                <a class="events__pagination_item">9</a>
+                            </div>
+                            <a href="" class="pagination_next btn btn_slider">
+                                <svg width="19.500000" height="16.000000" viewBox="0 0 19.5 16" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                    <path id="Vector"
+                                        d="M11.1465 0.146484C11.3417 -0.0488281 11.6583 -0.0488281 11.8535 0.146484L19.3512 7.64417L19.3535 7.64648C19.3611 7.65405 19.3684 7.66187 19.3755 7.6698C19.3796 7.67456 19.3838 7.67944 19.3878 7.68445C19.4116 7.71362 19.4316 7.74487 19.4479 7.77747C19.4502 7.78223 19.4525 7.78699 19.4547 7.79187L19.4554 7.79346C19.4841 7.85645 19.5 7.92639 19.5 8C19.5 8.07434 19.4838 8.14478 19.4547 8.20813C19.4347 8.25183 19.4081 8.29333 19.3749 8.33093C19.3701 8.33618 19.3654 8.34143 19.3604 8.34656C19.3582 8.34888 19.3558 8.3512 19.3535 8.35352L19.3535 8.35364L11.8535 15.8535C11.6583 16.0488 11.3417 16.0488 11.1465 15.8535C10.9512 15.6583 10.9512 15.3417 11.1465 15.1465L17.7928 8.5L0.5 8.5C0.223877 8.5 0 8.27612 0 8C0 7.72388 0.223877 7.5 0.5 7.5L17.7928 7.5L11.1465 0.853516C10.9512 0.658325 10.9512 0.341675 11.1465 0.146484Z"
+                                        fill="#000000" fill-opacity="1.000000" fill-rule="evenodd" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section> -->
+
+            <!-- END EVENTS -->
+
+            <!-- <section class="section section__events events section_pt_sm section_pb_sm">
+                <div class="container">
+                    <div class="events__title">
+
+                        <div class="events__top">
+                            <div class="events__nav">
+                                <h2 class="h2">Переносы и отмены</h2>
+                                <div class="events__nav_tools">
+                                    <button class="btn btn_filter">
+                                        <svg width="19.000000" height="21.000000" viewBox="0 0 19 21" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            xmlns:xlink="http://www.w3.org/1999/xlink">
+                                            <path id="Vector"
+                                                d="M5.46545 0C5.7417 0 5.96545 0.223877 5.96545 0.5L5.96545 1.57922L13.0437 1.57922L13.0437 0.5C13.0437 0.223877 13.2676 0 13.5437 0C13.8198 0 14.0437 0.223877 14.0437 0.5L14.0437 1.58484C15.4742 1.63843 16.6931 2.07306 17.5723 2.91113C18.5126 3.80743 19 5.104 19 6.69958L19 6.72314L19 15.8475C19 17.4538 18.5099 18.7604 17.5645 19.663C16.6227 20.5623 15.2925 21 13.729 21L5.271 21C3.70959 21 2.37866 20.5538 1.43628 19.6404C0.491333 18.7245 0 17.4002 0 15.7719L0 6.72223C0 5.11517 0.49292 3.81073 1.4397 2.91064C2.32056 2.07343 3.5387 1.63861 4.96545 1.5849L4.96545 0.5C4.96545 0.223877 5.18933 0 5.46545 0ZM5.96545 2.57922L5.96545 3.79077C5.96545 4.06689 5.7417 4.29077 5.46545 4.29077C5.18933 4.29077 4.96545 4.06689 4.96545 3.79077L4.96545 2.58563C3.73584 2.63843 2.78381 3.01276 2.12866 3.63544C1.42419 4.30511 1 5.3222 1 6.72223L1 7.40424L18 7.40424L18 6.72223L18 6.7207L18 6.69934C18 5.30994 17.5804 4.30048 16.8823 3.63495C16.2296 3.01276 15.2778 2.63824 14.0437 2.58563L14.0437 3.79077C14.0437 4.06689 13.8198 4.29077 13.5437 4.29077C13.2676 4.29077 13.0437 4.06689 13.0437 3.79077L13.0437 2.57922L5.96545 2.57922ZM1 8.40424L1 15.7719C1 17.1979 1.42578 18.2376 2.1322 18.9223C2.84106 19.6094 3.89563 20 5.271 20L13.729 20C15.1116 20 16.1667 19.615 16.8739 18.9398C17.5775 18.268 18 17.2483 18 15.8475L18 8.40424L1 8.40424ZM4.55786 11.8097C4.55786 11.5336 4.78174 11.3097 5.05786 11.3097L5.06714 11.3097C5.34326 11.3097 5.56714 11.5336 5.56714 11.8097C5.56714 12.0858 5.34326 12.3097 5.06714 12.3097L5.05786 12.3097C4.78174 12.3097 4.55786 12.0858 4.55786 11.8097ZM9.00464 11.8097C9.00464 11.5336 9.22852 11.3097 9.50464 11.3097L9.51392 11.3097C9.79004 11.3097 10.0139 11.5336 10.0139 11.8097C10.0139 12.0858 9.79004 12.3097 9.51392 12.3097L9.50464 12.3097C9.22852 12.3097 9.00464 12.0858 9.00464 11.8097ZM13.442 11.8097C13.442 11.5336 13.6659 11.3097 13.942 11.3097L13.9513 11.3097C14.2275 11.3097 14.4513 11.5336 14.4513 11.8097C14.4513 12.0858 14.2275 12.3097 13.9513 12.3097L13.942 12.3097C13.6659 12.3097 13.442 12.0858 13.442 11.8097ZM4.55786 15.6962C4.55786 15.4201 4.78174 15.1962 5.05786 15.1962L5.06714 15.1962C5.34326 15.1962 5.56714 15.4201 5.56714 15.6962C5.56714 15.9724 5.34326 16.1962 5.06714 16.1962L5.05786 16.1962C4.78174 16.1962 4.55786 15.9724 4.55786 15.6962ZM9.00464 15.6962C9.00464 15.4201 9.22852 15.1962 9.50464 15.1962L9.51392 15.1962C9.79004 15.1962 10.0139 15.4201 10.0139 15.6962C10.0139 15.9724 9.79004 16.1962 9.51392 16.1962L9.50464 16.1962C9.22852 16.1962 9.00464 15.9724 9.00464 15.6962ZM13.442 15.6962C13.442 15.4201 13.6659 15.1962 13.942 15.1962L13.9513 15.1962C14.2275 15.1962 14.4513 15.4201 14.4513 15.6962C14.4513 15.9724 14.2275 16.1962 13.9513 16.1962L13.942 16.1962C13.6659 16.1962 13.442 15.9724 13.442 15.6962Z"
+                                                fill="#101010" fill-opacity="1.000000" fill-rule="evenodd" />
+                                        </svg>
+                                    </button>
+                                    <button data-target="filter" class="btn btn_filter btn_filter_icon">
+                                        Фильтр
+                                        <svg width="19.000000" height="13.000000" viewBox="0 0 19 13" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            xmlns:xlink="http://www.w3.org/1999/xlink">
+                                            <path id="Vector"
+                                                d="M0 0.5C0 0.223877 0.223877 0 0.5 0L18.5 0C18.7761 0 19 0.223877 19 0.5C19 0.776123 18.7761 1 18.5 1L0.5 1C0.223877 1 0 0.776123 0 0.5ZM3 6.5C3 6.22388 3.22388 6 3.5 6L15.5 6C15.7761 6 16 6.22388 16 6.5C16 6.77612 15.7761 7 15.5 7L3.5 7C3.22388 7 3 6.77612 3 6.5ZM6.5 12C6.22388 12 6 12.2239 6 12.5C6 12.7761 6.22388 13 6.5 13L12.5 13C12.7761 13 13 12.7761 13 12.5C13 12.2239 12.7761 12 12.5 12L6.5 12Z"
+                                                fill="#101010" fill-opacity="1.000000" fill-rule="evenodd" />
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="events__content">
+                        <div class="events__content_row">
+                            <div class="events__date">
+                                <div class="date_xl">02.12</div>
+                                <div class="day">вт</div>
+                            </div>
+                            <div class="events__list">
+                                <div class="events__item">
+                                    <div class="events__item_top">
+                                        <div class="events__item_preview">
+                                            <img src="/assets/img/eben_skin.png" alt="">
+                                        </div>
+                                        <div class="events__item_info">
+                                            <div class="events__item_time">
+                                                <div class="time">20:00</div>
+                                                <div class=" light_text main_font">большой зал</div>
+                                            </div>
+                                            <div class="events__item_title">
+                                                <h5>Музыкальный спектакль <br>«Эбеновая кожа»</h5>
+                                            </div>
+                                            <div class="events__item_desc">
+                                                <p class="light_text main_font">Пётр Главатских | Юлия Пересильд</p>
+                                            </div>
+                                        </div>
+                                        <div class="events__item_control top_control">
+                                            <div class="events__item_tags tags">
+                                                <a href="" class="tag tag_card">пушкинская карта</a>
+                                                <a href="" class="tag tag_card">6+</a>
+                                            </div>
+                                            <div class="events__item_control_link">
+                                                <p href="" class="info">
+                                                    <span class="icon">
+                                                        <svg width="2.346680" height="15.040039"
+                                                            viewBox="0 0 2.34668 15.04" fill="none"
+                                                            xmlns="http://www.w3.org/2000/svg"
+                                                            xmlns:xlink="http://www.w3.org/1999/xlink">
+                                                            <path
+                                                                d="M1.81348 10.6666L0.533203 10.6666L0.212891 1.06665L0.212891 0L2.13379 0L2.13379 1.06665L1.81348 10.6666ZM1.17285 15.04C0.860352 15.04 0.583008 14.9263 0.341797 14.6986C0.114258 14.4569 0 14.1796 0 13.8667C0 13.5396 0.114258 13.2622 0.341797 13.0347C0.583008 12.8071 0.860352 12.6934 1.17285 12.6934C1.5 12.6934 1.77734 12.8071 2.00488 13.0347C2.23242 13.2622 2.34668 13.5396 2.34668 13.8667C2.34668 14.1796 2.23242 14.4569 2.00488 14.6986C1.77734 14.9263 1.5 15.04 1.17285 15.04Z"
+                                                                fill="#FFFFFF" fill-opacity="1.000000"
+                                                                fill-rule="nonzero" />
+                                                        </svg>
+                                                    </span>
+                                                    <span class="text">перенесён с 1 декабря 2022</span>
+                                                </p>
+                                            </div>
+
+
+                                        </div>
+                                    </div>
+                                    <div class="events__item_control">
+                                        <div class="events__item_control_link">
+                                            <p href="" class="info">
+                                                <span class="icon">
+                                                    <svg width="2.346680" height="15.040039" viewBox="0 0 2.34668 15.04"
+                                                        fill="none" xmlns="http://www.w3.org/2000/svg"
+                                                        xmlns:xlink="http://www.w3.org/1999/xlink">
+                                                        <path
+                                                            d="M1.81348 10.6666L0.533203 10.6666L0.212891 1.06665L0.212891 0L2.13379 0L2.13379 1.06665L1.81348 10.6666ZM1.17285 15.04C0.860352 15.04 0.583008 14.9263 0.341797 14.6986C0.114258 14.4569 0 14.1796 0 13.8667C0 13.5396 0.114258 13.2622 0.341797 13.0347C0.583008 12.8071 0.860352 12.6934 1.17285 12.6934C1.5 12.6934 1.77734 12.8071 2.00488 13.0347C2.23242 13.2622 2.34668 13.5396 2.34668 13.8667C2.34668 14.1796 2.23242 14.4569 2.00488 14.6986C1.77734 14.9263 1.5 15.04 1.17285 15.04Z"
+                                                            fill="#FFFFFF" fill-opacity="1.000000"
+                                                            fill-rule="nonzero" />
+                                                    </svg>
+                                                </span>
+                                                <span class="text">перенесён с 1 декабря 2022</span>
+                                            </p>
+                                        </div>
+
+                                        <div class="events__item_tags tags">
+                                            <a href="" class="tag tag_card">пушкинская карта</a>
+                                            <a href="" class="tag tag_card">6+</a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="events__content_row">
+                            <div class="events__date">
+                                <div class="date_xl">05.10</div>
+                                <div class="day">пт</div>
+                            </div>
+                            <div class="events__list">
+                                <div class="events__item">
+                                    <div class="events__item_top">
+                                        <div class="events__item_preview">
+                                            <img src="/assets/img/fedos.png" alt="">
+                                        </div>
+                                        <div class="events__item_info">
+                                            <div class="events__item_time">
+                                                <div class="time">19:00</div>
+                                                <div class=" light_text main_font">большой зал</div>
+                                            </div>
+                                            <div class="events__item_title">
+                                                <h5>К 90-летию Владимира Федосеева<br> БСО имени П.И. Чайковского</h5>
+                                            </div>
+                                            <div class="events__item_desc">
+                                                <p class="light_text main_font">Дирижёр – Владимир Федосеев</p>
+                                            </div>
+                                        </div>
+                                        <div class="events__item_control top_control">
+                                            <div class="events__item_tags tags">
+                                                <a href="" class="tag tag_card">пушкинская карта</a>
+                                                <a href="" class="tag tag_card">6+</a>
+                                            </div>
+                                            <div class="events__item_control_link">
+                                                <p href="" class="error">
+                                                    <span class="icon">
+                                                        <svg width="2.346680" height="15.040039"
+                                                            viewBox="0 0 2.34668 15.04" fill="none"
+                                                            xmlns="http://www.w3.org/2000/svg"
+                                                            xmlns:xlink="http://www.w3.org/1999/xlink">
+                                                            <path
+                                                                d="M1.81348 10.6666L0.533203 10.6666L0.212891 1.06665L0.212891 0L2.13379 0L2.13379 1.06665L1.81348 10.6666ZM1.17285 15.04C0.860352 15.04 0.583008 14.9263 0.341797 14.6986C0.114258 14.4569 0 14.1796 0 13.8667C0 13.5396 0.114258 13.2622 0.341797 13.0347C0.583008 12.8071 0.860352 12.6934 1.17285 12.6934C1.5 12.6934 1.77734 12.8071 2.00488 13.0347C2.23242 13.2622 2.34668 13.5396 2.34668 13.8667C2.34668 14.1796 2.23242 14.4569 2.00488 14.6986C1.77734 14.9263 1.5 15.04 1.17285 15.04Z"
+                                                                fill="#FFFFFF" fill-opacity="1.000000"
+                                                                fill-rule="nonzero" />
+                                                        </svg>
+                                                    </span>
+                                                    <span class="text">отменен</span>
+                                                </p>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <div class="events__item_control">
+                                        <div class="events__item_control_link">
+                                            <p href="" class="error">
+                                                <span class="icon">
+                                                    <svg width="2.346680" height="15.040039" viewBox="0 0 2.34668 15.04"
+                                                        fill="none" xmlns="http://www.w3.org/2000/svg"
+                                                        xmlns:xlink="http://www.w3.org/1999/xlink">
+                                                        <path
+                                                            d="M1.81348 10.6666L0.533203 10.6666L0.212891 1.06665L0.212891 0L2.13379 0L2.13379 1.06665L1.81348 10.6666ZM1.17285 15.04C0.860352 15.04 0.583008 14.9263 0.341797 14.6986C0.114258 14.4569 0 14.1796 0 13.8667C0 13.5396 0.114258 13.2622 0.341797 13.0347C0.583008 12.8071 0.860352 12.6934 1.17285 12.6934C1.5 12.6934 1.77734 12.8071 2.00488 13.0347C2.23242 13.2622 2.34668 13.5396 2.34668 13.8667C2.34668 14.1796 2.23242 14.4569 2.00488 14.6986C1.77734 14.9263 1.5 15.04 1.17285 15.04Z"
+                                                            fill="#FFFFFF" fill-opacity="1.000000"
+                                                            fill-rule="nonzero" />
+                                                    </svg>
+                                                </span>
+                                                <span class="text">отменен</span>
+                                            </p>
+                                        </div>
+
+                                        <div class="events__item_tags tags">
+                                            <a href="" class="tag tag_card">пушкинская карта</a>
+                                            <a href="" class="tag tag_card">6+</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="events__more justify-center">
+                        <a href="/o-zale.html" class="events__more_link btn">Как вернуть билет</a>
+
+                    </div>
+                </div>
+            </section> -->
+
+            <section class="section section__fs fs_index fs">
                 <div class="fs__images_slider swiper">
                     <div class="swiper-wrapper">
                         <div class="fs__images_slide  swiper-slide">
@@ -331,19 +1676,14 @@
                                                     Московский зимний
                                                     музыкальный
                                                     фестиваль</p>
-                                                <!-- <p>Дирижёр — Кристиан Кнапп</p>
-													<p>Сопрано — Лилия Гайсина</p>
-													<p>Виолончель —Иван Сендецкий</p> -->
+
                                             </div>
 
 
                                         </div>
                                     </div>
                                     <div class="fs__slide_bottom">
-                                        <!-- <div class="fs__slide_date flex">
-											<span class="date_xl">07-31</span>
-											<span class="day">Декабря</span>
-										</div> -->
+
                                         <div class="fs__slide_control">
                                             <a href="" class="btn btn_color">Подробнее</a>
                                         </div>
@@ -365,9 +1705,6 @@
                                                     Московский зимний
                                                     музыкальный
                                                     фестиваль</p>
-                                                <!-- <p>Дирижёр — Кристиан Кнапп</p>
-													<p>Сопрано — Лилия Гайсина</p>
-													<p>Виолончель —Иван Сендецкий</p> -->
                                             </div>
 
 
@@ -418,9 +1755,7 @@
                                         <div class="fs__slide_desc">
                                             <h2 class="h2">Сибелиус, Малер. <br> Российский национальный оркестр</h2>
                                             <div class="fs__slide_text main_font">
-                                                <!-- <p class="main_font">С 7 по 31 декабря 2023 в «Зарядье» пройдет Московский зимний
-														музыкальный
-														фестиваль</p> -->
+
 
                                                 <p class="main_font light_text">Дирижёр — Кристиан Кнапп</p>
                                                 <p class="main_font light_text">Сопрано — Лилия Гайсина</p>
@@ -465,7 +1800,7 @@
 
             <!-- EVENTS -->
 
-            <section class="section section__events events">
+            <!-- <section class="section section__events events">
                 <div class="container">
                     <div class="events__title">
                         <h2 class="h2">Ближайшие концерты</h2>
@@ -718,13 +2053,13 @@
                         <a href="/afisha/" class="events__more_link btn">Вся афиша</a>
                     </div>
                 </div>
-            </section>
+            </section> -->
 
             <!-- END EVENTS -->
 
             <!-- HALLS -->
 
-            <section class="section__halls halls">
+            <!-- <section class="section__halls halls">
                 <div class="halls__sliders">
                     <div class="halls__slider_view">
                         <div class="halls__slider_images swiper">
@@ -833,7 +2168,7 @@
                         </div>
                     </div>
                 </div>
-            </section>
+            </section> -->
 
             <!-- END HALLS -->
 
@@ -1128,12 +2463,12 @@
                                     <p
                                         class="location__content_subtitle location__content_slide swiper-slide white_text">
                                         Такси: Китайгородский проезд,
-                                        2с1<!-- Зал находится в восточной части парка «Зарядье», в самом центре столицы -->
+                                        2с1
                                     </p>
                                     <p
                                         class="location__content_subtitle location__content_slide swiper-slide white_text">
                                         Метро: «Китай-город», «Площадь Революции»,
-                                        «Театральная»<!-- Проще всего добраться от станций метро «Китай-город», «Площадь Революции» и «Театральная». Ближайшая станция метро «Китай-город», выход № 13. При заказе такси указывайте адрес: Китайгородский проезд, 2с1. Рядом с парком есть четыре станции метро: «Охотный Ряд», «Театральная», «Площадь Революции» и «Китай-город» -->
+                                        «Театральная»
                                     </p>
                                 </div>
                             </div>
@@ -1471,7 +2806,7 @@
                                                         <span class="line line-2"></span>
                                                         <span class="line line-3"></span>
                                                     </span>
-                                                   
+
                                                 </button>
                                             </div>
 

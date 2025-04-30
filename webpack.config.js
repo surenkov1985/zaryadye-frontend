@@ -62,8 +62,8 @@ const build = {
 	},
 	output: {
 		path: path.resolve(__dirname, "public"),
-		filename: "assets/js/[name].js",
-		chunkFilename: "assets/js/[name].js",
+		filename: "assets/js/[name].[contenthash].js",
+		// chunkFilename: "assets/js/[name].js",
 		clean: true,
 	},
 	module: {
@@ -98,13 +98,14 @@ const build = {
 					options: {
 						presets: [
 							[
-							  '@babel/preset-env',
-							  {
-								targets: "ie 8",
-							  }
-							]
+								"@babel/preset-env",
+								{
+									targets: "ie 8",
+									modules: false,
+								},
+							],
 						],
-						plugins: ["@babel/plugin-proposal-class-properties", "transform-object-assign"]
+						plugins: ["@babel/plugin-proposal-class-properties", "transform-object-assign"],
 					},
 				},
 			},
@@ -120,7 +121,7 @@ const dev = {
 			directory: path.join(__dirname, "src"),
 		},
 		open: true,
-		port: 3000,
+		port: 3100,
 		host: "localhost",
 		compress: false,
 		hot: true,
@@ -132,12 +133,15 @@ const dev = {
 			},
 		},
 	},
-	output: {
-		path: path.resolve(__dirname, "public"),
-		filename: "assets/js/[name].js",
-		chunkFilename: "assets/js/[name].js",
-		clean: true,
+	optimization: {
+		minimize: false,
 	},
+	// output: {
+	// 	path: path.resolve(__dirname, "public"),
+	// 	filename: "[name].js",
+	// 	chunkFilename: "[name].js",
+	// 	clean: true,
+	// },
 };
 
 module.exports = Object.assign(build, mode === "development" ? dev : {});

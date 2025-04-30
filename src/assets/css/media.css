@@ -4,7 +4,8 @@
     font-size: 1.25rem;
   }
 
-  .btn_filter {
+  .btn_filter,
+  .btn_heart {
     background: none;
     padding: 0;
     width: 81px;
@@ -19,7 +20,9 @@
     gap: 16px;
   }
 }
+
 @media (max-width: 1650px) {
+
   .h1,
   .text-content h1,
   h1 {
@@ -108,7 +111,7 @@
     font-size: 1.25rem;
   }
 
-  .text_content > div:not(:last-of-type) {
+  .text_content>div:not(:last-of-type) {
     margin-bottom: 80px;
   }
 
@@ -167,11 +170,17 @@
     font-size: 1.125rem;
   }
 
-  .btn_filter {
+  .btn_filter,
+  .btn_heart {
     background: none;
     padding: 0;
     width: 81px;
     height: 81px;
+  }
+
+  .btn_favourite {
+    width: 56px;
+    height: 56px;
   }
 
   .btn_filter:hover {
@@ -391,7 +400,7 @@
     padding: 5px 20px;
   }
 
-  .filter__form .dropdown__value > .icon {
+  .filter__form .dropdown__value>.icon {
     display: flex;
     width: 32px;
     height: 32px;
@@ -551,7 +560,9 @@
     padding-bottom: 4.75rem;
   }
 }
+
 @media (max-width: 1550px) {
+
   .h1,
   .text-content h1,
   h1 {
@@ -612,7 +623,7 @@
     font-size: 1.125rem;
   }
 
-  .text_content > div:not(:last-of-type) {
+  .text_content>div:not(:last-of-type) {
     margin-bottom: 72px;
   }
 
@@ -703,10 +714,16 @@
     height: 140px;
   }
 
-  .btn_filter {
+  .btn_filter,
+  .btn_heart {
     width: 69px;
     height: 69px;
     padding: 0;
+  }
+
+  .btn_favourite {
+    width: 52px;
+    height: 52px;
   }
 
   .btn_filter_icon {
@@ -904,7 +921,7 @@
     padding: 5px 20px;
   }
 
-  .filter__form .dropdown__value > .icon {
+  .filter__form .dropdown__value>.icon {
     display: flex;
     width: 24px;
     height: 24px;
@@ -1004,6 +1021,7 @@
     padding: 26px 45px;
   }
 }
+
 @media (max-width: 1300px) {
   .zh-header__center {
     position: absolute;
@@ -1019,6 +1037,7 @@
 
 /* ,  (max-width: 1920px) and (min-aspect-ratio: 16/8.4) */
 @media (max-width: 1440px) {
+
   .h1,
   .text-content h1,
   h1 {
@@ -1103,7 +1122,7 @@
     margin-left: 20px;
   }
 
-  .text_content > div:not(:last-of-type) {
+  .text_content>div:not(:last-of-type) {
     margin-bottom: 48px;
   }
 
@@ -1298,11 +1317,11 @@
   .head__nav_list {
     /* gap: 32px; */
   }
-  
+
   .head__nav_item:not(:first-child) {
     margin-left: 32px;
   }
-  
+
 
   .head__right_content {
     padding-top: 12px;
@@ -1374,10 +1393,16 @@
     padding: 21px 36px;
   }
 
-  .btn_filter {
+  .btn_filter,
+  .btn_heart {
     width: 64px;
     height: 64px;
     padding: 0;
+  }
+
+  .btn_favourite {
+    width: 48px;
+    height: 48px;
   }
 
   .btn_filter_icon {
@@ -1823,7 +1848,7 @@
     margin-bottom: 1.75rem;
   }
 
-  .accordion__content .text_content > div:not(:last-of-type) {
+  .accordion__content .text_content>div:not(:last-of-type) {
     margin-bottom: 25px;
   }
 
@@ -2002,7 +2027,7 @@
     padding: 5px 16px;
   }
 
-  .filter__form .dropdown__value > .icon {
+  .filter__form .dropdown__value>.icon {
     display: flex;
     width: 24px;
     height: 24px;
@@ -2010,7 +2035,7 @@
     justify-content: center;
   }
 
-  .filter__form .dropdown__value > .icon svg {
+  .filter__form .dropdown__value>.icon svg {
     width: 12px;
   }
 
@@ -3190,6 +3215,7 @@
     padding: 13px 40px;
   }
 }
+
 @media (max-width: 1350px) {
   .event__person_num {
     width: calc((100% - 32px) / 17 * 8);
@@ -3273,6 +3299,7 @@
     height: 75%;
   }
 }
+
 @media screen and (min-aspect-ratio: 16/8) {
   .fs__slide_tags {
     flex-wrap: wrap;
@@ -3288,6 +3315,7 @@
     padding-bottom: 80px;
   }
 }
+
 @media screen and (max-width: 1920px) and (min-aspect-ratio: 16/7.5) {
   .fs__slide_tags {
     /* flex-wrap: wrap;
@@ -3308,6 +3336,7 @@
     padding-bottom: 80px;
   }
 }
+
 @media screen and (max-width: 1650px) and (min-aspect-ratio: 16/8.6) {
   .fs__slide_tags {
     flex-wrap: wrap;
@@ -3323,6 +3352,7 @@
     padding-top: 90px;
   }
 }
+
 @media screen and (max-width: 1650px) and (min-aspect-ratio: 16/8) {
   .fs__slide_tags {
     flex-wrap: wrap;
@@ -3330,6 +3360,7 @@
     width: fit-content;
   }
 }
+
 @media screen and (max-width: 1650px) and (min-aspect-ratio: 16/7.5) {
   .fs__slide_tags {
     /* flex-wrap: wrap;
@@ -3350,6 +3381,7 @@
     padding-bottom: 80px;
   }
 }
+
 @media screen and (max-width: 1350px) and (min-aspect-ratio: 16/8.7) {
 
   /* .date_xl {
@@ -3359,6 +3391,7 @@
     font-size: 15px;
   }
 }
+
 @media screen and (max-width: 1350px) and (min-aspect-ratio: 16/8.1) {
   .fs__slide_tags {
     flex-wrap: wrap;
@@ -3490,6 +3523,7 @@
     margin-bottom: 80px;
   }
 }
+
 @media screen and (max-width: 1650px) and (min-aspect-ratio: 16/8) {
   .location__info .popup__form_title {
     margin-bottom: 64px;
