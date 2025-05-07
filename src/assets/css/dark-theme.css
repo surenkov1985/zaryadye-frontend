@@ -680,8 +680,25 @@
   fill: var(--clr-black);
 }
 
+.dark .btn.btn_favourite svg path,
+.dark .btn.btn_heart svg path {
+  fill: none;
+  stroke: var(--clr-black);
+}
+
+.dark .btn.btn_favourite.active svg path {
+  fill: var(--clr-error);
+  stroke: var(--clr-error);
+}
+
+
 .dark .btn:not(.btn_white):hover svg path {
   fill: var(--clr-black);
+}
+
+.dark .btn.btn_favourite:hover svg path {
+  fill: var(--clr-error);
+  stroke: var(--clr-error);
 }
 
 .dark .head_light .nav-link {
@@ -1076,9 +1093,9 @@
 }
 
 .dark .fs_bg.light-logo {
-	display: flex;
+  display: flex;
 }
 
 .dark .fs_bg.dark-logo {
-	display: none;
+  display: none;
 }

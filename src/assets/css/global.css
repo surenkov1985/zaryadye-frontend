@@ -218,7 +218,8 @@ svg .btn path {
   justify-content: center;
 }
 
-.btn_filter {
+.btn_filter,
+.btn_heart {
   background: none;
   padding: 0;
   width: 85px;
@@ -228,7 +229,34 @@ svg .btn path {
   color: var(--clr-black);
 }
 
-.btn_filter:hover {
+.btn_favourite {
+  background: none;
+  padding: 0 !important;
+  width: 64px;
+  height: 64px;
+  border: 1px solid var(--clr-black-10);
+  position: relative;
+  color: var(--clr-black);
+}
+
+.btn_favourite:hover,
+.btn_favourite.active {
+  background: rgba(255, 126, 128, 0.3);
+  -webkit-backdrop-filter: var(--bg-filter-blur);
+  backdrop-filter: var(--bg-filter-blur);
+  color: var(--clr-black);
+  /* border-color: var(--clr-black-5); */
+  border-color: rgba(255, 126, 128, 0.3);
+}
+
+.btn_favourite:hover svg path,
+.btn_favourite.active svg path {
+  fill: var(--clr-error);
+  stroke: var(--clr-error);
+}
+
+.btn_filter:hover,
+.btn_heart:hover {
   background: var(--clr-black-5);
   -webkit-backdrop-filter: var(--bg-filter-blur);
   backdrop-filter: var(--bg-filter-blur);
@@ -237,7 +265,8 @@ svg .btn path {
   border-color: transparent;
 }
 
-.btn_filter.active {
+.btn_filter.active,
+.btn_heart.active {
   background: var(--clr-black-5);
   border-color: transparent;
   backdrop-filter: var(--bg-filter-blur);

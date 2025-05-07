@@ -2,6 +2,7 @@
 @import url(swiper/css);
 @import url(swiper/css/pagination);
 @import url(swiper/css/navigation);
+
 .fs {
   width: 100%;
   height: 100%;
@@ -277,6 +278,7 @@
   -o-object-position: center;
   object-position: center;
 }
+
 .fs__images_slide.swiper-slide-next img {
   /* transform: translateX(-50%); */
 }
@@ -1187,6 +1189,13 @@
   flex-direction: column;
   height: auto;
   width: calc((100% - 22px) / 17 * 10);
+  position: relative;
+}
+
+.events__item_info .btn_favourite {
+  position: absolute;
+  top: 0;
+  right: 0;
 }
 
 .events__item_desc {
@@ -1318,6 +1327,7 @@
   border-radius: 50%;
   border-bottom-color: transparent;
 }
+
 @keyframes rotation {
   0% {
     transform: rotate(0deg);
@@ -1471,7 +1481,7 @@
   stroke-opacity: 1 !important;
 }
 
-.filter__form .dropdown__value > .icon {
+.filter__form .dropdown__value>.icon {
   display: flex;
   width: 32px;
   height: 32px;
@@ -1864,7 +1874,7 @@
   gap: 10px;
 }
 
-.event__share_control > .btn_slider:hover svg path {
+.event__share_control>.btn_slider:hover svg path {
   fill: var(--clr-white);
   stroke: none;
 }
@@ -2219,7 +2229,7 @@
   padding-bottom: 82px;
 }
 
-.accordion__content .text_content > div:not(:last-of-type) {
+.accordion__content .text_content>div:not(:last-of-type) {
   margin-bottom: 84px;
 }
 
@@ -3285,12 +3295,12 @@
   /* overflow: visible; */
 }
 
-.location.tour .location__images_slide > svg {
+.location.tour .location__images_slide>svg {
   width: 100%;
   height: 100%;
 }
 
-.location_page .location__images_slide > svg {
+.location_page .location__images_slide>svg {
   height: 100%;
 }
 
@@ -3381,6 +3391,7 @@
   pointer-events: none;
   left: 50%;
 }
+
 @keyframes draw {
   100% {
     stroke-dashoffset: 0;
@@ -6561,7 +6572,7 @@
   position: relative;
 }
 
-.menu__item:hover > .menu__item_img img {
+.menu__item:hover>.menu__item_img img {
   visibility: visible;
   opacity: 1;
   aspect-ratio: 16/9.5;
@@ -6930,7 +6941,7 @@ body.infokiosk {
 	justify-content: space-between;
 } */
 
-.kviz .step .step__item > div {
+.kviz .step .step__item>div {
   width: 100%;
 }
 
@@ -7245,7 +7256,7 @@ body {
 /* Убираем подсветку ссылок и текста при наведении */
 
 .goog-text-highlight,
-font > font {
+font>font {
   background-color: transparent !important;
   box-shadow: none !important;
   box-sizing: inherit;
@@ -7281,6 +7292,7 @@ font > font {
   height: 1px;
   opacity: 0;
 }
+
 .scroll_btn_target {
   position: absolute;
   top: 300vh;

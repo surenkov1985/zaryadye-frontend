@@ -1,6 +1,7 @@
 import Swiper from "swiper";
+// import { gsap } from "gsap";
 
-export function fsSliders() {
+export const fsSliders = () => {
 	const imgSlider = document.querySelector(".fs__images_slider");
 
 	if (!imgSlider) return;
@@ -41,7 +42,7 @@ export function fsSliders() {
 
 	if ($(activeSlide).hasClass("imidge_slide")) {
 		if (!$(".head").not(".mobile__head").hasClass("head_light")) {
-			$(".head").not(".mobile__head").not(".fixed").addClass("head_light");
+			$(".head").not(".mobile__head").addClass("head_light");
 			$(".fs__images_slider").addClass("light");
 			$(".fs__content").addClass("light");
 		}
@@ -73,7 +74,7 @@ export function fsSliders() {
 	// 	console.log(slider.activeIndex);
 	// 	gsap.to(imagesSlider.slides[slider.activeIndex - 1], { opacity: 0, duration: 2 })
 	// })
-}
+};
 
 export function locationSliders() {
 	const imgSlider = document.querySelector(".location__images_slider");
@@ -141,7 +142,7 @@ export function locationSliders() {
 				nextEl: ".location__slides_btn.last",
 			},
 		});
-		imagesSlider.on("afterInit", function () { });
+		imagesSlider.on("afterInit", function () {});
 		const pos = +$(window).width() - +$(".location__path_icon svg").innerWidth();
 
 		if ($(".location").hasClass("tour")) {
@@ -312,7 +313,6 @@ export function changeCalendar() {
 	});
 }
 
-
 export function personSliders() {
 	const persons = document.querySelectorAll(".event__person_slider");
 
@@ -335,7 +335,6 @@ export function personSliders() {
 		});
 	}
 }
-
 
 export function festSlider() {
 	const fest = document.querySelector(".festival__slider");
@@ -388,8 +387,9 @@ export function aboutSliders() {
 				const slide = Array.from(hallsSlider.querySelectorAll(".about__sliders_tab"))[current];
 				const pagin = $(".about__sliders_control .dropdown-slider__tabs");
 
-				return `<span class="btn btn_tab  dropdown-slider__item ${total} ${slide.classList.contains("swiper-slide-active") ? "active" : ""
-					}"><span class="value">${Array.from(hallsSlider.querySelectorAll(".about__sliders_tab"))[current].dataset.name}</span></span>`;
+				return `<span class="btn btn_tab  dropdown-slider__item ${total} ${
+					slide.classList.contains("swiper-slide-active") ? "active" : ""
+				}"><span class="value">${Array.from(hallsSlider.querySelectorAll(".about__sliders_tab"))[current].dataset.name}</span></span>`;
 			},
 		},
 		on: {
@@ -594,8 +594,9 @@ export function partnersSliders() {
 					.closest(".dropdown-slider")
 					.find(".dropdown-slider__value .value")
 					.text(Array.from(hallsSlider.querySelectorAll(".about__sliders_tab"))[current].dataset.name);
-				return `<span class="btn btn_tab  dropdown-slider__item ${total} ${slide.classList.contains("swiper-slide-active") ? "active" : ""
-					}"><span class="value">${Array.from(hallsSlider.querySelectorAll(".about__sliders_tab"))[current].dataset.name}</span></span>`;
+				return `<span class="btn btn_tab  dropdown-slider__item ${total} ${
+					slide.classList.contains("swiper-slide-active") ? "active" : ""
+				}"><span class="value">${Array.from(hallsSlider.querySelectorAll(".about__sliders_tab"))[current].dataset.name}</span></span>`;
 			},
 		},
 		on: {
@@ -656,8 +657,9 @@ export function cafeSliders() {
 			bulletActiveClass: "active",
 			renderBullet: function (current, total) {
 				const slide = Array.from(hallsSlider.querySelectorAll(".about__sliders_tab"))[current];
-				return `<span class="btn btn_tab  dropdown-slider__item ${total} ${slide.classList.contains("swiper-slide-active") ? "active" : ""
-					}"><span class="value">${Array.from(hallsSlider.querySelectorAll(".about__sliders_tab"))[current].dataset.name}</span></span>`;
+				return `<span class="btn btn_tab  dropdown-slider__item ${total} ${
+					slide.classList.contains("swiper-slide-active") ? "active" : ""
+				}"><span class="value">${Array.from(hallsSlider.querySelectorAll(".about__sliders_tab"))[current].dataset.name}</span></span>`;
 			},
 		},
 		on: {
