@@ -1,6 +1,6 @@
 
 import gsap from "gsap";
-// import $ from "jquery" 
+import $ from "jquery" 
 
 import { fsSliders, locationSliders } from "./swipers";
 import { OverlayScrollbars } from 'overlayscrollbars';

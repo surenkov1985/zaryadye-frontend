@@ -63,7 +63,7 @@ const build = {
 	output: {
 		path: path.resolve(__dirname, "public"),
 		filename: "assets/js/[name].js",
-		chunkFilename: "assets/js/[name].js",
+		// chunkFilename: "assets/js/[name].js",
 		clean: true,
 	},
 	module: {
@@ -96,6 +96,7 @@ const build = {
 				use: {
 					loader: "babel-loader",
 					options: {
+						cacheDirectory: true,
 						presets: [
 							[
 							  '@babel/preset-env',
@@ -132,12 +133,12 @@ const dev = {
 			},
 		},
 	},
-	output: {
-		path: path.resolve(__dirname, "public"),
-		filename: "assets/js/[name].js",
-		chunkFilename: "assets/js/[name].js",
-		clean: true,
-	},
+	// output: {
+	// 	path: path.resolve(__dirname, "public"),
+	// 	filename: "assets/js/[name].js",
+	// 	chunkFilename: "assets/js/[name].js",
+	// 	clean: true,
+	// },
 };
 
 module.exports = Object.assign(build, mode === "development" ? dev : {});
