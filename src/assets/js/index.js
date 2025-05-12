@@ -1,13 +1,13 @@
 
-import gsap from "gsap";
-// import $ from "jquery" 
+
+import $ from "jquery" 
 
 import { fsSliders, locationSliders } from "./swipers";
 import { OverlayScrollbars } from "overlayscrollbars";
 import Lenis from "lenis";
 import { formatValueInput, loadScript, maskedEmail, setMap, ShapeOverlays, validationFormFields } from "./methods";
 import Typograf from "typograf";
-
+import Cookies from 'js-cookie';
 const DARK_THEME_TIME = 19;
 const LIGHT_THEME_TIME = 7;
 
@@ -643,7 +643,7 @@ document.addEventListener("DOMContentLoaded", function () {
 		$("body").addClass("dark");
 		localStorage.colorTheme = "dark";
 		document.cookie = "BITRIX_SM_theme=dark";
-		overlay.themeToggle(1);
+		overlay.themeToggle(10);
 	}
 	$(document).on("click", ".head__theme input", function (e) {
 		if (overlay.isAnimating || overlay.isThemeShapeAnimating) {
@@ -1727,34 +1727,41 @@ $(document).on("click", ".events__nav_tool", function (e) {
 
 $(document).on("click", ".btn_favourite", function (e) {
 	const eventsitem = e.currentTarget.closest(".events__item");
-	const eventId = eventsitem.dataset.id;
-
-	if (Cookies.get("favourites_events")) {
-		const eventsCookie = Cookies.get("favourites_events")?.split(",");
-		if (!eventsCookie.length) {
-			eventsCookie.push(eventId);
-
-			e.currentTarget.classList.add("active");
-		} else {
-			const searhedIndex = eventsCookie.indexOf(eventId);
-			if (searhedIndex !== -1) {
-				eventsCookie.splice(searhedIndex, 1);
-
-				e.currentTarget.classList.remove("active");
-			} else {
-				eventsCookie.push(eventId);
-				e.currentTarget.classList.add("active");
-			}
-		}
-		const eventsCookieString = eventsCookie.join(",");
-		Cookies.set("favourites_events", eventsCookieString);
-	} else {
-		const eventsCookie = [];
-		eventsCookie.push(eventId);
-		e.currentTarget.classList.add("active");
-		const eventsCookieString = eventsCookie.join(",");
-		Cookies.set("favourites_events", eventsCookieString);
+	const event = e.currentTarget.dataset.id;
+	let eventId = null
+	if (eventsitem) {
+		eventId = eventsitem.dataset.id;
+	} else if (event) {
+		eventId = event;
 	}
+		if (Cookies.get("favourites_events")) {
+			const eventsCookie = Cookies.get("favourites_events")?.split(",");
+			if (!eventsCookie.length) {
+				eventsCookie.push(eventId);
+
+				e.currentTarget.classList.add("active");
+			} else {
+				const searhedIndex = eventsCookie.indexOf(eventId);
+				if (searhedIndex !== -1) {
+					eventsCookie.splice(searhedIndex, 1);
+
+					e.currentTarget.classList.remove("active");
+				} else {
+					eventsCookie.push(eventId);
+					e.currentTarget.classList.add("active");
+				}
+			}
+			const eventsCookieString = eventsCookie.join(",");
+			Cookies.set("favourites_events", eventsCookieString);
+		} else {
+			const eventsCookie = [];
+			eventsCookie.push(eventId);
+			e.currentTarget.classList.add("active");
+			const eventsCookieString = eventsCookie.join(",");
+			Cookies.set("favourites_events", eventsCookieString);
+		}
+	
+	
 	console.log(Cookies.get("favourites_events"));
 });
 

@@ -383,8 +383,8 @@
     padding: 16px !important;
   }
 
-  .fs__info_btn,
-  .fs__info_btn .btn {
+  .fs__info_btn
+   {
     width: 100%;
   }
 
@@ -543,11 +543,17 @@
     gap: 8px !important;
   }
 
-  .event__aside_btn,
-  .event__aside_btn .btn {
+  .event__aside_btn
+   {
     width: 100%;
   }
+  .event__aside_btn .btn {
 
+  }
+
+  .event__aside_btn {
+    justify-content: space-between;
+  }
   .event__share {
     margin-left: 0;
     padding-top: 24px;

@@ -1,4 +1,5 @@
 import Swiper from "swiper";
+import $ from "jquery"
 // import { gsap } from "gsap";
 
 export const fsSliders = () => {

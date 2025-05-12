@@ -191,7 +191,9 @@
 
 .fs__info_btn {
   width: calc((100% - 56px) / 12 * 3);
+  gap: 24px;
   display: flex;
+  flex-wrap: wrap;
 }
 
 .fs__info_left {
@@ -5919,7 +5921,11 @@
 .faq__aside .event__aside_btn {
   display: flex;
 }
-
+.event__aside_btn {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+}
 .faq .accordion__item {
   padding: 43px 0;
 }

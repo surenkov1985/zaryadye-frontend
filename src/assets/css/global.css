@@ -237,6 +237,13 @@ svg .btn path {
   border: 1px solid var(--clr-black-10);
   position: relative;
   color: var(--clr-black);
+
+  
+}
+
+.btn_favourite-lg {
+  width: 84px;
+  height: 84px;
 }
 
 .btn_favourite:hover,

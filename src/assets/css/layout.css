@@ -1294,11 +1294,12 @@ input:focus+.slider {
   top: 0;
   width: 100vw;
   z-index: 1000;
-
+  backdrop-filter: invert(1);
+    clip-path: url(#shape-overlays-theme);
 }
 
 .dark .theme_layout {
-  backdrop-filter: invert(1);
+  /* backdrop-filter: invert(1); */
 }
 
 input:checked+.slider:before {
