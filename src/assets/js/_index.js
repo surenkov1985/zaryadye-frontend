@@ -2263,3 +2263,359 @@ $(document).on("click", ".popup", function (e) {
 });
 
 // console.log(localStorage.getItem('isLoad'), document.querySelector("#preload"));
+
+
+// document.addEventListener("DOMContentLoaded", function () {
+// 	let startDate = null;
+// 	let endDate = null;
+// 	const startTargetPosition = $(".calendar__day.startDate").index();
+// 	const endTargetPosition = $(".calendar__day.endDate").index();
+// 	$(".calendar__day").each((i, item) => {
+// 		if (
+// 			$(item).index() >= Math.min(startTargetPosition, endTargetPosition) &&
+// 			$(item).index() <= Math.max(startTargetPosition, endTargetPosition)
+// 		) {
+// 			$(item).addClass("hover");
+// 		} else {
+// 			$(item).removeClass("hover");
+// 		}
+// 	});
+
+// 	$(document).on("click", ".month_toggle", function (e) {
+// 		e.preventDefault();
+// 		const inputValArr = $("[name=DATE_ACTIVE_MONTH]").prop("checked");
+
+// 		// var URL;
+// 		// URL = (typeof window !== 'undefined' && window.URL) ? window.URL : require('url').URL;
+// 		const url = new URL(location.origin + e.currentTarget.dataset.href);
+// 		const urlParams = new URLSearchParams(url.search);
+// 		const month = urlParams.get("month");
+// 		const year = urlParams.get("year");
+// 		urlParams.set("arrFilter_DATE_ACTIVE_MONTH", month);
+// 		urlParams.set("IS_MONTH_FILTER_ACTIVE", inputValArr);
+// 		urlParams.set("arrFilter_DATE_ACTIVE_YEAR", year);
+// 		urlParams.set("PAGEN_1", 1);
+// 		// const setFilter = inputValArr ? '&set_filter=Показать' : ''
+// 		const calendar = $("#filter_calendar");
+// 		const oldMonths = $(calendar).find(".calendar__form_control");
+// 		$(calendar).find(".loader").addClass("active");
+// 		e.target.disabled = true;
+// 		$(this).css({ "pointer-events": "none" });
+// 		// if (location.search) {
+
+// 		window.history.pushState(
+// 			{
+// 				lastUrl: location.href,
+// 			},
+// 			"",
+// 			location.pathname + "?" + urlParams
+// 		);
+// 		// }
+// 		// console.log(location);
+
+// 		$.ajax({
+// 			url: location.pathname + "?" + urlParams,
+// 			success: function (data) {
+// 				const calendarSlide = $(data).find(".calendar__dates_slider");
+// 				const newMonths = $(data).find(".calendar__form_control");
+// 				const oldCalendarSlide = $(".calendar__dates_slider");
+// 				const calendarSlider = $(".calendar__dates_slider .swiper-wrapper");
+
+// 				const startTargetPosition = $(calendarSlide).find(".calendar__day.startDate").index();
+// 				const endTargetPosition = $(calendarSlide).find(".calendar__day.endDate").index();
+// 				$(calendarSlide)
+// 					.find(".calendar__day")
+// 					.each((i, item) => {
+// 						if (
+// 							$(item).index() >= Math.min(startTargetPosition, endTargetPosition) &&
+// 							$(item).index() <= Math.max(startTargetPosition, endTargetPosition)
+// 						) {
+// 							$(item).addClass("hover");
+// 						} else {
+// 							$(item).removeClass("hover");
+// 						}
+// 					});
+// 				oldCalendarSlide.replaceWith(calendarSlide);
+// 				oldMonths.replaceWith(newMonths);
+// 				calendarSliders();
+// 				e.target.disabled = false;
+// 				$(calendar).find(".loader").removeClass("active");
+// 				if (inputValArr) {
+// 					const newEvents = $(data).find("#events__content");
+// 					$("#events__content").replaceWith(newEvents);
+// 					calendarSliders();
+// 					window.scroll.scrollTo(document.querySelector("#events__content"));
+// 					$(calendar).find(".loader").removeClass("active");
+// 				}
+// 				const observer = new ResizeObserver((entries, observer) => {
+// 					for (let entry of entries) {
+// 						$(".filter_calendar").css({ "max-height": $(".filter_calendar").find(".form").innerHeight() + "px" });
+// 					}
+// 				});
+
+// 				observer.observe(document.querySelector(".events__filter .form"));
+// 			},
+// 		});
+// 	});
+// 	if (document.querySelector("#filter_calendar")) {
+// 		if (Array.from($("[name=DATE_ACTIVE_TO]")).some((item) => $(item).prop("checked"))) {
+// 			localStorage.setItem("isDateChecked", "true");
+// 			document.querySelector("#filter_calendar").classList.add("isDateChecked");
+// 		} else {
+// 			localStorage.setItem("isDateChecked", "false");
+// 			document.querySelector("#filter_calendar").classList.remove("isDateChecked");
+// 		}
+// 		const isDateChecked = localStorage.getItem("isDateChecked");
+
+// 		if (isDateChecked && document.querySelector("#filter_calendar")) {
+// 			document.querySelector("#filter_calendar").classList.add("isDateChecked");
+// 		}
+// 	}
+
+// 	calendarSliders();
+
+// 	$(document).on("change", "[name=DATE_ACTIVE_TO]", function () {
+// 		let inputValArr = $(this).val().split(".");
+// 		const calendar = $("#filter_calendar");
+// 		if (!startDate) {
+// 			startDate = new Date(inputValArr[2], inputValArr[1] - 1, inputValArr[0]);
+// 			$(this).closest(".calendar__day").addClass("active startDate");
+// 		} else if (startDate && !endDate) {
+// 			endDate = new Date(inputValArr[2], inputValArr[1] - 1, inputValArr[0], 23, 59, 59);
+
+// 			if (endDate.getTime() < startDate.getTime()) {
+// 				endDate.setHours(0, 0, 0);
+// 				startDate.setHours(23, 59, 59);
+// 			}
+// 			$(calendar).find(".loader").addClass("active");
+// 			$(this).closest(".calendar__day").addClass("active endDate");
+// 			const target = $("#events__content");
+// 			const form = $("[name=arrFilter_form]");
+// 			let formData = "";
+// 			const action = $(form).attr("action");
+// 			if (!!$(form).serialize()) {
+// 				formData = "&" + "set_filter=Показать";
+// 			}
+// 			const startTargetPosition = $(".calendar__day.startDate").index();
+// 			const endTargetPosition = $(this).closest(".calendar__day").index();
+// 			$(".calendar__day").each((i, item) => {
+// 				if (
+// 					$(item).index() >= Math.min(startTargetPosition, endTargetPosition) &&
+// 					$(item).index() <= Math.max(startTargetPosition, endTargetPosition)
+// 				) {
+// 					$(item).addClass("active");
+// 				} else {
+// 					$(item).removeClass("active");
+// 				}
+// 			});
+
+// 			const url = `${location.pathname}?arrFilter_DATE_ACTIVE_TO_1=${new Date(Math.min(startDate, endDate))
+// 				?.toLocaleString("ru-RU")
+// 				.replace(",", "")}&arrFilter_DATE_ACTIVE_TO_2=${new Date(Math.max(startDate, endDate))
+// 				?.toLocaleString("ru-RU")
+// 				.replace(",", "")}${formData}&PAGEN_1=1`;
+// 			// if (location.search) {
+
+// 			window.history.pushState(
+// 				{
+// 					lastUrl: location.href,
+// 				},
+// 				"",
+// 				url
+// 			);
+// 			// }
+// 			$.ajax({
+// 				url: url,
+// 				success: function (data) {
+// 					const newEvents = $(data).find("#events__content");
+
+// 					target.replaceWith(newEvents);
+// 					calendarSliders();
+// 					window.scroll.scrollTo(document.querySelector("#events__content"));
+// 					$(calendar).find(".loader").removeClass("active");
+// 				},
+// 			});
+// 			$(form).find("[name=arrFilter_DATE_ACTIVE_TO_1]").val(startDate.toLocaleString("ru-RU").replace(",", ""));
+// 			$(form).find("[name=arrFilter_DATE_ACTIVE_TO_2]").val(endDate.toLocaleString("ru-RU").replace(",", ""));
+// 		} else {
+// 			startDate = new Date(inputValArr[2], inputValArr[1] - 1, inputValArr[0]);
+// 			endDate = null;
+
+// 			$(".calendar__day").each((i, item) => $(item).removeClass("active").removeClass("startDate").removeClass("endDate").removeClass("hover"));
+// 			$(this).closest(".calendar__day").addClass("active startDate");
+// 		}
+// 	});
+// 	$(document).on("mouseover mouseout", ".calendar__day", function (e) {
+// 		if (e.type === "mouseover") {
+// 			$(e.currentTarget).addClass("hover");
+
+// 			if (startDate && !endDate) {
+// 				const startTargetPosition = $(".calendar__day.startDate").index();
+// 				const endTargetPosition = $(e.currentTarget).index();
+// 				$(".calendar__day").each((i, item) => {
+// 					if (
+// 						$(item).index() >= Math.min(startTargetPosition, endTargetPosition) &&
+// 						$(item).index() <= Math.max(startTargetPosition, endTargetPosition)
+// 					) {
+// 						$(item).addClass("hover");
+// 					} else {
+// 						$(item).removeClass("hover");
+// 					}
+// 				});
+// 			}
+// 		} else {
+// 			$(e.currentTarget).removeClass("hover");
+// 		}
+// 	});
+
+// 	$(document).on("change", "[name=DATE_ACTIVE_MONTH]", function () {
+// 		let inputValArr = "";
+// 		let startDate;
+// 		let endDate;
+// 		let year = $(".calendar__year_slider").data("year");
+// 		const calendar = $("#filter_calendar");
+// 		if ($(this).prop("checked")) {
+// 			$("[name=DATE_ACTIVE_TO]").each((_, item) => {
+// 				if ($(item).val() !== $(this).val()) {
+// 					$(item).prop("checked", false);
+// 					$(item).closest(".calendar__day").removeClass("active");
+// 				}
+// 			});
+// 			inputValArr = $(this).val();
+
+// 			startDate = new Date(year, inputValArr - 1, 1);
+// 			endDate = new Date(year, inputValArr, 0, 23, 59, 59);
+// 			localStorage.setItem("isDateChecked", "true");
+
+// 			$(this).closest(".calendar__day").addClass("active");
+// 			$(".btn_filter.active").addClass("isDateChecked");
+// 		} else {
+// 			$(this).closest(".calendar__day").removeClass("active");
+// 			startDate = "";
+// 			endDate = "";
+// 			$(".btn_filter.active").removeClass("isDateChecked");
+// 		}
+
+// 		$(calendar).find(".loader").addClass("active");
+// 		const target = $("#events__content");
+// 		const form = $("[name=arrFilter_form]");
+// 		let formData = "";
+// 		const action = $(form).attr("action");
+// 		if (!!$(form).serialize()) {
+// 			formData = "&set_filter=Показать";
+// 		}
+// 		const url = `${location.pathname}?arrFilter_DATE_ACTIVE_MONTH=${inputValArr}&arrFilter_DATE_ACTIVE_YEAR=${year}`;
+
+// 		// if (location.search) {
+
+// 		window.history.pushState(
+// 			{
+// 				lastUrl: location.href,
+// 			},
+// 			"",
+// 			url
+// 		);
+// 		// }
+// 		$.ajax({
+// 			url: url,
+// 			success: function (data) {
+// 				const newEvents = $(data).find("#events__content");
+// 				const newCalendar = $(data).find("#filter_calendar");
+// 				const startTargetPosition = $(".calendar__day.startDate").index();
+// 				const endTargetPosition = $(".calendar__day.endDate").index();
+// 				$(".calendar__day").each((i, item) => {
+// 					if (
+// 						$(item).index() >= Math.min(startTargetPosition, endTargetPosition) &&
+// 						$(item).index() <= Math.max(startTargetPosition, endTargetPosition)
+// 					) {
+// 						$(item).addClass("hover");
+// 					} else {
+// 						$(item).removeClass("hover");
+// 					}
+// 				});
+// 				target.replaceWith(newEvents);
+// 				calendarSliders();
+// 				$(calendar).find("form").replaceWith($(newCalendar).find("form"));
+// 				window.scroll.scrollTo(document.querySelector("#events__content"));
+// 				$(calendar).find(".loader").removeClass("active");
+// 			},
+// 		});
+// 		$(form).find("[name=arrFilter_DATE_ACTIVE_TO_1]").val(startDate.toLocaleString("ru-RU").replace(",", ""));
+// 		$(form).find("[name=arrFilter_DATE_ACTIVE_TO_2]").val(endDate.toLocaleString("ru-RU").replace(",", ""));
+// 	});
+
+// 	$(document).on("click", "#del_calendar_filter", function () {
+// 		$(".btn_filter.active").removeClass("isDateChecked");
+// 		// $('.calendar__day.active').find('input').click()
+// 		const calendar = $("#filter_calendar");
+// 		const target = $("#events__content");
+// 		const form = $("[name=arrFilter_form]");
+// 		$(".calendar__day").each((i, item) => {
+// 			$(item).removeClass("hover").removeClass("active");
+// 		});
+// 		$("[name=DATE_ACTIVE_MONTH]").prop("checked", false);
+// 		$(calendar).find(".loader").addClass("active");
+// 		window.history.pushState(
+// 			{
+// 				lastUrl: location.href,
+// 			},
+// 			"",
+// 			location.pathname
+// 		);
+// 		$.ajax({
+// 			url: location.pathname,
+// 			success: function (data) {
+// 				const newEvents = $(data).find("#events__content");
+// 				const newCalendar = $(data).find("#filter_calendar");
+// 				const startTargetPosition = $(".calendar__day.startDate").index();
+// 				const endTargetPosition = $(".calendar__day.endDate").index();
+// 				// $('.calendar__day').each((i, item) => {
+// 				// 	if ($(item).index() >= Math.min(startTargetPosition, endTargetPosition) && $(item).index() <= Math.max(startTargetPosition, endTargetPosition)) {
+// 				// 		$(item).addClass('hover')
+// 				// 	} else {
+// 				// 		$(item).removeClass('hover')
+// 				// 	}
+// 				// })
+// 				target.replaceWith(newEvents);
+// 				calendarSliders();
+// 				$(calendar).find("form").replaceWith($(newCalendar).find("form"));
+// 				window.scroll.scrollTo(document.querySelector("#events__content"));
+// 				$(calendar).find(".loader").removeClass("active");
+// 			},
+// 		});
+// 	});
+
+// 	$(document).on("change", "[name=SHOW_OLD]", function () {
+// 		const form = $("[name=arrFilter_form]");
+
+// 		$(form).find("[name=arrFilter_SHOW_OLD").val($(this).val());
+// 		$(form).find("[name=set_filter]").click();
+// 	});
+// });
+
+// function calendarSliders() {
+// 	const months = document.querySelector(".calendar__months_slider");
+// 	const years = document.querySelector(".calendar__years_slider");
+// 	const calendar = document.querySelector(".calendar__dates_slider");
+
+// 	if (!months || !calendar) return;
+
+// 	const slides = months.querySelectorAll(".swiper-slide");
+// 	const curSlide = months.querySelector(".current");
+// 	let curSlideIndex = Array.prototype.indexOf.call(slides, curSlide);
+
+// 	const monthsSlider = new Swiper(months, {
+// 		speed: 500,
+// 		initialSlide: curSlideIndex,
+// 		navigation: {},
+// 	});
+// 	const yearsSlider = new Swiper(years, {
+// 		speed: 500,
+// 		initialSlide: curSlideIndex,
+// 		navigation: {},
+// 	});
+// 	const datesSlider = new Swiper(calendar, {
+// 		speed: 500,
+// 		initialSlide: curSlideIndex,
+// 	});
+// }

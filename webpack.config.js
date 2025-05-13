@@ -26,6 +26,11 @@ const build = {
 			filename: "event.html",
 			template: "event.html",
 		}),
+
+		new HtmlWebpackPlugin({
+			filename: "performer.html",
+			template: "performer.html",
+		}),
 		// new CopyPlugin({
 		// 	patterns: [{ from: "./static", to: "static", noErrorOnMissing: true }],
 		// }),
