@@ -6417,7 +6417,8 @@ font {
 
 
 .performer {
-	padding-bottom: 5.25rem;
+	padding-bottom: 2.5rem;
+	padding-top: 1rem;
 
 	&__sliders {
 		display: flex;
@@ -6478,13 +6479,43 @@ font {
 	& .about {
 
 		&__desc {
-			margin-top: 72px;
-			padding: 56px 0 64px
+			margin-top: 48px;
+			padding: 56px 0 56px;
+			align-items: baseline;
+
+			&::after {
+				display: none;
+			}
+
+			&_col {
+				align-items: flex-start;
+
+				&.performer__news {
+					width: calc((100%) / 24 * 8 - 20px);
+					margin-left: auto;
+				}
+			}
+
+			&_title {
+				margin-bottom: 48px;
+			}
+			
+			&_text {
+				overflow: hidden;
+				// margin-bottom: 0;
+
+				& p {
+
+					&:not(:last-child) {
+						margin-bottom: 2rem;
+					}
+				}
+			}
 		}
 	}
 
 	&__images {
-			width: calc((100% - 32px) / 24 * 8);
+			width: calc((100%) / 24 * 8 - 20px);
 			margin: 0;
 
 		&_slide {
@@ -6538,5 +6569,94 @@ font {
 			display: flex;
 			gap: 12px	;
 		}
+	}
+
+	&__news {
+		&_title {
+			// max-width: 270px;
+
+			& .main_font {
+				display: inline-block;
+			}
+		}
+
+		&_list {
+			margin-top: 24px;
+			// padding-top: 24px;
+			position: relative;
+			display: flex;
+			flex-direction: column;
+			width: 100%;
+			// gap: 24px;
+
+			// &::before {
+			// 	content: "";
+			// 	position: absolute;
+			// 	display: block;
+			// 	width: 100%;
+			// 	height: 1px;
+			// 	background: var(--clr-black-40);
+			// 	top: 0;
+			// 	left: 0;
+			// }
+		}
+
+		&_item {
+			padding: 24px 0;
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: space-between;
+			gap: 24px ;
+			position: relative;
+
+			&:hover {
+				&::before, &::after {
+					background-color: var(--clr-black);
+				}
+			}
+			
+			&::before {
+				content: "";
+				position: absolute;
+				display: block;
+				width: 100%;
+				height: 1px;
+				background: var(--clr-black-40);
+				top: 0;
+				left: 0;
+				transition: all 0.5s;
+			}
+
+			&:last-child {
+				
+			&::after {
+				content: "";
+				position: absolute;
+				display: block;
+				width: 100%;
+				height: 1px;
+				background: var(--clr-black-40);
+				bottom: 0;
+				left: 0;
+				transition: all 0.5s;
+			}
+			}
+
+			& .news__slide_date {
+				margin-bottom: 0;
+				align-items: center;
+			}
+
+			&--buttons {
+				display: flex;
+				align-items: center;
+				gap: 8px;	
+			}
+			&--text {
+				width: 100%;
+			}
+		}
+
+
 	}
 }

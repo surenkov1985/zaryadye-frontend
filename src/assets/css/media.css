@@ -178,11 +178,11 @@
     height: 81px;
   }
 
-  .btn_favourite {
+  .btn_favourite, .btn_sm {
     width: 56px;
     height: 56px;
   }
-
+  
   .btn_filter:hover {
     /* background: var(--clr-black-5);
     -webkit-backdrop-filter: var(--bg-filter-blur);
@@ -721,7 +721,7 @@
     padding: 0;
   }
 
-  .btn_favourite {
+  .btn_favourite, .btn_sm {
     width: 52px;
     height: 52px;
   }
@@ -1405,9 +1405,15 @@
     padding: 0;
   }
 
-  .btn_favourite {
+  .btn_favourite, .btn_sm {
     width: 48px;
     height: 48px;
+
+  }
+
+  .btn_favourite svg, .btn_sm svg {
+    width: 16px;
+    height: auto;
   }
 
   .btn_favourite-lg {

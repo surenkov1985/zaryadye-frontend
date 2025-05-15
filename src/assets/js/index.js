@@ -55,6 +55,59 @@ document.addEventListener("DOMContentLoaded", function () {
 			});
 		}
 	});
+	if (document.querySelector(".performer .about__desc_text")) {
+		const aboutText = document.querySelector(".performer .about__desc_text")
+		const childs = aboutText.children
+		const count = 3
+		let height = 0
+		Array.from(childs).forEach((item, index) => {
+			if (index < count - 1) {
+				height += $(item).outerHeight( true );
+			} 
+			if (index === count - 1) {
+				height += $(item).outerHeight(  );
+			} 
+		})
+		// for (let i = 0; i < count; i++) {
+		// 	height += $(paragraphs[i]).outerHeight( true );
+		// }
+		const lineHeight = parseFloat($(".performer .about__desc_text p").css("line-height"));
+		$(".performer .about__desc_text").css({ "max-height": height + "px", height: "auto" });
+	}
+	$(document).on("click", ".performer .about__more_link", function (e) {
+		e.preventDefault();
+		const lineHeight = parseFloat($(".performer .about__desc_text p").css("line-height"));
+		const leaders = this.closest(".performer");
+		const clampedText = leaders.querySelector(".about__desc_text");
+		const childs = clampedText.children
+		const count = 3
+		let height = 0
+		Array.from(childs).forEach((item, index) => {
+			if (index < count - 1) {
+				height += $(item).outerHeight( true );
+			} 
+			if (index === count - 1) {
+				height += $(item).outerHeight(  );
+			} 
+		})
+		// const paragraphs = clampedText.querySelectorAll('p')
+		// const count = 3
+		// let height = 0
+		// for (let i = 0; i < count; i++) {
+		// 	height += $(paragraphs[i]).outerHeight( true );
+		// }
+		const tl = gsap.timeline();
+
+		if (clampedText.offsetHeight < clampedText.scrollHeight) {
+			tl.to(clampedText, { maxHeight: clampedText.scrollHeight, duration: 0.3, ease: "none" }).then(() => {
+				$(this).text("Свернуть");
+			});
+		} else {
+			tl.to(clampedText, { maxHeight: height, duration: 0.3, ease: "none" }).then(() => {
+				$(this).text("Узнать больше");
+			});
+		}
+	});
 	locationSliders();
 	const elmOverlay = document.querySelector(".shape-overlays");
 	var overlay = new ShapeOverlays(elmOverlay);
