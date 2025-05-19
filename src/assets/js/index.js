@@ -1968,20 +1968,117 @@ $(document).on("click", ".popup_open", function () {
 			return text.replace(/([А-ЯЁ][а-яё]{0,2}\.)\s+([А-ЯЁ]\.)\s+([А-Я][а-я]+)/g, "$1&nbsp;$2&nbsp;$3");
 		},
 	});
+	// Typograf.addRule({
+	// 	name: "common/other/typographicNdashToMdash",
+	// 	handler: function (text) {
+	// 		return text.replace(/\s+(-)\s+/g, "&nbsp;&mdash; ");
+	// 	},
+	// });
 	Typograf.addRule({
-		name: "common/other/typographicNdashToMdash",
-		handler: function (text) {
-			return text.replace(/\s+(-)\s+/g, "&nbsp;&mdash; ");
-		},
+		name: 'ru/dash/withNbsp',
+		index: '-1', // Важно выполнять после других правил тире
+		handler(text) {
+			// Заменяем " - " на "&nbsp;—&nbsp;"
+			return text.replace(/(\s)-(\s)/g, '$1&nbsp;&mdash; $2');
+		}
 	});
-	var tp = new Typograf({ locale: ["ru", "en-US"] });
+	// Typograf.addRule({
+	// 	name: 'skip-unbalanced-quotes-only',
+	// 	handler(text) {
+	// 		// Считаем количество открывающих и закрывающих кавычек-ёлочек
+	// 		const openCount = (text.match(/«/g) || []).length;
+	// 		const closeCount = (text.match(/»/g) || []).length;
+	
+	// 		// Если кавычек нет или они сбалансированы — оставляем текст как есть
+	// 		if (openCount === closeCount) {
+	// 			return text;
+	// 		}
 
-	tp.setSetting("common/punctuation/quote", "ru", { left: "«", right: "»", removeDuplicateQuotes: false });
+	// 		if (text.match(/"([^"„“]+)"/g).length) {
+	// 			// return text.replace(/"([^"„“]+)"/g, '«$1»');
+	// 		}
+	
+	// 		// Если баланс нарушен — тоже оставляем без изменений
+	// 		// (или можно вывести предупреждение в консоль)
+	// 		console.warn('Обнаружены несбалансированные кавычки-ёлочки:', text);
+	// 		return text;
+	// 	}
+	// });
+	// Typograf.addRule({
+	// 	name: 'custom-quotes-advanced-skip',
+	// 	handler(text) {
+	
+	// 		// Иначе заменяем "..." на «...»
+	// 		return text.replace(/"([^"]+)"/g, '«$1»');
+	// 	}
+	// });
+	// Typograf.addRule({
+	// 	name: 'custom-quotes-convert-only-doubles',
+	// 	handler(text) {
+	// 		// Заменяем ТОЛЬКО прямые кавычки "" на «», игнорируя „“
+	// 		return text.replace(/"([^"„“]+)"/g, '«$1»');
+	// 	}
+	// });
+
+	// tp.setSetting("common/punctuation/quote", "ru", { left: "«", right: "»", removeDuplicateQuotes: true });
+	// Typograf.addRule({
+	// 	name: 'custom-quotes-advanced-skip',
+	// 	handler(text) {
+	
+	// 		// Иначе заменяем "..." на «...»
+	// 		return text.replace(/"([^"]+)"/g, '«$1»');
+	// 	}
+	// });
+	Typograf.prototype.addCustomRule = function(rule) {
+		this._rules = this._rules || [];
+		this._rules.push(rule);
+	  };
+	  Typograf.addRule({
+		name: 'common/other/skipUnbalancedQuotesOnly',
+		handler: function (text) {
+			// Считаем количество открывающих и закрывающих кавычек-ёлочек
+			const openCount = (text.match(/«/g) || []).length;
+			const closeCount = (text.match(/»/g) || []).length;
+			console.log(text);
+			// Если кавычек нет или они сбалансированы — оставляем текст как есть
+			if (openCount === closeCount) {
+				return text;
+			}
+
+			if (text.match(/"«([^„“]+)"»/g).length) {
+				return text.replace(/"([^„“]+)"/g, '«$1»');
+			}
+	
+			// Если баланс нарушен — тоже оставляем без изменений
+			// (или можно вывести предупреждение в консоль)
+			console.warn('Обнаружены несбалансированные кавычки-ёлочки:', text);
+			return text;
+		}
+	});
+	const tp = new Typograf({ locale: ['ru', 'en-US'] });
+	console.log(typeof tp.addRule);
+	// tp.setSetting("common/punctuation/quote", "ru", { left: "«", right: "»", removeDuplicateQuotes: false });
+	// tp.setSetting("common/punctuation/quote", "ru", { left: "„", right: "“", removeDuplicateQuotes: false });
+	
+	// 	tp.addRule({
+	// 	name: 'custom-quotes-convert-only-doubles',
+	// 	handler(text) {
+	// 		// Заменяем ТОЛЬКО прямые кавычки "" на «», игнорируя „“
+	// 		return text.replace(/"([^"„“]+)"/g, '«$1»');
+	// 	}
+	// });
+	// tp.addRule({
+	// 	name: 'ru/ignore-german-quotes',
+	// 	handler(text) {
+	// 	  return text.replace(/„([^“]+)“/g, '„$1“'); // Принудительно оставляем как есть
+	// 	}
+	//   });
 	var elems = document.querySelectorAll("h1,h2,h3,h4,a,h6,p,li,b");
 	for (let elem of elems) {
 		elem.innerHTML = tp.execute(elem.innerHTML);
 	}
 })();
+
 
 $(document).on("mouseover", ".events__item:first-child", function () {
 	const row = $(this).closest(".events__content_row");
