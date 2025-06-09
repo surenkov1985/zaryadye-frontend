@@ -1,202 +1,3 @@
-$color_1: var(--clr-black-40);
-$font-family_1: var(--font-title);
-$background-color_1: white;
-
-/* .btn_filter:hover svg path {
-    fill: var(--clr-black);
-  } */
-/* Rounded sliders */
-/* 
-  .calendar__day.no_events {
-    color: rgb(219, 219, 219);
-  } */
-/* .calendar__day input:checked+.events_num {
-    background: var(--clr-black);
-    color: var(--clr-white);
-  } */
-/* Rounded sliders */
-/* ,  (max-width: 1920px) and (min-aspect-ratio: 16/8.4) */
-/* Rounded sliders */
-/* .event__aside_btn {
-    display: block;
-    margin-top: 10px;
-  } */
-/* .contacts__col_right {
-    width: calc((100% - 16px) / 12 * 7);
-  } */
-/* @media screen and (max-width: 1920px) and (min-aspect-ratio: 16/8.5) {
-	.fs__slide_left {
-	  gap: 10px !important;
-	  width: calc((100% - 24px) / 24* 11) !important;
-	}
- 
-	.fs__slide_desc {
-	  width: calc((100% - 36px) / 24 * 12) !important;
-	}
- 
-	.fs__slide .h2 {
-	  font-size: clamp(2rem, 3.4vh + 2.5vw, 5.25rem);
-	}
- 
-	.fs__slide .date_xl {
-	  font-size: clamp(3rem, 3.6vh + 2.75vw, 6rem);
-	}
- 
-	.fs__slide_info {
-	  gap: 10px;
-	}
- 
-	.tag {
-	  font-size: 16px;
-	  padding: 5px 12px;
-	}
- 
-	.date_xl {
-	  font-size: 3.75rem;
-	}
- 
-	.fs__slide_tags {
-	  flex-direction: row;
-	}
- 
-	.fs__slide_date .day {
-	  font-size: 1.25rem;
-	}
- 
-	.halls {
-	  height: auto;
-	  max-height: 90vh;
-	  overflow: hidden;
-	}
-	.calendar__day {
-	 padding-top: 0.75rem;
-	}
- 
-	.calendar__day .numbers_sm {
-	 font-size: clamp(2rem, 2.5vh + 1.7vw, 3.5rem);
-	}
- 
- } */
-/* .date_xl {
-    font-size: 4.125rem;
-  } */
-/* @media screen and (max-width: 1650px) and (min-aspect-ratio: 16/9) {
-  .fs__slide_left {
-    gap: 10px !important;
-    width: calc((100% - 24px) / 24* 11) !important;
-  }
-
-  .fs__slide_desc {
-    width: calc((100% - 36px) / 24 * 12) !important;
-  }
-
-  .fs .container {
-	padding-top: 124px;
-	padding-bottom: 32px;
-}
-
-  .fs__slide .h2 {
-    font-size: clamp(2rem, 3.4vh + 2.5vw, 5.25rem);
-  }
-
-  .fs__slide .date_xl {
-    font-size: clamp(3rem, 3.6vh + 2.75vw, 6rem);
-  }
-
-  .fs__slide_info {
-    gap: 10px;
-  }
-
-  .tag {
-    font-size: 12px;
-    padding: 5px 12px;
-  }
-
-  .date_xl {
-    font-size: 3.75rem;
-  }
-
-  .fs__slide_tags {
-	 gap: 10px;
-  }
-
-  .fs__slide_date .day {
-    font-size: 1.25rem;
-  }
-
-  .halls {
-    height: auto;
-    max-height: 90vh;
-    overflow: hidden;
-  }
-  .calendar__day {
-	padding-top: 0.75rem;
-  }
-
-  .calendar__day .numbers_sm {
-	font-size: clamp(2rem, 2.5vh + 1.7vw, 3.5rem);
-  }
-
-}
-
-@media screen and (max-width: 991px) and (min-aspect-ratio: 1/2) {
-	.fs__slide .h2 {
-		font-size: clamp(2rem, 1vh + 2.5vw, 5.25rem) !important;
-	 }
-	 .fs__slide .date_xl {
-		font-size: clamp(2.5rem, 2.5vh + 2.75vw, 6rem);
-	 }
-	 .fs__slide_date .day {
-		font-size: 1.25rem;
-	 }
-	 .tag {
-		font-size: 12px;
-		padding: 5px 12px;
-	 }
-	 .fs__slide_info {
-		gap: 1.125rem !important;
-  }
-  .fs__slide_text {
-	margin-top: 8px !important;
-	max-width: 100%;
-}
-}
-
-@media screen and (max-width: 576px) and (min-aspect-ratio: 1/2) {
-	.fs .container {
-		padding-top: 142px !important;
-		padding-bottom: 42px;
-  }
-  .fs__slide_info {
-	gap: 0.875rem !important;
-
-	
-}
-.fs__slide_content {
-	height: auto !important;
-}
-} */
-/* @media screen and (max-width: 1650px) and (min-aspect-ratio: 16/8.5) {
-	.fs__slide_left {
-		gap: 10px !important;
-		width: calc((100% - 24px) / 24* 11) !important;
-	 }
-  
-	 .fs__slide_desc {
-		width: calc((100% - 36px) / 24 * 12) !important;
-	 }
-
-	 .fs__slide .h2 {
-		font-size: clamp(2rem, 3.4vh + 2.5vw, 5.25rem);
-	 }
-	 .calendar__day {
-		padding-top: 0.75rem;
-	  }
-	
-	  .calendar__day .numbers_sm {
-		font-size: clamp(2rem, 2.5vh + 1.7vw, 3.5rem);
-	  }
-} */
 @media (max-width: 1750px) {
 	.events__nav_item {
 		padding: 25px 28px 24px;
@@ -260,7 +61,7 @@ $background-color_1: white;
 		width: 195px;
 	}
 	.menu_font {
-		font-family: $font-family_1;
+		font-family: var(--font-title);
 		font-size: 4.875rem;
 	}
 	.events__item_desc {
@@ -367,14 +168,14 @@ $background-color_1: white;
 	.btn_filter {
 		background: none;
 		padding: 0;
-		width: 81px;
-		height: 81px;
+		width: 76px;
+		height: 76px;
 	}
 	.btn_heart {
 		background: none;
 		padding: 0;
-		width: 81px;
-		height: 81px;
+		width: 76px;
+		height: 76px;
 	}
 	.btn_favourite {
 		width: 56px;
@@ -386,7 +187,7 @@ $background-color_1: white;
 	}
 	.btn_filter_icon {
 		padding: 24px 42px;
-		font-size: 1.25rem;
+		font-size: 1.125rem;
 		width: auto;
 		height: auto;
 		gap: 16px;
@@ -436,7 +237,7 @@ $background-color_1: white;
 			width: 26px;
 			left: 2px;
 			bottom: 2px;
-			background-color: $background-color_1;
+			background-color: #ffffff;
 			transition: .4s;
 			transform: translateX(0);
 		}
@@ -501,7 +302,7 @@ $background-color_1: white;
 	}
 	.events__nav_item {
 		padding: 25px 28px 24px;
-		font-size: 1.25rem;
+		font-size: 1.125rem;
 	}
 	.events__nav_tools {
 		gap: 22px;
@@ -664,7 +465,7 @@ $background-color_1: white;
 		cursor: pointer;
 		transition: all .5s;
 		&:hover {
-			color: $color_1;
+			color: var(--clr-black-40);
 		}
 		.events_num {
 			width: 40px;
@@ -801,7 +602,7 @@ $background-color_1: white;
 		width: 170px;
 	}
 	.menu_font {
-		font-family: $font-family_1;
+		font-family: var(--font-title);
 		font-size: 4.5rem;
 	}
 	.events__item_desc {
@@ -944,7 +745,7 @@ $background-color_1: white;
 			width: 22px;
 			left: 2px;
 			bottom: 2px;
-			background-color: $background-color_1;
+			background-color: #ffffff;
 			transition: .4s;
 			transform: translateX(0);
 		}
@@ -1000,7 +801,7 @@ $background-color_1: white;
 	}
 	.events__nav_item {
 		padding: 23px 24px 21px;
-		font-size: 1.125rem;
+		font-size: 1rem;
 	}
 	.events__nav_tools {
 		gap: 22px;
@@ -1334,7 +1135,7 @@ $background-color_1: white;
 		font-size: 4rem;
 	}
 	.menu_font {
-		font-family: $font-family_1;
+		font-family: var(--font-title);
 		font-size: 4rem;
 	}
 	.events__item_desc {
@@ -1656,7 +1457,7 @@ $background-color_1: white;
 			width: 20px;
 			left: 2px;
 			bottom: 2px;
-			background-color: $background-color_1;
+			background-color: #ffffff;
 			transition: .4s;
 			transform: translateX(0);
 		}

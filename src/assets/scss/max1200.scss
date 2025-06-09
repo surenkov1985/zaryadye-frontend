@@ -1,43 +1,4 @@
-$background-color_1: white;
-$background-color_2: var(--clr-black-10);
-$background-color_3: var(--clr-black);
 
-/* Rounded sliders */
-/* .fs__slide_left {
-	gap: 10px !important;
-	width: calc((100% - 24px) / 24* 10) !important;
-} */
-/*
-  .fs__slide_desc {
-    width: calc((100% - 36px) / 24 * 12);
-  } */
-/* .container {
-		max-width: 1024px;
-	} */
-/* .fs__slide_left {
-		gap: 10px !important;
-		width: calc((100% - 24px) / 24* 11) !important;
-	 }
-  
-	 .fs__slide_desc {
-		width: calc((100% - 36px) / 24 * 12) !important;
-	 }
-	 .tag {
-		font-size: 14px;
-		padding: 5px 14px;
-	 }
-  
-	 .date_xl {
-		font-size: 5rem;
-	 }
-  
-	 .fs__slide_tags {
-		gap: 10px;
-	 }
-  
-	 .fs__slide_date .day {
-		font-size: 1.75rem;
-	 } */
 @media (max-width:1250px) {
 	.events__nav_list {
 		display: none;
@@ -287,7 +248,7 @@ $background-color_3: var(--clr-black);
 			width: 20px;
 			left: 2px;
 			bottom: 2px;
-			background-color: $background-color_1;
+			background-color: #ffffff;
 			transition: 0.4s;
 			transform: translateX(0);
 		}
@@ -618,11 +579,11 @@ $background-color_3: var(--clr-black);
 			&::-webkit-scrollbar {
 				width: 7px;
 				height: 6px;
-				background-color: $background-color_2;
+				background-color: var(--clr-black-10);
 				border-radius: 6px;
 			}
 			&::-webkit-scrollbar-thumb {
-				background-color: $background-color_3;
+				background-color: var(--clr-black);
 				border-radius: 6px;
 			}
 		}
@@ -637,7 +598,7 @@ $background-color_3: var(--clr-black);
 	}
 	.simplebar-scrollbar {
 		&::before {
-			background-color: $background-color_2;
+			background-color: var(--clr-black-10);
 		}
 	}
 	.location_navigation_slider.panoram {
@@ -646,11 +607,11 @@ $background-color_3: var(--clr-black);
 		&::-webkit-scrollbar {
 			width: 7px;
 			height: 6px;
-			background-color: $background-color_2;
+			background-color: var(--clr-black-10);
 			border-radius: 6px;
 		}
 		&::-webkit-scrollbar-thumb {
-			background-color: $background-color_3;
+			background-color: var(--clr-black);
 			border-radius: 6px;
 		}
 	}

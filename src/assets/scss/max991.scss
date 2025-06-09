@@ -54,7 +54,30 @@
       height: 108px;
       padding: 0;
     }
-  
+    .btn_favourite:not(.active) {
+
+      &:hover {
+          background: none;
+          -webkit-backdrop-filter: none;
+          backdrop-filter: none;
+          color: var(--clr-black);
+          border-color: var(--clr-black-10);
+
+          svg {
+            path {
+              fill: none;
+              stroke: var(--clr-black);
+            }
+          }
+        
+      }
+    }
+
+    .dark .btn.btn_favourite:not(.active):hover svg path {
+      fill: none;
+      stroke: var(--clr-black);
+    }
+
     .zh-header__center {
       position: static;
       margin-right: 1rem;

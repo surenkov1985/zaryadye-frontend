@@ -14,7 +14,7 @@ const LIGHT_THEME_TIME = 7;
 // import 'overlayscrollbars/overlayscrollbars.css';
 
 document.addEventListener("DOMContentLoaded", function () {
-	fsSliders();
+	// fsSliders();
 
 	const isDateChecked = localStorage.getItem("isDateChecked");
 
@@ -1124,50 +1124,50 @@ window.addEventListener("resize", () => {
 		}
 	}
 
-	if (document.querySelector(".fs_index") && window.innerWidth < 992) {
-		const slidesContainers = document.querySelectorAll(".fs__slide_content");
-		const isHiddenSlides = [];
-		const slidesHeights = [];
-		slidesContainers.forEach((cont) => {
-			const isHiddenSlide = cont.scrollWidth > cont.offsetWidth || cont.scrollHeight > cont.offsetHeight;
-			slidesHeights.push(cont.scrollHeight - cont.offsetHeight);
-			const isHideTags = $(cont).find(".fs__slide_left .tags") && $(cont).find(".fs__slide_left .tags").css("display") == "none";
-			const isHideText = $(cont).find(".fs__slide_text p") && $(cont).find(".fs__slide_text p")?.css("display") == "none";
-			if (isHiddenSlide) {
-				if (!isHideTags && isHideText) {
-					$(cont).find(".fs__slide_left .tags")?.hide();
-				}
-				if ($(cont).find(".fs__slide_text p").length && $(cont).find(".fs__slide_text p")?.css("display") != "none" && isHideTags) {
-					$(cont).find(".fs__slide_text p").hide();
-					$(cont).find(".fs__slide_text").addClass("mt-0");
-				}
+	// if (document.querySelector(".fs_index") && window.innerWidth < 992) {
+	// 	const slidesContainers = document.querySelectorAll(".fs__slide_content");
+	// 	const isHiddenSlides = [];
+	// 	const slidesHeights = [];
+	// 	slidesContainers.forEach((cont) => {
+	// 		const isHiddenSlide = cont.scrollWidth > cont.offsetWidth || cont.scrollHeight > cont.offsetHeight;
+	// 		slidesHeights.push(cont.scrollHeight - cont.offsetHeight);
+	// 		const isHideTags = $(cont).find(".fs__slide_left .tags") && $(cont).find(".fs__slide_left .tags").css("display") == "none";
+	// 		const isHideText = $(cont).find(".fs__slide_text p") && $(cont).find(".fs__slide_text p")?.css("display") == "none";
+	// 		if (isHiddenSlide) {
+	// 			if (!isHideTags && isHideText) {
+	// 				$(cont).find(".fs__slide_left .tags")?.hide();
+	// 			}
+	// 			if ($(cont).find(".fs__slide_text p").length && $(cont).find(".fs__slide_text p")?.css("display") != "none" && isHideTags) {
+	// 				$(cont).find(".fs__slide_text p").hide();
+	// 				$(cont).find(".fs__slide_text").addClass("mt-0");
+	// 			}
 
-				if (!$(cont).find(".fs__slide_text p").length) {
-					$(cont).find(".fs__slide_text").addClass("mt-0");
-				}
+	// 			if (!$(cont).find(".fs__slide_text p").length) {
+	// 				$(cont).find(".fs__slide_text").addClass("mt-0");
+	// 			}
 
-				if (isHideText && isHideTags) {
-					isHiddenSlides.push(true);
-				}
-				//console.log($(cont).find(".fs__slide_left .tags").css("display"), $(cont).find(".fs__slide_text p"));
-			} else {
-				if (!isHideTags && isHideText) {
-					$(cont).find(".fs__slide_left .tags").show();
-				}
-				if ($(cont).find(".fs__slide_text p").length && $(cont).find(".fs__slide_text p")?.css("display") != "none" && isHideTags) {
-					$(cont).find(".fs__slide_text p").show();
-					$(cont).find(".fs__slide_text").removeClass("mt-0");
-				}
+	// 			if (isHideText && isHideTags) {
+	// 				isHiddenSlides.push(true);
+	// 			}
+	// 			//console.log($(cont).find(".fs__slide_left .tags").css("display"), $(cont).find(".fs__slide_text p"));
+	// 		} else {
+	// 			if (!isHideTags && isHideText) {
+	// 				$(cont).find(".fs__slide_left .tags").show();
+	// 			}
+	// 			if ($(cont).find(".fs__slide_text p").length && $(cont).find(".fs__slide_text p")?.css("display") != "none" && isHideTags) {
+	// 				$(cont).find(".fs__slide_text p").show();
+	// 				$(cont).find(".fs__slide_text").removeClass("mt-0");
+	// 			}
 
-				if (!isHideText && !isHideTags) {
-					isHiddenSlides.push(false);
-				}
-			}
-		});
-		if (isHiddenSlides.some((el) => !!el)) {
-			$(".fs_index").css({ "min-height": window.innerHeight + Math.max(...slidesHeights) + "px" });
-		}
-	}
+	// 			if (!isHideText && !isHideTags) {
+	// 				isHiddenSlides.push(false);
+	// 			}
+	// 		}
+	// 	});
+	// 	if (isHiddenSlides.some((el) => !!el)) {
+	// 		$(".fs_index").css({ "min-height": window.innerHeight + Math.max(...slidesHeights) + "px" });
+	// 	}
+	// }
 });
 
 function resizeScrollPath(width) {
@@ -1929,17 +1929,15 @@ $(document).on("mousemove", ".mobile", function (e) {
 });
 
 // // popup
-
-$(document).on("click", ".popup_open", function () {
-	const target = $(this).data("target");
-	const popup = $(target);
+const openPopup = (selector) => {
+	const popup = $(selector);
 	const popupContent = $(popup).find(".popup__content");
 
 	$("body").addClass("hidden");
-	const timeLine = gsap.timeline();
+	const tl = gsap.timeline();
 
-	timeLine
-		.to($(target), {
+	tl
+		.to($(selector), {
 			opacity: 1,
 			visibility: "visible",
 			duration: 0.1,
@@ -1953,6 +1951,79 @@ $(document).on("click", ".popup_open", function () {
 		.then(() => {
 			scroll.stop();
 		});
+}
+const closePopup = () => {
+	$("body").removeClass("hidden");
+		const timeLine = gsap.timeline();
+		scroll.start();
+		timeLine
+			.to(".popup__content", {
+				translateX: "100%",
+				duration: 0.1,
+				ease: "power1.out",
+			})
+			.to(".popup", {
+				opacity: 0,
+				duration: 0.1,
+				ease: "power1.out",
+			})
+			.to(".popup", {
+				visibility: "hidden",
+				duration: 0,
+				ease: "power1.out",
+			});
+}
+$(document).on("click", ".popup_open", function () {
+	const target = $(this).data("target");
+	openPopup(target)
+	// const popup = $(target);
+	// const popupContent = $(popup).find(".popup__content");
+
+	// $("body").addClass("hidden");
+	// const timeLine = gsap.timeline();
+
+	// timeLine
+	// 	.to($(target), {
+	// 		opacity: 1,
+	// 		visibility: "visible",
+	// 		duration: 0.1,
+	// 		ease: "power1.out",
+	// 	})
+	// 	.to($(popupContent), {
+	// 		translateX: 0,
+	// 		duration: 0.1,
+	// 		ease: "power1.out",
+	// 	})
+	// 	.then(() => {
+	// 		scroll.stop();
+	// 	});
+});
+
+$(document).on("click", ".popup", function (e) {
+	if (!e.target.closest(".popup__content") || e.target.closest(".popup_close")) {
+		$(this).find(".form_success").removeClass("show");
+		$(this).find("form").trigger("reset");
+		closePopup()
+		// $("body").removeClass("hidden");
+		// const timeLine = gsap.timeline();
+		// scroll.start();
+		// timeLine
+		// 	.to(".popup__content", {
+		// 		translateX: "100%",
+		// 		duration: 0.1,
+		// 		ease: "power1.out",
+		// 	})
+		// 	.to(".popup", {
+		// 		opacity: 0,
+		// 		duration: 0.1,
+		// 		ease: "power1.out",
+		// 	})
+		// 	.to(".popup", {
+		// 		visibility: "hidden",
+		// 		duration: 0,
+		// 		ease: "power1.out",
+		// 	});
+	}
 });
 
 (function () {
@@ -1968,12 +2039,6 @@ $(document).on("click", ".popup_open", function () {
 			return text.replace(/([А-ЯЁ][а-яё]{0,2}\.)\s+([А-ЯЁ]\.)\s+([А-Я][а-я]+)/g, "$1&nbsp;$2&nbsp;$3");
 		},
 	});
-	// Typograf.addRule({
-	// 	name: "common/other/typographicNdashToMdash",
-	// 	handler: function (text) {
-	// 		return text.replace(/\s+(-)\s+/g, "&nbsp;&mdash; ");
-	// 	},
-	// });
 	Typograf.addRule({
 		name: 'ru/dash/withNbsp',
 		index: '-1', // Важно выполнять после других правил тире
@@ -1982,20 +2047,25 @@ $(document).on("click", ".popup_open", function () {
 			return text.replace(/(\s)-(\s)/g, '$1&nbsp;&mdash; $2');
 		}
 	});
-	// Typograf.addRule({
-	// 	name: 'skip-unbalanced-quotes-only',
-	// 	handler(text) {
+	Typograf.prototype.addCustomRule = function(rule) {
+		this._rules = this._rules || [];
+		this._rules.push(rule);
+	  };
+	 
+	//   Typograf.addRule({
+	// 	name: 'common/other/skipUnbalancedQuotesOnly',
+	// 	handler: function (text) {
 	// 		// Считаем количество открывающих и закрывающих кавычек-ёлочек
 	// 		const openCount = (text.match(/«/g) || []).length;
 	// 		const closeCount = (text.match(/»/g) || []).length;
-	
+			
 	// 		// Если кавычек нет или они сбалансированы — оставляем текст как есть
 	// 		if (openCount === closeCount) {
 	// 			return text;
 	// 		}
 
-	// 		if (text.match(/"([^"„“]+)"/g).length) {
-	// 			// return text.replace(/"([^"„“]+)"/g, '«$1»');
+	// 		if ((text.match(/"«([^„“]+)"»/g) || []).length) {
+	// 			return text.replace(/"([^„“]+)"/g, '«$1»');
 	// 		}
 	
 	// 		// Если баланс нарушен — тоже оставляем без изменений
@@ -2004,75 +2074,40 @@ $(document).on("click", ".popup_open", function () {
 	// 		return text;
 	// 	}
 	// });
-	// Typograf.addRule({
-	// 	name: 'custom-quotes-advanced-skip',
-	// 	handler(text) {
-	
-	// 		// Иначе заменяем "..." на «...»
-	// 		return text.replace(/"([^"]+)"/g, '«$1»');
-	// 	}
-	// });
-	// Typograf.addRule({
-	// 	name: 'custom-quotes-convert-only-doubles',
-	// 	handler(text) {
-	// 		// Заменяем ТОЛЬКО прямые кавычки "" на «», игнорируя „“
-	// 		return text.replace(/"([^"„“]+)"/g, '«$1»');
-	// 	}
-	// });
-
-	// tp.setSetting("common/punctuation/quote", "ru", { left: "«", right: "»", removeDuplicateQuotes: true });
-	// Typograf.addRule({
-	// 	name: 'custom-quotes-advanced-skip',
-	// 	handler(text) {
-	
-	// 		// Иначе заменяем "..." на «...»
-	// 		return text.replace(/"([^"]+)"/g, '«$1»');
-	// 	}
-	// });
-	Typograf.prototype.addCustomRule = function(rule) {
-		this._rules = this._rules || [];
-		this._rules.push(rule);
-	  };
-	  Typograf.addRule({
+	 Typograf.addRule({
 		name: 'common/other/skipUnbalancedQuotesOnly',
 		handler: function (text) {
+			console.log(333);
 			// Считаем количество открывающих и закрывающих кавычек-ёлочек
 			const openCount = (text.match(/«/g) || []).length;
 			const closeCount = (text.match(/»/g) || []).length;
-			console.log(text);
-			// Если кавычек нет или они сбалансированы — оставляем текст как есть
+			
+			// // Если кавычек нет или они сбалансированы — оставляем текст как есть
 			if (openCount === closeCount) {
 				return text;
 			}
 
-			if (text.match(/"«([^„“]+)"»/g).length) {
-				return text.replace(/"([^„“]+)"/g, '«$1»');
+			if ((text.match(/"([^„“]+)"/g) || []).length) {
+				console.log(text);
+				return text.replace(/"([^"„“]+)"/g, '«$1»');
 			}
-	
+			text = text.replace(/"([^"„“]+)"/g, '«$1»');
+        
+			// Шаг 2: Возвращаем немецкие кавычки, если они были внутри заменённых
+			// text = text.replace(/«([^»]*)„([^»]*)“([^»]*)»/g, '«$1„$2“$3»');
 			// Если баланс нарушен — тоже оставляем без изменений
 			// (или можно вывести предупреждение в консоль)
 			console.warn('Обнаружены несбалансированные кавычки-ёлочки:', text);
 			return text;
-		}
+		}  
 	});
 	const tp = new Typograf({ locale: ['ru', 'en-US'] });
-	console.log(typeof tp.addRule);
-	// tp.setSetting("common/punctuation/quote", "ru", { left: "«", right: "»", removeDuplicateQuotes: false });
-	// tp.setSetting("common/punctuation/quote", "ru", { left: "„", right: "“", removeDuplicateQuotes: false });
-	
-	// 	tp.addRule({
-	// 	name: 'custom-quotes-convert-only-doubles',
-	// 	handler(text) {
-	// 		// Заменяем ТОЛЬКО прямые кавычки "" на «», игнорируя „“
-	// 		return text.replace(/"([^"„“]+)"/g, '«$1»');
-	// 	}
-	// });
-	// tp.addRule({
-	// 	name: 'ru/ignore-german-quotes',
-	// 	handler(text) {
-	// 	  return text.replace(/„([^“]+)“/g, '„$1“'); // Принудительно оставляем как есть
-	// 	}
-	//   });
+	tp.setSetting('common/punctuation/quote', 'ru', {
+		left: '«', 
+		right: '»',
+		removeDuplicateQuotes: true
+	  });
+	  tp.disableRule('common/punctuation/quote');
 	var elems = document.querySelectorAll("h1,h2,h3,h4,a,h6,p,li,b");
 	for (let elem of elems) {
 		elem.innerHTML = tp.execute(elem.innerHTML);
@@ -2103,7 +2138,7 @@ $(document).on("submit", ".ajax_form.subscribe_form ", function (e) {
 		data: formData,
 		dataType: "json",
 		success: function (response) {
-			//console.log(response);
+			
 			let message;
 			if (response.err_code != 0) {
 				message = response.text;
@@ -2125,32 +2160,6 @@ $(document).on("submit", ".ajax_form.subscribe_form ", function (e) {
 			}
 		},
 	});
-});
-
-$(document).on("click", ".popup", function (e) {
-	if (!e.target.closest(".popup__content") || e.target.closest(".popup_close")) {
-		$("body").removeClass("hidden");
-		$(this).find(".form_success").removeClass("show");
-		$(this).find("form").trigger("reset");
-		const timeLine = gsap.timeline();
-		scroll.start();
-		timeLine
-			.to(".popup__content", {
-				translateX: "100%",
-				duration: 0.1,
-				ease: "power1.out",
-			})
-			.to(".popup", {
-				opacity: 0,
-				duration: 0.1,
-				ease: "power1.out",
-			})
-			.to(".popup", {
-				visibility: "hidden",
-				duration: 0,
-				ease: "power1.out",
-			});
-	}
 });
 
 

@@ -1,6 +1,4 @@
-
-
-import "./assets/libs/animate/style.scss"
+import "/assets/libs/animate/style.scss"
 import "/assets/libs/fancybox/style.css"
 import "/assets/libs/remodal/remodal-default-theme.min.css"
 import "/assets/libs/remodal/remodal.min.css"

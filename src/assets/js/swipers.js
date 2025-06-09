@@ -55,6 +55,7 @@ export const fsSliders = () => {
 
 	imagesSlider.on("slideChange", function (slider) {
 		const activeSlide = $(slider.slides)[slider.activeIndex];
+		console.log('change');
 		// $(slider.slides).each((i, item) => {
 		// 	$(item).removeClass('is-inview')
 		// })
@@ -75,6 +76,7 @@ export const fsSliders = () => {
 	// 	console.log(slider.activeIndex);
 	// 	gsap.to(imagesSlider.slides[slider.activeIndex - 1], { opacity: 0, duration: 2 })
 	// })
+	return imagesSlider;
 };
 
 export function locationSliders() {
