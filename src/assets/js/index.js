@@ -2,20 +2,16 @@
 
 import $ from "jquery" 
 
-import { fsSliders, locationSliders } from "./swipers";
 import { OverlayScrollbars } from "overlayscrollbars";
 import Lenis from "lenis";
-import { formatValueInput, loadScript, maskedEmail, setMap, ShapeOverlays, validationFormFields } from "./methods";
+import { closePopup, formatValueInput,  hideFixedHeader,  maskedEmail,  openPopup,  scrollTopHide,  scrollTopShow,  ShapeOverlays, showFixedHeader, validationFormFields } from "./methods";
 import Typograf from "typograf";
 import Cookies from 'js-cookie';
 const DARK_THEME_TIME = 19;
 const LIGHT_THEME_TIME = 7;
 
-// import 'overlayscrollbars/overlayscrollbars.css';
-
 document.addEventListener("DOMContentLoaded", function () {
-	// fsSliders();
-
+	
 	const isDateChecked = localStorage.getItem("isDateChecked");
 
 	if (isDateChecked && document.querySelector("#filter_calendar")) {
@@ -108,7 +104,7 @@ document.addEventListener("DOMContentLoaded", function () {
 			});
 		}
 	});
-	locationSliders();
+	// locationSliders();
 	const elmOverlay = document.querySelector(".shape-overlays");
 	var overlay = new ShapeOverlays(elmOverlay);
 	let scrollPosition = localStorage.getItem("scrollPosY") ? localStorage.getItem("scrollPosY") : 0;
@@ -224,7 +220,6 @@ document.addEventListener("DOMContentLoaded", function () {
 							preview.classList.add("isView");
 						}
 					}
-					// //console.log(event.id + " - " + event.getBoundingClientRect().top + ", window height = " + (window.outerHeight - (window.outerHeight * minProgress)));
 				});
 			}
 		});
@@ -581,7 +576,6 @@ document.addEventListener("DOMContentLoaded", function () {
 	document.documentElement.style.setProperty("--vh", `${vh}px`);
 
 	document.querySelector(".mobile").style.height = window.innerHeight + "px";
-	// loadScript(window.location.protocol + "//api-maps.yandex.ru/2.1.79/?lang=ru_RU", setMap);
 
 	const dropdownMultiple = document.querySelector(".filter__form_dropdown");
 
@@ -754,10 +748,9 @@ document.addEventListener("DOMContentLoaded", function () {
 				const date = new Date();
 				let time = date.getHours();
 				let minute = date.getMinutes();
-				console.log(time);
 
 				if (time === DARK_THEME_TIME && minute === 0) {
-					console.log(minute);
+					
 					if (!$("body").hasClass("dark")) {
 						$("body").addClass("dark");
 						$(".head__theme input").prop("checked", true);
@@ -1123,51 +1116,6 @@ window.addEventListener("resize", () => {
 			}
 		}
 	}
-
-	// if (document.querySelector(".fs_index") && window.innerWidth < 992) {
-	// 	const slidesContainers = document.querySelectorAll(".fs__slide_content");
-	// 	const isHiddenSlides = [];
-	// 	const slidesHeights = [];
-	// 	slidesContainers.forEach((cont) => {
-	// 		const isHiddenSlide = cont.scrollWidth > cont.offsetWidth || cont.scrollHeight > cont.offsetHeight;
-	// 		slidesHeights.push(cont.scrollHeight - cont.offsetHeight);
-	// 		const isHideTags = $(cont).find(".fs__slide_left .tags") && $(cont).find(".fs__slide_left .tags").css("display") == "none";
-	// 		const isHideText = $(cont).find(".fs__slide_text p") && $(cont).find(".fs__slide_text p")?.css("display") == "none";
-	// 		if (isHiddenSlide) {
-	// 			if (!isHideTags && isHideText) {
-	// 				$(cont).find(".fs__slide_left .tags")?.hide();
-	// 			}
-	// 			if ($(cont).find(".fs__slide_text p").length && $(cont).find(".fs__slide_text p")?.css("display") != "none" && isHideTags) {
-	// 				$(cont).find(".fs__slide_text p").hide();
-	// 				$(cont).find(".fs__slide_text").addClass("mt-0");
-	// 			}
-
-	// 			if (!$(cont).find(".fs__slide_text p").length) {
-	// 				$(cont).find(".fs__slide_text").addClass("mt-0");
-	// 			}
-
-	// 			if (isHideText && isHideTags) {
-	// 				isHiddenSlides.push(true);
-	// 			}
-	// 			//console.log($(cont).find(".fs__slide_left .tags").css("display"), $(cont).find(".fs__slide_text p"));
-	// 		} else {
-	// 			if (!isHideTags && isHideText) {
-	// 				$(cont).find(".fs__slide_left .tags").show();
-	// 			}
-	// 			if ($(cont).find(".fs__slide_text p").length && $(cont).find(".fs__slide_text p")?.css("display") != "none" && isHideTags) {
-	// 				$(cont).find(".fs__slide_text p").show();
-	// 				$(cont).find(".fs__slide_text").removeClass("mt-0");
-	// 			}
-
-	// 			if (!isHideText && !isHideTags) {
-	// 				isHiddenSlides.push(false);
-	// 			}
-	// 		}
-	// 	});
-	// 	if (isHiddenSlides.some((el) => !!el)) {
-	// 		$(".fs_index").css({ "min-height": window.innerHeight + Math.max(...slidesHeights) + "px" });
-	// 	}
-	// }
 });
 
 function resizeScrollPath(width) {
@@ -1389,7 +1337,6 @@ $(window).on("load", function () {
 				if (isHideText && isHideTags) {
 					isHiddenSlides.push(true);
 				}
-				//console.log($(cont).find(".fs__slide_left .tags").css("display"), $(cont).find(".fs__slide_text p"));
 			} else {
 				if (!isHideTags && isHideText) {
 					$(cont).find(".fs__slide_left .tags").show();
@@ -1769,29 +1716,6 @@ $(document).on("click", ".events__nav_tool", function (e) {
 	});
 });
 
-// (function checkCookies() {
-// 	if (!Cookies.get("favourites_events")) return;
-
-// 	const favourites_events = Cookies.get("favourites_events");
-// 	const events = document.querySelectorAll(".events__item");
-
-// 	if (events.length && favourites_events) {
-// 		const favourites_eventsArray = favourites_events.split(",");
-
-// 		events.forEach((item) => {
-// 			const itemId = item.dataset.id;
-// 			const searchedIdx = favourites_eventsArray.indexOf(itemId);
-
-// 			if (searchedIdx !== -1) {
-// 				const favouritesBtn = item.querySelector(".btn_favourite");
-// 				favouritesBtn.classList.add("active");
-// 			}
-// 		});
-// 	}
-
-// 	console.log(favourites_events);
-// })();
-
 $(document).on("click", ".btn_favourite", function (e) {
 	const eventsitem = e.currentTarget.closest(".events__item");
 	const event = e.currentTarget.dataset.id;
@@ -1827,9 +1751,6 @@ $(document).on("click", ".btn_favourite", function (e) {
 			const eventsCookieString = eventsCookie.join(",");
 			Cookies.set("favourites_events", eventsCookieString);
 		}
-	
-	
-	console.log(Cookies.get("favourites_events"));
 });
 
 $(document).on("click", function (e) {
@@ -1929,74 +1850,10 @@ $(document).on("mousemove", ".mobile", function (e) {
 });
 
 // // popup
-const openPopup = (selector) => {
-	const popup = $(selector);
-	const popupContent = $(popup).find(".popup__content");
 
-	$("body").addClass("hidden");
-	const tl = gsap.timeline();
-
-	tl
-		.to($(selector), {
-			opacity: 1,
-			visibility: "visible",
-			duration: 0.1,
-			ease: "power1.out",
-		})
-		.to($(popupContent), {
-			translateX: 0,
-			duration: 0.1,
-			ease: "power1.out",
-		})
-		.then(() => {
-			scroll.stop();
-		});
-}
-const closePopup = () => {
-	$("body").removeClass("hidden");
-		const timeLine = gsap.timeline();
-		scroll.start();
-		timeLine
-			.to(".popup__content", {
-				translateX: "100%",
-				duration: 0.1,
-				ease: "power1.out",
-			})
-			.to(".popup", {
-				opacity: 0,
-				duration: 0.1,
-				ease: "power1.out",
-			})
-			.to(".popup", {
-				visibility: "hidden",
-				duration: 0,
-				ease: "power1.out",
-			});
-}
 $(document).on("click", ".popup_open", function () {
 	const target = $(this).data("target");
 	openPopup(target)
-	// const popup = $(target);
-	// const popupContent = $(popup).find(".popup__content");
-
-	// $("body").addClass("hidden");
-	// const timeLine = gsap.timeline();
-
-	// timeLine
-	// 	.to($(target), {
-	// 		opacity: 1,
-	// 		visibility: "visible",
-	// 		duration: 0.1,
-	// 		ease: "power1.out",
-	// 	})
-	// 	.to($(popupContent), {
-	// 		translateX: 0,
-	// 		duration: 0.1,
-	// 		ease: "power1.out",
-	// 	})
-	// 	.then(() => {
-	// 		scroll.stop();
-	// 	});
 });
 
 $(document).on("click", ".popup", function (e) {
@@ -2004,25 +1861,6 @@ $(document).on("click", ".popup", function (e) {
 		$(this).find(".form_success").removeClass("show");
 		$(this).find("form").trigger("reset");
 		closePopup()
-		// $("body").removeClass("hidden");
-		// const timeLine = gsap.timeline();
-		// scroll.start();
-		// timeLine
-		// 	.to(".popup__content", {
-		// 		translateX: "100%",
-		// 		duration: 0.1,
-		// 		ease: "power1.out",
-		// 	})
-		// 	.to(".popup", {
-		// 		opacity: 0,
-		// 		duration: 0.1,
-		// 		ease: "power1.out",
-		// 	})
-		// 	.to(".popup", {
-		// 		visibility: "hidden",
-		// 		duration: 0,
-		// 		ease: "power1.out",
-		// 	});
 	}
 });
 
@@ -2051,33 +1889,11 @@ $(document).on("click", ".popup", function (e) {
 		this._rules = this._rules || [];
 		this._rules.push(rule);
 	  };
-	 
-	//   Typograf.addRule({
-	// 	name: 'common/other/skipUnbalancedQuotesOnly',
-	// 	handler: function (text) {
-	// 		// Считаем количество открывающих и закрывающих кавычек-ёлочек
-	// 		const openCount = (text.match(/«/g) || []).length;
-	// 		const closeCount = (text.match(/»/g) || []).length;
-			
-	// 		// Если кавычек нет или они сбалансированы — оставляем текст как есть
-	// 		if (openCount === closeCount) {
-	// 			return text;
-	// 		}
-
-	// 		if ((text.match(/"«([^„“]+)"»/g) || []).length) {
-	// 			return text.replace(/"([^„“]+)"/g, '«$1»');
-	// 		}
 	
-	// 		// Если баланс нарушен — тоже оставляем без изменений
-	// 		// (или можно вывести предупреждение в консоль)
-	// 		console.warn('Обнаружены несбалансированные кавычки-ёлочки:', text);
-	// 		return text;
-	// 	}
-	// });
 	 Typograf.addRule({
 		name: 'common/other/skipUnbalancedQuotesOnly',
 		handler: function (text) {
-			console.log(333);
+			
 			// Считаем количество открывающих и закрывающих кавычек-ёлочек
 			const openCount = (text.match(/«/g) || []).length;
 			const closeCount = (text.match(/»/g) || []).length;
@@ -2088,7 +1904,7 @@ $(document).on("click", ".popup", function (e) {
 			}
 
 			if ((text.match(/"([^„“]+)"/g) || []).length) {
-				console.log(text);
+				
 				return text.replace(/"([^"„“]+)"/g, '«$1»');
 			}
 			text = text.replace(/"([^"„“]+)"/g, '«$1»');
@@ -2164,26 +1980,4 @@ $(document).on("submit", ".ajax_form.subscribe_form ", function (e) {
 
 
 
-function scrollTopHide(selector) {
-	const elem = document.querySelector(selector);
-	if (elem.classList.contains("show")) {
-		elem.classList.remove("show");
-	}
-}
-function scrollTopShow(selector) {
-	const elem = document.querySelector(selector);
-	if (!elem.classList.contains("show")) {
-		elem.classList.add("show");
-	}
-}
 
-function showFixedHeader() {
-	$(".head.fixed").css({ transition: "all 0.7s" });
-	$(".head.fixed").addClass("show");
-	$(".head.fixed").removeClass("hide");
-}
-function hideFixedHeader() {
-	$(".head.fixed").css({ transition: "all 0.4s" });
-	$(".head.fixed").removeClass("show");
-	$(".head.fixed").addClass("hide");
-}

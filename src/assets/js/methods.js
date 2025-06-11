@@ -1,9 +1,11 @@
-export async function loadScript(src, func = false) {
-	const script = document.createElement("script");
-	script.src = src;
-	document.body.append(script);
-	if (func) script.onload = () => func();
-}
+import $ from "jquery" 
+
+// export async function loadScript(src, func = false) {
+// 	const script = document.createElement("script");
+// 	script.src = src;
+// 	document.body.append(script);
+// 	if (func) script.onload = () => func();
+// }
 
 export function setMap() {
 	let mapContainers = document.querySelectorAll(".map");
@@ -534,221 +536,6 @@ export class ShapeOverlays {
 		}
 	}
 }
-
-class _ShapeOverlays {
-	themeShape = document.querySelector(".shape-overlays-theme");
-	themePath = this.themeShape.querySelectorAll("path");
-
-	constructor(elm) {
-		this.elm = elm;
-		this.path = elm.querySelectorAll("path");
-		this.numPoints = 4;
-		this.duration = 1200;
-		this.delayPointsArray = [];
-		this.delayPointsMax = 300;
-		this.delayPerPath = 100;
-		this.timeStart = Date.now();
-		this.isOpened = false;
-		this.isThemeShapeOpened = false;
-		this.isAnimating = false;
-		this.isThemeShapeAnimating = false;
-		for (var i = 0; i < this.numPoints; i++) {
-			this.delayPointsArray[i] = Math.random() * this.delayPointsMax;
-		}
-	}
-
-	toggle() {
-
-		if (this.isAnimating || this.isThemeShapeAnimating) return;
-
-		this.isAnimating = true;
-		this.timeStart = Date.now();
-		// for (var i = 0; i < this.numPoints; i++) {
-		// 	this.delayPointsArray[i] = Math.random() * this.delayPointsMax;
-		// }
-
-		if (this.isOpened === false) {
-			if (this.isThemeShapeOpened === false && localStorage.colorTheme === "dark") {
-				this.open(true);
-			} else {
-				this.open();
-			}
-		} else {
-			if (this.isThemeShapeOpened !== false && localStorage.colorTheme === "dark") {
-				this.close(true);
-			} else {
-				this.close();
-			}
-		}
-		// if (localStorage.colorTheme === "dark") {
-		// 	this.themeToggle();
-		// }
-	}
-	themeToggle() {
-
-		if (this.isAnimating || this.isThemeShapeAnimating) return;
-		this.isThemeShapeAnimating = true;
-		this.timeStart = Date.now();
-		// for (var i = 0; i < this.numPoints; i++) {
-		// 	this.delayPointsArray[i] = Math.random() * this.delayPointsMax;
-		// }
-		if (this.isThemeShapeOpened === false) {
-			this.openTheme();
-		} else {
-			this.closeTheme();
-		}
-	}
-	open(withTheme = false) {
-		this.isOpened = true;
-		this.elm.classList.add("is-opened");
-
-		if (withTheme) {
-			this.isThemeShapeOpened = true;
-			this.themeShape.classList.add("is-opened");
-		}
-		// this.timeStart = Date.now();
-		this.renderLoop(withTheme);
-	}
-	close(withTheme = false) {
-		this.isOpened = false;
-		this.elm.classList.remove("is-opened");
-
-		if (withTheme) {
-			this.isThemeShapeOpened = false;
-			this.themeShape.classList.remove("is-opened");
-		}
-		// this.timeStart = Date.now();
-		this.renderLoop(withTheme);
-	}
-	updatePath(time, withTheme = false) {
-		const points = [];
-		const themePoints = [];
-		const width = Math.max(window.innerWidth, window.innerHeight);
-		for (var i = 0; i < this.numPoints; i++) {
-			const myEase = Math.min(Math.max(time - this.delayPointsArray[i], 0) / this.duration, 1);
-			points[i] = (1 - ease.cubicIn(myEase)) * 100;
-			if (withTheme) {
-				themePoints[i] = (1 - ease.cubicIn(myEase)) * 1;
-			}
-		}
-
-		let str = "";
-		let themeStr = "";
-		str += this.isOpened ? `M 0 0 V ${points[0]}` : `M 0 ${points[0]}`;
-		themeStr += this.isOpened ? `M 0 0 V ${themePoints[0]}` : `M 0 ${themePoints[0]}`;
-		for (var i = 0; i < this.numPoints - 1; i++) {
-			const p = ((i + 1) / (this.numPoints - 1)) * 100;
-			const cp = p - ((1 / (this.numPoints - 1)) * 100) / 2;
-			str += `C ${cp} ${points[i]} ${cp} ${points[i + 1]} ${p} ${points[i + 1]} `;
-			if (withTheme) {
-				const p = ((i + 1) / (this.numPoints - 1)) * 1;
-				const cp = p - ((1 / (this.numPoints - 1)) * 1) / 2;
-				themeStr += `C ${cp} ${themePoints[i]} ${cp} ${themePoints[i + 1]} ${p} ${themePoints[i + 1]} `;
-			}
-		}
-
-		str += this.isOpened ? `V 100 H 0` : `V 0 H 0`;
-		themeStr += this.isOpened ? `V ${1} H 0` : `V 0 H 0`;
-
-		return { str, themeStr };
-	}
-	render(withTheme = false) {
-		if (this.isOpened) {
-			for (var i = 0; i < this.path.length; i++) {
-				const time = Date.now();
-				const attrToTime = this.setPathAttr(time, i);
-				const { str, themeStr } = this.updatePath(attrToTime, withTheme);
-
-				this.path[i].setAttribute("d", str);
-
-				if (withTheme) {
-					this.themePath[i].setAttribute("d", themeStr);
-				}
-			}
-		} else {
-			for (var i = 0; i < this.path.length; i++) {
-				const time = Date.now();
-				const attrToTime = time - (this.timeStart + this.delayPerPath * (this.path.length - i - 1));
-				const { str, themeStr } = this.updatePath(attrToTime, withTheme);
-				this.path[i].setAttribute("d", str);
-				if (withTheme) {
-					this.themePath[i].setAttribute("d", themeStr);
-				}
-			}
-		}
-	}
-	renderLoop(withTheme = false) {
-		this.render(withTheme);
-		if (Date.now() - this.timeStart < this.duration + this.delayPerPath * (this.path.length - 1) + this.delayPointsMax) {
-			requestAnimationFrame(() => {
-				this.renderLoop(withTheme);
-			});
-		} else {
-			setTimeout(() => {
-				this.isAnimating = false;
-			}, 1000);
-		}
-	}
-	openTheme() {
-		this.isThemeShapeOpened = true;
-		this.themeShape.classList.add("is-opened");
-
-		this.renderThemeLoop();
-	}
-	closeTheme() {
-		this.isThemeShapeOpened = false;
-		this.themeShape.classList.remove("is-opened");
-
-		this.renderThemeLoop();
-	}
-	updateThemePath(time) {
-		const points = [];
-		for (var i = 0; i < this.numPoints; i++) {
-			points[i] = (1 - ease.cubicInOut(Math.min(Math.max(time - this.delayPointsArray[i], 0) / this.duration, 1))) * 1;
-		}
-
-		let str = "";
-		str += this.isThemeShapeOpened ? `M 0 0 V ${points[0]}` : `M 0 ${points[0]}`;
-		for (var i = 0; i < this.numPoints - 1; i++) {
-			const p = ((i + 1) / (this.numPoints - 1)) * 1;
-			const cp = p - ((1 / (this.numPoints - 1)) * 1) / 2;
-			str += `C ${cp} ${points[i]} ${cp} ${points[i + 1]} ${p} ${points[i + 1]} `;
-		}
-		str += this.isThemeShapeOpened ? `V ${1} H 0` : `V 0 H 0`;
-		return str;
-	}
-	renderTheme() {
-		if (this.isThemeShapeOpened) {
-			for (var i = 0; i < this.themePath.length; i++) {
-				const attrToTime = this.setPathAttr(Date.now(), i);
-				this.themePath[i].setAttribute("d", this.updateThemePath(Date.now() + 70 - (this.timeStart + this.delayPerPath * i)));
-			}
-		} else {
-			for (var i = 0; i < this.themePath.length; i++) {
-				this.themePath[i].setAttribute(
-					"d",
-					this.updateThemePath(Date.now() + 40 - (this.timeStart + this.delayPerPath * (this.themePath.length - i - 1)))
-				);
-			}
-		}
-	}
-	setPathAttr(time, i) {
-		return time - (this.timeStart + this.delayPerPath * i);
-	}
-	renderThemeLoop() {
-		this.renderTheme();
-		if (Date.now() - this.timeStart < this.duration + this.delayPerPath * (this.path.length - 1) + this.delayPointsMax) {
-			requestAnimationFrame(() => {
-				this.renderThemeLoop();
-			});
-		} else {
-			setTimeout(() => {
-				this.isThemeShapeAnimating = false;
-			}, 500);
-		}
-	}
-}
-
 export function phoneMask(e) {
 	let testReg = /^((8|\+7)[\- ])?(\(\d{3}\)[\- ])\d{3}[\- ]\d{2}[\- ]\d{2}$/;
 
@@ -789,13 +576,11 @@ export function phoneMask(e) {
 
 	this.value = formatStr;
 }
-
 export function formatValueInput(elem, regexp) {
 	let str = elem.value.replace(regexp, "");
 
 	return str;
 }
-
 export function testValue(elem, reg, string) {
 	if ($(elem).attr("data-reg") === "true") {
 		let str = $(elem).val();
@@ -817,7 +602,6 @@ export function testValue(elem, reg, string) {
 		}
 	}
 }
-
 export function maskedEmail(elem) {
 	let regexp = /[^\w-@\.]/gi;
 	let str = elem.value.replace(regexp, "");
@@ -829,15 +613,82 @@ export function maskedEmail(elem) {
 	}
 	return str;
 }
-
 export function validationFormFields(formEl) {
 	const form = $(formEl);
 	const inputs = $(form).find("input[data-test]");
 	const testInputs = $(form).find("input[data-test=true]");
 	// console.log(inputs, testInputs.length);
-	// if (inputs.length === testInputs.length) {
-	// 	$(form).find("input[type=submit]").attr("disabled", false);
-	// } else {
-	// 	$(form).find("input[type=submit]").attr("disabled", true);
-	// }
+	if (inputs.length === testInputs.length) {
+		$(form).find("input[type=submit]").prop("disabled", false);
+	} else {
+		$(form).find("input[type=submit]").prop("disabled", true);
+	}
 }
+export function scrollTopHide(selector) {
+	const elem = document.querySelector(selector);
+	if (elem.classList.contains("show")) {
+		elem.classList.remove("show");
+	}
+}
+export function scrollTopShow(selector) {
+	const elem = document.querySelector(selector);
+	if (!elem.classList.contains("show")) {
+		elem.classList.add("show");
+	}
+}
+
+export function showFixedHeader() {
+	$(".head.fixed").css({ transition: "all 0.7s" });
+	$(".head.fixed").addClass("show");
+	$(".head.fixed").removeClass("hide");
+}
+export function hideFixedHeader() {
+	$(".head.fixed").css({ transition: "all 0.4s" });
+	$(".head.fixed").removeClass("show");
+	$(".head.fixed").addClass("hide");
+}
+export const openPopup = (selector) => {
+	const popup = $(selector);
+	const popupContent = $(popup).find(".popup__content");
+
+	$("body").addClass("hidden");
+	const tl = gsap.timeline();
+
+	tl
+		.to($(selector), {
+			opacity: 1,
+			visibility: "visible",
+			duration: 0.1,
+			ease: "power1.out",
+		})
+		.to($(popupContent), {
+			translateX: 0,
+			duration: 0.1,
+			ease: "power1.out",
+		})
+		.then(() => {
+			scroll.stop();
+		});
+}
+export const closePopup = () => {
+	$("body").removeClass("hidden");
+		const timeLine = gsap.timeline();
+		scroll.start();
+		timeLine
+			.to(".popup__content", {
+				translateX: "100%",
+				duration: 0.1,
+				ease: "power1.out",
+			})
+			.to(".popup", {
+				opacity: 0,
+				duration: 0.1,
+				ease: "power1.out",
+			})
+			.to(".popup", {
+				visibility: "hidden",
+				duration: 0,
+				ease: "power1.out",
+			});
+}
+
