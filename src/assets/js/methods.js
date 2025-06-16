@@ -1,4 +1,4 @@
-import $ from "jquery" 
+import $ from "jquery";
 
 // export async function loadScript(src, func = false) {
 // 	const script = document.createElement("script");
@@ -23,7 +23,6 @@ export function setMap() {
 					mapCoord = JSON.parse(data.coord),
 					mapZoom = data.zoom,
 					mapTitle = data.title,
-					
 					// mapCoord2 = JSON.parse(data.coord2),
 					// mapTitle2 = data.title2,
 					mapCenter = ["55.75157862329463", "37.62489788352945"],
@@ -34,11 +33,11 @@ export function setMap() {
 					ButtonLayout = null,
 					button = null,
 					geolocation = ymaps.geolocation;
-					(map = new ymaps.Map(id, {
-						center: mapCoord,
-						zoom: mapZoom,
-						controls: [],
-					})),
+				(map = new ymaps.Map(id, {
+					center: mapCoord,
+					zoom: mapZoom,
+					controls: [],
+				})),
 					(pin = new ymaps.Placemark(
 						mapCoord,
 						{
@@ -337,7 +336,7 @@ export class ShapeOverlays {
 
 	toggle(duration = 1200) {
 		if (this.isAnimating || this.isThemeShapeAnimating) return;
-		this.duration = duration
+		this.duration = duration;
 		this.isAnimating = true;
 		this.timeStart = Date.now();
 		// for (var i = 0; i < this.numPoints; i++) {
@@ -362,10 +361,9 @@ export class ShapeOverlays {
 		// }
 	}
 	themeToggle(duration = 1200) {
-
-			this.duration = duration
-			if (this.isAnimating || this.isThemeShapeAnimating) return;
-			this.isThemeShapeAnimating = true;
+		this.duration = duration;
+		if (this.isAnimating || this.isThemeShapeAnimating) return;
+		this.isThemeShapeAnimating = true;
 
 		this.timeStart = Date.now();
 		// for (var i = 0; i < this.numPoints; i++) {
@@ -618,11 +616,11 @@ export function validationFormFields(formEl) {
 	const inputs = $(form).find("input[data-test]");
 	const testInputs = $(form).find("input[data-test=true]");
 	// console.log(inputs, testInputs.length);
-	if (inputs.length === testInputs.length) {
-		$(form).find("input[type=submit]").prop("disabled", false);
-	} else {
-		$(form).find("input[type=submit]").prop("disabled", true);
-	}
+	// if (inputs.length === testInputs.length) {
+	// 	$(form).find("input[type=submit]").prop("disabled", false);
+	// } else {
+	// 	$(form).find("input[type=submit]").prop("disabled", true);
+	// }
 }
 export function scrollTopHide(selector) {
 	const elem = document.querySelector(selector);
@@ -654,13 +652,12 @@ export const openPopup = (selector) => {
 	$("body").addClass("hidden");
 	const tl = gsap.timeline();
 
-	tl
-		.to($(selector), {
-			opacity: 1,
-			visibility: "visible",
-			duration: 0.1,
-			ease: "power1.out",
-		})
+	tl.to($(selector), {
+		opacity: 1,
+		visibility: "visible",
+		duration: 0.1,
+		ease: "power1.out",
+	})
 		.to($(popupContent), {
 			translateX: 0,
 			duration: 0.1,
@@ -669,26 +666,25 @@ export const openPopup = (selector) => {
 		.then(() => {
 			scroll.stop();
 		});
-}
+};
 export const closePopup = () => {
 	$("body").removeClass("hidden");
-		const timeLine = gsap.timeline();
-		scroll.start();
-		timeLine
-			.to(".popup__content", {
-				translateX: "100%",
-				duration: 0.1,
-				ease: "power1.out",
-			})
-			.to(".popup", {
-				opacity: 0,
-				duration: 0.1,
-				ease: "power1.out",
-			})
-			.to(".popup", {
-				visibility: "hidden",
-				duration: 0,
-				ease: "power1.out",
-			});
-}
-
+	const timeLine = gsap.timeline();
+	scroll.start();
+	timeLine
+		.to(".popup__content", {
+			translateX: "100%",
+			duration: 0.1,
+			ease: "power1.out",
+		})
+		.to(".popup", {
+			opacity: 0,
+			duration: 0.1,
+			ease: "power1.out",
+		})
+		.to(".popup", {
+			visibility: "hidden",
+			duration: 0,
+			ease: "power1.out",
+		});
+};
