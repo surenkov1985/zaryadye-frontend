@@ -705,11 +705,17 @@
   color: var(--clr-black);
 }
 
-.dark .head_light .btn_menu .line {
+.dark .head.fixed.head_light .nav-link {
+  color: var(--clr-black);
+}
+
+.dark .head_light .btn_menu .line,
+.dark .head.fixed.head_light .btn_menu .line {
   background-color: var(--clr-black);
 }
 
-.dark .head_light .btn_menu {
+.dark .head_light .btn_menu,
+.dark .head.fixed.head_light .btn_menu {
   background: var(--clr-black-10);
 }
 

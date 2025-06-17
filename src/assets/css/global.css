@@ -39,7 +39,8 @@ svg .btn * {
   transition: all 0.2s;
 }
 
-svg .btn:hover rect {
+svg .btn:hover rect,
+svg .btn:focus rect {
   fill: var(--clr-black) !important;
 }
 
@@ -48,7 +49,8 @@ svg .btn path {
   transition-duration: 0.2s;
 }
 
-.btn:hover {
+.btn:hover,
+.btn:focus {
   background: var(--clr-black);
   color: var(--clr-white);
 }
@@ -238,7 +240,7 @@ svg .btn path {
   position: relative;
   color: var(--clr-black);
 
-  
+
 }
 
 .btn_favourite-lg {

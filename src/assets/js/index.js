@@ -1,17 +1,25 @@
-
-
-import $ from "jquery" 
+import $ from "jquery";
 
 import { OverlayScrollbars } from "overlayscrollbars";
 import Lenis from "lenis";
-import { closePopup, formatValueInput,  hideFixedHeader,  maskedEmail,  openPopup,  scrollTopHide,  scrollTopShow,  ShapeOverlays, showFixedHeader, validationFormFields } from "./methods";
+import {
+	closePopup,
+	formatValueInput,
+	hideFixedHeader,
+	maskedEmail,
+	openPopup,
+	scrollTopHide,
+	scrollTopShow,
+	ShapeOverlays,
+	showFixedHeader,
+	validationFormFields,
+} from "./methods";
 import Typograf from "typograf";
-import Cookies from 'js-cookie';
+import Cookies from "js-cookie";
 const DARK_THEME_TIME = 19;
 const LIGHT_THEME_TIME = 7;
 
 document.addEventListener("DOMContentLoaded", function () {
-	
 	const isDateChecked = localStorage.getItem("isDateChecked");
 
 	if (isDateChecked && document.querySelector("#filter_calendar")) {
@@ -52,22 +60,18 @@ document.addEventListener("DOMContentLoaded", function () {
 		}
 	});
 	if (document.querySelector(".performer .about__desc_text")) {
-		const aboutText = document.querySelector(".performer .about__desc_text")
-		const childs = aboutText.children
-		const count = 3
-		let height = 0
+		const aboutText = document.querySelector(".performer .about__desc_text");
+		const childs = aboutText.children;
+		const count = 3;
+		let height = 0;
 		Array.from(childs).forEach((item, index) => {
 			if (index < count - 1) {
-				height += $(item).outerHeight( true );
-			} 
+				height += $(item).outerHeight(true);
+			}
 			if (index === count - 1) {
-				height += $(item).outerHeight(  );
-			} 
-		})
-		// for (let i = 0; i < count; i++) {
-		// 	height += $(paragraphs[i]).outerHeight( true );
-		// }
-		const lineHeight = parseFloat($(".performer .about__desc_text p").css("line-height"));
+				height += $(item).outerHeight();
+			}
+		});
 		$(".performer .about__desc_text").css({ "max-height": height + "px", height: "auto" });
 	}
 	$(document).on("click", ".performer .about__more_link", function (e) {
@@ -75,23 +79,17 @@ document.addEventListener("DOMContentLoaded", function () {
 		const lineHeight = parseFloat($(".performer .about__desc_text p").css("line-height"));
 		const leaders = this.closest(".performer");
 		const clampedText = leaders.querySelector(".about__desc_text");
-		const childs = clampedText.children
-		const count = 3
-		let height = 0
+		const childs = clampedText.children;
+		const count = 3;
+		let height = 0;
 		Array.from(childs).forEach((item, index) => {
 			if (index < count - 1) {
-				height += $(item).outerHeight( true );
-			} 
+				height += $(item).outerHeight(true);
+			}
 			if (index === count - 1) {
-				height += $(item).outerHeight(  );
-			} 
-		})
-		// const paragraphs = clampedText.querySelectorAll('p')
-		// const count = 3
-		// let height = 0
-		// for (let i = 0; i < count; i++) {
-		// 	height += $(paragraphs[i]).outerHeight( true );
-		// }
+				height += $(item).outerHeight();
+			}
+		});
 		const tl = gsap.timeline();
 
 		if (clampedText.offsetHeight < clampedText.scrollHeight) {
@@ -104,7 +102,23 @@ document.addEventListener("DOMContentLoaded", function () {
 			});
 		}
 	});
-	// locationSliders();
+	$(window).on("resize", function () {
+		if (document.querySelector(".performer .about__desc_text")) {
+			const aboutText = document.querySelector(".performer .about__desc_text");
+			const childs = aboutText.children;
+			const count = 3;
+			let height = 0;
+			Array.from(childs).forEach((item, index) => {
+				if (index < count - 1) {
+					height += $(item).outerHeight(true);
+				}
+				if (index === count - 1) {
+					height += $(item).outerHeight();
+				}
+			});
+			$(".performer .about__desc_text").css({ "max-height": height + "px", height: "auto" });
+		}
+	});
 	const elmOverlay = document.querySelector(".shape-overlays");
 	var overlay = new ShapeOverlays(elmOverlay);
 	let scrollPosition = localStorage.getItem("scrollPosY") ? localStorage.getItem("scrollPosY") : 0;
@@ -326,6 +340,7 @@ document.addEventListener("DOMContentLoaded", function () {
 				.then(() => {
 					$(".mobile").css({ "overflow-y": "auto" });
 					$("body").addClass("hidden");
+					$(".mobile").find(".btn_menu")[0].focus();
 				});
 			$(".mobile .animate").each((_, item) => {
 				$(item).css({ opacity: 0 });
@@ -391,6 +406,7 @@ document.addEventListener("DOMContentLoaded", function () {
 				$(".mobile .animate").each((_, item) => {
 					$(item).removeClass("animate__animated animate__fadeInUp");
 				});
+				$(".head.fixed").find(".btn_menu")[0].focus();
 			});
 	}
 	$(document).on("click", ".specialButton", () => {
@@ -750,7 +766,6 @@ document.addEventListener("DOMContentLoaded", function () {
 				let minute = date.getMinutes();
 
 				if (time === DARK_THEME_TIME && minute === 0) {
-					
 					if (!$("body").hasClass("dark")) {
 						$("body").addClass("dark");
 						$(".head__theme input").prop("checked", true);
@@ -1719,38 +1734,38 @@ $(document).on("click", ".events__nav_tool", function (e) {
 $(document).on("click", ".btn_favourite", function (e) {
 	const eventsitem = e.currentTarget.closest(".events__item");
 	const event = e.currentTarget.dataset.id;
-	let eventId = null
+	let eventId = null;
 	if (eventsitem) {
 		eventId = eventsitem.dataset.id;
 	} else if (event) {
 		eventId = event;
 	}
-		if (Cookies.get("favourites_events")) {
-			const eventsCookie = Cookies.get("favourites_events")?.split(",");
-			if (!eventsCookie.length) {
-				eventsCookie.push(eventId);
-
-				e.currentTarget.classList.add("active");
-			} else {
-				const searhedIndex = eventsCookie.indexOf(eventId);
-				if (searhedIndex !== -1) {
-					eventsCookie.splice(searhedIndex, 1);
-
-					e.currentTarget.classList.remove("active");
-				} else {
-					eventsCookie.push(eventId);
-					e.currentTarget.classList.add("active");
-				}
-			}
-			const eventsCookieString = eventsCookie.join(",");
-			Cookies.set("favourites_events", eventsCookieString);
-		} else {
-			const eventsCookie = [];
+	if (Cookies.get("favourites_events")) {
+		const eventsCookie = Cookies.get("favourites_events")?.split(",");
+		if (!eventsCookie.length) {
 			eventsCookie.push(eventId);
+
 			e.currentTarget.classList.add("active");
-			const eventsCookieString = eventsCookie.join(",");
-			Cookies.set("favourites_events", eventsCookieString);
+		} else {
+			const searhedIndex = eventsCookie.indexOf(eventId);
+			if (searhedIndex !== -1) {
+				eventsCookie.splice(searhedIndex, 1);
+
+				e.currentTarget.classList.remove("active");
+			} else {
+				eventsCookie.push(eventId);
+				e.currentTarget.classList.add("active");
+			}
 		}
+		const eventsCookieString = eventsCookie.join(",");
+		Cookies.set("favourites_events", eventsCookieString);
+	} else {
+		const eventsCookie = [];
+		eventsCookie.push(eventId);
+		e.currentTarget.classList.add("active");
+		const eventsCookieString = eventsCookie.join(",");
+		Cookies.set("favourites_events", eventsCookieString);
+	}
 });
 
 $(document).on("click", function (e) {
@@ -1853,17 +1868,26 @@ $(document).on("mousemove", ".mobile", function (e) {
 
 $(document).on("click", ".popup_open", function () {
 	const target = $(this).data("target");
-	openPopup(target)
+	openPopup(target);
 });
 
 $(document).on("click", ".popup", function (e) {
 	if (!e.target.closest(".popup__content") || e.target.closest(".popup_close")) {
 		$(this).find(".form_success").removeClass("show");
 		$(this).find("form").trigger("reset");
-		closePopup()
+		closePopup();
 	}
 });
 
+$(document).on("keydown", function (e) {
+	if (e.key === "Escape") {
+		$(".popup").each((_, item) => {
+			if ($(item).hasClass("is-open")) {
+				closePopup();
+			}
+		});
+	}
+});
 (function () {
 	Typograf.addRule({
 		name: "common/other/typographicSmallerNames",
@@ -1878,58 +1902,55 @@ $(document).on("click", ".popup", function (e) {
 		},
 	});
 	Typograf.addRule({
-		name: 'ru/dash/withNbsp',
-		index: '-1', // Важно выполнять после других правил тире
+		name: "ru/dash/withNbsp",
+		index: "-1", // Важно выполнять после других правил тире
 		handler(text) {
 			// Заменяем " - " на "&nbsp;—&nbsp;"
-			return text.replace(/(\s)-(\s)/g, '$1&nbsp;&mdash; $2');
-		}
+			return text.replace(/(\s)-(\s)/g, "$1&nbsp;&mdash; $2");
+		},
 	});
-	Typograf.prototype.addCustomRule = function(rule) {
+	Typograf.prototype.addCustomRule = function (rule) {
 		this._rules = this._rules || [];
 		this._rules.push(rule);
-	  };
-	
-	 Typograf.addRule({
-		name: 'common/other/skipUnbalancedQuotesOnly',
+	};
+
+	Typograf.addRule({
+		name: "common/other/skipUnbalancedQuotesOnly",
 		handler: function (text) {
-			
 			// Считаем количество открывающих и закрывающих кавычек-ёлочек
 			const openCount = (text.match(/«/g) || []).length;
 			const closeCount = (text.match(/»/g) || []).length;
-			
+
 			// // Если кавычек нет или они сбалансированы — оставляем текст как есть
 			if (openCount === closeCount) {
 				return text;
 			}
 
 			if ((text.match(/"([^„“]+)"/g) || []).length) {
-				
-				return text.replace(/"([^"„“]+)"/g, '«$1»');
+				return text.replace(/"([^"„“]+)"/g, "«$1»");
 			}
-			text = text.replace(/"([^"„“]+)"/g, '«$1»');
-        
+			text = text.replace(/"([^"„“]+)"/g, "«$1»");
+
 			// Шаг 2: Возвращаем немецкие кавычки, если они были внутри заменённых
 			// text = text.replace(/«([^»]*)„([^»]*)“([^»]*)»/g, '«$1„$2“$3»');
 			// Если баланс нарушен — тоже оставляем без изменений
 			// (или можно вывести предупреждение в консоль)
-			console.warn('Обнаружены несбалансированные кавычки-ёлочки:', text);
+			console.warn("Обнаружены несбалансированные кавычки-ёлочки:", text);
 			return text;
-		}  
+		},
 	});
-	const tp = new Typograf({ locale: ['ru', 'en-US'] });
-	tp.setSetting('common/punctuation/quote', 'ru', {
-		left: '«', 
-		right: '»',
-		removeDuplicateQuotes: true
-	  });
-	  tp.disableRule('common/punctuation/quote');
+	const tp = new Typograf({ locale: ["ru", "en-US"] });
+	tp.setSetting("common/punctuation/quote", "ru", {
+		left: "«",
+		right: "»",
+		removeDuplicateQuotes: true,
+	});
+	tp.disableRule("common/punctuation/quote");
 	var elems = document.querySelectorAll("h1,h2,h3,h4,a,h6,p,li,b");
 	for (let elem of elems) {
 		elem.innerHTML = tp.execute(elem.innerHTML);
 	}
 })();
-
 
 $(document).on("mouseover", ".events__item:first-child", function () {
 	const row = $(this).closest(".events__content_row");
@@ -1954,7 +1975,6 @@ $(document).on("submit", ".ajax_form.subscribe_form ", function (e) {
 		data: formData,
 		dataType: "json",
 		success: function (response) {
-			
 			let message;
 			if (response.err_code != 0) {
 				message = response.text;
@@ -1977,7 +1997,3 @@ $(document).on("submit", ".ajax_form.subscribe_form ", function (e) {
 		},
 	});
 });
-
-
-
-

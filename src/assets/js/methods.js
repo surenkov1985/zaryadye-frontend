@@ -650,6 +650,7 @@ export const openPopup = (selector) => {
 	const popupContent = $(popup).find(".popup__content");
 
 	$("body").addClass("hidden");
+	$(popup).addClass("is-open");
 	const tl = gsap.timeline();
 
 	tl.to($(selector), {
@@ -665,11 +666,18 @@ export const openPopup = (selector) => {
 		})
 		.then(() => {
 			scroll.stop();
+
+			if ($(popup).find("form")) {
+				const popupForm = $(popup).find("form");
+				const firstInput = $(popupForm).find("input").not("[type=hidden]")[0];
+				$(firstInput).focus();
+			}
 		});
 };
 export const closePopup = () => {
 	$("body").removeClass("hidden");
 	const timeLine = gsap.timeline();
+	$(".popup").remove("is-open");
 	scroll.start();
 	timeLine
 		.to(".popup__content", {
