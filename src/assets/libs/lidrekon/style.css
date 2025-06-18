@@ -226,19 +226,35 @@ marquee {
 	font-family: Times, sans !important
 }
 
+.special-color-1 body * {
+	color: #000 !important;
+}
 .special-color-1 #special {
 	background: #FFF !important;
 }
-
+.special-color-1 .breadcrumbs__item .back_link:hover .btn {
+	color: #fff !important;
+}
+.special-color-1 .breadcrumbs__item .back_link:hover .btn * {
+	color: #fff !important;
+}
+.special-color-1 .breadcrumbs__item .back_link .btn:hover  {
+	color: #fff !important;
+}
+.special-color-1 .breadcrumbs__item .back_link .btn:hover *  {
+	color: #fff !important;
+}
+.special-color-1 .head.fixed .btn_menu:hover .line {
+    background-color: var(--clr-white) !important;
+}
+.special-color-1 .head.fixed .btn_menu .line {
+    background-color: #000 !important;
+}
 .special-color-1 body,
 #special .special-color button[value='1'] {
 	color: #000 !important;
 	background: #FFF !important;
 	border-color: #000 !important
-}
-
-.special-color-1 body * {
-	color: #000 !important;
 }
 
 .special-color-1 .events__nav_item.active {
@@ -267,17 +283,39 @@ marquee {
 	color: #fff !important;
 }
 
+.special-color-2 body * {
+	color: #FFF !important;
+}
 .special-color-2 body,
 #special .special-color button[value='2'] {
 	color: #FFF !important;
 	background: #000 !important;
 	border-color: #FFF !important;
 }
-
+.special-color-2 .head.fixed .btn_menu:hover .line {
+    background-color: #000 !important;
+}
+.special-color-2 .head.fixed .btn_menu .line {
+    background-color: #fff !important;
+}
+.special-color-2 .breadcrumbs__item .back_link .btn:hover {
+	color: #000 !important;
+}
+.special-color-2 .breadcrumbs__item .back_link .btn:hover * {
+	color: #000 !important;
+}
+.special-color-2 .breadcrumbs__item .back_link:hover .btn {
+	color: #000 !important;
+}
+.special-color-2 .breadcrumbs__item .back_link:hover .btn * {
+	color: #000 !important;
+}
 .special-color-2 .fs__slide:not(.imidge) {
 	background: #000 !important
 }
-
+.special-color-2 .head.fixed .btn_menu {
+    background: var(--clr-white-10);
+}
 .special-color-2 .events__nav_item.active {
 	color: #000 !important;
 	background-color: #fff !important;
@@ -287,9 +325,6 @@ marquee {
 	background: #000 !important;
 }
 
-.special-color-2 body * {
-	color: #FFF !important;
-}
 
 .special-color-2 .btn:hover {
 	color: #000 !important;
@@ -324,13 +359,32 @@ marquee {
 	background: #000 !important;
 }
 
+.special-color-3 body * {
+	color: #063462 !important;
+}
 .special-color-3 body,
 #special .special-color button[value='3'] {
 	color: #063462 !important;
 	background: #9dd1ff !important;
 	border-color: #063462 !important
 }
-
+.special-color-3 .head.fixed .btn_menu:hover .line {
+    background-color: #fff !important;
+}
+.special-color-3 .head.fixed .btn_menu .line {
+    background-color: #063462 !important;
+}
+.special-color-3 .breadcrumbs__item .back_link:hover .btn {
+	color: #fff !important;
+}
+.special-color-3 .breadcrumbs__item .back_link:hover .btn * {
+	color: #fff !important;
+}
+.special-color-3 .breadcrumbs__item .back_link .btn:hover {
+	color: #fff !important;
+}.special-color-3 .breadcrumbs__item .back_link .btn:hover * {
+	color: #fff !important;
+}
 .special-color-3 .events__nav_item.active {
 	color: #9dd1ff !important;
 	background-color: #063462 !important;
@@ -366,9 +420,6 @@ marquee {
 	background: #9dd1ff !important;
 }
 
-.special-color-3 body * {
-	color: #063462 !important;
-}
 
 .special-color-3 body *:focus {
 	border: 1px solid #063462 !important;
