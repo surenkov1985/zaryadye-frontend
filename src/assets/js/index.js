@@ -3,7 +3,6 @@ import { OverlayScrollbars } from "overlayscrollbars";
 import Lenis from "lenis";
 import {
 	closePopup,
-	formatValueInput,
 	hideFixedHeader,
 	maskedEmail,
 	openPopup,
@@ -11,6 +10,7 @@ import {
 	scrollTopShow,
 	ShapeOverlays,
 	showFixedHeader,
+	utils,
 	validationFormFields,
 } from "./methods";
 import Typograf from "typograf";
@@ -260,70 +260,6 @@ const intersectionOptions = {
 		}
 	}
 
-	// const h1 = document.querySelectorAll(".h1");
-	// const h2 = document.querySelectorAll(".h2");
-	// const h3 = document.querySelectorAll(".h3");
-
-	// for (let h of h1) {
-	// 	const rows = h.innerHTML.trim().split("<br>");
-	// 	const text = h.textContent.trim().split(" ");
-
-	// 	h.textContent = "";
-	// 	for (let j = 0; j < rows.length; j++) {
-	// 		const text = rows[j].split(" ");
-
-	// 		for (let i = 0; i < text.length; i++) {
-	// 			const container = $('<span class="title-anim-container"></span>');
-	// 			const word =
-	// 				i === text.length - 1
-	// 					? $('<span class="title-anim-content">' + text[i] + "</span>")
-	// 					: $('<span class="title-anim-content">' + text[i] + "&nbsp;</span>");
-
-	// 			$(word).appendTo(container);
-	// 			$(container).appendTo(h);
-	// 		}
-	// 		$("<br>").appendTo(h);
-	// 	}
-	// }
-	// for (let h of h2) {
-	// 	const rows = h.innerHTML.trim().split("<br>");
-	// 	const text = h.textContent.trim().split(" ");
-
-	// 	h.textContent = "";
-	// 	for (let j = 0; j < rows.length; j++) {
-	// 		const text = rows[j].split(" ");
-
-	// 		for (let i = 0; i < text.length; i++) {
-	// 			const container = $('<span class="title-anim-container"></span>');
-	// 			const word = $('<span class="title-anim-content">' + text[i] + "&nbsp;</span>");
-
-	// 			$(word).appendTo(container);
-	// 			$(container).appendTo(h);
-	// 		}
-	// 		$("<br>").appendTo(h);
-	// 	}
-	// }
-	// for (let h of h3) {
-	// 	const rows = h.innerHTML.trim().split("<br>");
-	// 	const text = h.textContent.trim().split(" ");
-
-	// 	h.textContent = "";
-	// 	for (let j = 0; j < rows.length; j++) {
-	// 		const text = rows[j].split(" ");
-
-	// 		for (let i = 0; i < text.length; i++) {
-	// 			const container = $('<span class="title-anim-container"></span>');
-	// 			const word = $('<span class="title-anim-content">' + text[i] + "&nbsp;</span>");
-
-	// 			$(word).appendTo(container);
-	// 			$(container).appendTo(h);
-	// 		}
-	// 		$("<br>").appendTo(h);
-	// 	}
-	// }
-	
-	
-
 	const dropdownMultiple = document.querySelector(".filter__form_dropdown");
 
 	if (dropdownMultiple) {
@@ -550,7 +486,7 @@ $(document).on("input keydown blur focusout", "input[type=tel]", function (e) {
 	let testReg = /^((8|\+7)[\- ])?(\(\d{3}\)[\- ])\d{3}[\- ]\d{2}[\- ]\d{2}$/;
 
 	let valRegRu = /\D/gi;
-	let str = formatValueInput(this, valRegRu);
+	let str = utils.formatValueInput(this, valRegRu);
 	let formatStr = "";
 
 	let rusTel = ["7", "8", "9"];
@@ -717,9 +653,35 @@ $(document).on("input keydown focusout blur", "input[name=name]", function (e) {
 
 	validationFormFields($(this).closest("form"));
 });
-window.addEventListener("resize", () => {
-	setVhCssVar()
-	setMobileHeight()
+
+// window.addEventListener("resize", () => {
+// 	setVhCssVar()
+// 	setMobileHeight()
+// 	let width = window.innerWidth;
+
+// 	resizeScrollPath(width);
+
+// 	const eventsFilter = document.querySelectorAll(".events__filter");
+
+// 	if (eventsFilter.length) {
+// 		for (let filter of eventsFilter) {
+// 			if (filter.classList.contains("open")) {
+// 				$(filter).css({ "max-height": $(filter).find(".form").innerHeight() + "px" });
+// 			}
+// 		}
+// 	}
+// 	if (document.querySelector(".performer .about__desc_text")) {
+// 		const aboutText = document.querySelector(".performer .about__desc_text");
+// 		const childs = aboutText.children;
+// 		const count = 3;
+// 		const height = getMaxHeightForChildren(childs, count);
+// 		$(".performer .about__desc_text").css({ "max-height": height + "px", height: "auto" });
+// 	}
+// });
+// Оптимизированный обработчик resize с debounce
+const handleResize = () => {
+	setVhCssVar();
+	setMobileHeight();
 	let width = window.innerWidth;
 
 	resizeScrollPath(width);
@@ -740,8 +702,10 @@ window.addEventListener("resize", () => {
 		const height = getMaxHeightForChildren(childs, count);
 		$(".performer .about__desc_text").css({ "max-height": height + "px", height: "auto" });
 	}
-});
+};
 
+// Применяем debounce к обработчику resize (сработает только после окончания изменения размера)
+window.addEventListener("resize", utils.debounce(handleResize, 200));
 function resizeScrollPath(width) {
 	const scrollPath = document.querySelector("#scroll_lg path");
 	const icon = $(scrollPath).closest(".icon");
@@ -776,9 +740,6 @@ $(document).on("click", ".search_link", function (e) {
 	const gs = gsap.timeline();
 
 	if (container.length) {
-		// $(container).find(".search-form").addClass("show");
-		// $(container).find(".links").css({ opacity: 0, visibility: "hidden", "transition-duration": "0.2s" });
-		// $(container).find(".btn_menu").css({ opacity: 0, visibility: "hidden", transition: "all 0s" });
 		gs.to($(container).find(".links"), { opacity: 0, visibility: "hidden", duration: 0 });
 		gs.to($(container).find(".btn_menu"), {
 			opacity: 0,
@@ -1851,7 +1812,7 @@ function initEventsObserver(){
 	const eventsIntersectionCallback = (entries, observer) => {
 		entries.forEach((entry) => {
 			if (entry.isIntersecting) {
-				console.log(entry);
+				
 				entry.target.querySelector(".events__item_preview").classList.add("isView");
 			}
 		});

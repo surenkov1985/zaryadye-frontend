@@ -532,6 +532,7 @@
     & .foot {
         &__email {
             & .menu-link {
+                color: var(--clr-black);
                 & svg path {
                     fill: var(--clr-black);
                 }
