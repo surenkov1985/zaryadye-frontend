@@ -568,22 +568,22 @@
         }
     }
 
-    & .breadcrumbs {
-        &__item {
-            & .back_link {
-                &:hover {
-                    & .btn{
-                        & svg path {
-                        stroke: none;
-                        fill: currentColor;
-                    }}
-                }
-                & .btn{
-                    & svg path {
-                    stroke: none;
-                    fill: currentColor;
-                }}
-            }
-        }
-    }
+    // & .breadcrumbs {
+    //     &__item {
+    //         & .back_link {
+    //             &:hover {
+    //                 & .btn{
+    //                     & svg path {
+    //                     stroke: none;
+    //                     fill: currentColor;
+    //                 }}
+    //             }
+    //             & .btn{
+    //                 & svg path {
+    //                 stroke: none;
+    //                 fill: currentColor;
+    //             }}
+    //         }
+    //     }
+    // }
 }

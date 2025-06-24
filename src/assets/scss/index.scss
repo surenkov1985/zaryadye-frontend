@@ -59,7 +59,13 @@
 		opacity: 0;
 	}
 }
-
+[data-scroll] {
+	.title-anim-content {
+		transform: translateY(100%);
+		transition: all 1.3s;
+		opacity: 0;
+	}
+}
 .fs__page-title[data-scroll].is-inview {
 	.title-anim-content {
 		animation: fadeInUp 1.3s forwards;
@@ -73,7 +79,11 @@
 		animation: fadeInUp 1.3s .4s forwards;
 	}
 }
-
+[data-scroll].is-inview {
+	.title-anim-content {
+		animation: fadeInUp 1.3s forwards;
+	}
+}
 .contacts__title[data-scroll] {
 	.title-anim-content {
 		opacity: 0;

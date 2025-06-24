@@ -2,9 +2,9 @@ import "/assets/libs/animate/style.scss";
 import "/assets/libs/fancybox/style.css";
 import "/assets/libs/remodal/remodal-default-theme.min.css";
 import "/assets/libs/remodal/remodal.min.css";
-import "swiper/css";
-import "swiper/css/pagination";
-import "swiper/css/navigation";
+// import "swiper/css";
+// import "swiper/css/pagination";
+// import "swiper/css/navigation";
 import "/assets/css/fonts.css";
 import "/assets/css/animate.css";
 import "/assets/css/vars.css";
@@ -24,3 +24,6 @@ import "/assets/scss/max360.scss";
 import "/assets/js/index.js";
 import "/assets/js/ajax_handler.js";
 // import "/assets/libs/lidrekon/script.min.js";
+
+
+

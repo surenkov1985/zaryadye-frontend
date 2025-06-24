@@ -1355,36 +1355,36 @@ input {
     flex-wrap: wrap;
 }
 
-.breadcrumbs {}
+// .breadcrumbs {}
 
-.breadcrumbs[data-scroll].is-inview {
-    animation: fadeInUp 1s 0.3s forwards;
-}
+// .breadcrumbs[data-scroll].is-inview {
+//     animation: fadeInUp 1s 0.3s forwards;
+// }
 
-.breadcrumbs__item {
-    display: flex;
+// .breadcrumbs__item {
+//     display: flex;
 
-    .back_link {
-        display: flex;
-        align-items: center;
-        gap: 20px;
-        color: var(--clr-black-40);
-        transition: all 0.5s;
+//     .back_link {
+//         display: flex;
+//         align-items: center;
+//         gap: 20px;
+//         color: var(--clr-black-40);
+//         transition: all 0.5s;
 
-        &:hover {
-            color: var(--clr-black);
+//         &:hover {
+//             color: var(--clr-black);
 
-            .btn {
-                background: var(--clr-black);
-                color: var(--clr-white);
+//             .btn {
+//                 background: var(--clr-black);
+//                 color: var(--clr-white);
 
-                svg {
-                    path {}
-                }
-            }
-        }
-    }
-}
+//                 svg {
+//                     path {}
+//                 }
+//             }
+//         }
+//     }
+// }
 
 .popup {
     position: fixed !important;
