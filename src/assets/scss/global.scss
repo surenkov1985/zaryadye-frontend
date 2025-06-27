@@ -1516,6 +1516,9 @@ div.search-popup-row {
 		&:hover {
 			background: var(--clr-black-5);
 		}
+		&:focus {
+			background: var(--clr-black-5);
+		}
 	}
 	.btn_tab.active {
 		background: var(--clr-black-5);

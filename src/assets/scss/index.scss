@@ -66,6 +66,11 @@
 		opacity: 0;
 	}
 }
+[data-scroll].is-inview {
+	.title-anim-content {
+		animation: fadeInUp 1.3s forwards;
+	}
+}
 .fs__page-title[data-scroll].is-inview {
 	.title-anim-content {
 		animation: fadeInUp 1.3s forwards;
@@ -77,11 +82,6 @@
 
 	.btn {
 		animation: fadeInUp 1.3s .4s forwards;
-	}
-}
-[data-scroll].is-inview {
-	.title-anim-content {
-		animation: fadeInUp 1.3s forwards;
 	}
 }
 .contacts__title[data-scroll] {
