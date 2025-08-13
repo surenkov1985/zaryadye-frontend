@@ -1111,6 +1111,8 @@ marquee {
     .fs {
         &_index {
             min-height: 900px;
+            max-height: none;
+            height: auto;
         }
         &__images {
             &_slide {
@@ -2616,6 +2618,8 @@ marquee {
         .fs_index {
             min-height: 900px;
             min-height: calc(4 / 3.3 * 100vw);
+            max-height: none;
+            height: auto;
 
             .container {
                 padding-top: 164px;
@@ -5780,7 +5784,7 @@ marquee {
             }
         }
         &_color {
-            color: var(--clr-black);
+            // color: var(--clr-black);
         }
         &_slider {
             color: var(--clr-white);

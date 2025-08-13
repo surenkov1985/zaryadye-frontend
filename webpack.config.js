@@ -15,7 +15,7 @@ const build = {
 
 	plugins: [
 		new MiniCssExtractPlugin({
-			filename: "assets/styles/[name].[contenthash].css",
+			filename: "assets/css/[name].[contenthash].css",
 		}),
 		new HtmlWebpackPlugin({
 			filename: "index.html",
@@ -96,7 +96,7 @@ const build = {
 				test: /\.(woff|woff2|eot|ttf|otf)$/i,
 				type: "asset/resource",
 				generator: {
-					filename: "assets/fonts/[name][ext]",
+					filename: "assets/css/[name][ext]",
 				},
 			},
 			{

@@ -401,23 +401,23 @@
 	.events__more {
 		margin-top: 3rem;
 	}
-	.halls {
-		height: 640px;
-	}
-	.halls__slider_desc {
-		width: 37.5%;
-		.swiper-nav {
-			right: 48px;
-			bottom: 40px;
-			gap: 8px;
-		}
-	}
-	.halls__slide {
-		padding: 63px 24px 42px 0;
-	}
-	.halls__slide_text {
-		gap: 3rem;
-	}
+	// .halls {
+	// 	height: 640px;
+	// }
+	// .halls__slider_desc {
+	// 	width: 37.5%;
+	// 	.swiper-nav {
+	// 		right: 48px;
+	// 		bottom: 40px;
+	// 		gap: 8px;
+	// 	}
+	// }
+	// .halls__slide {
+	// 	padding: 63px 24px 42px 0;
+	// }
+	// .halls__slide_text {
+	// 	gap: 3rem;
+	// }
 	.news {
 		padding-top: 140px;
 		padding-bottom: 140px;
@@ -698,31 +698,31 @@
 			max-height: 550px;
 		}
 	}
-	.history {
-		padding-top: 92px;
-		padding-bottom: 32px;
-	}
-	.history__sliders {
-		gap: 2rem 1rem;
-	}
+	// .history {
+	// 	padding-top: 92px;
+	// 	padding-bottom: 32px;
+	// }
+	// .history__sliders {
+	// 	gap: 2rem 1rem;
+	// }
 	.organ__sliders {
 		gap: 2rem 1rem;
 	}
-	.history__desc {
-		width: calc((100% - 16px) / 24 * 12);
-	}
+	// .history__desc {
+	// 	width: calc((100% - 16px) / 24 * 12);
+	// }
 	.organ__desc {
 		width: calc((100% - 16px) / 24 * 12);
 	}
-	.history__desc_slide {
-		padding: 24px 56px 16px 0;
-	}
-	.history__desc_slide_content {
-		width: 90%;
-	}
-	.history__desc_title {
-		margin-bottom: 46px !important;
-	}
+	// .history__desc_slide {
+	// 	padding: 24px 56px 16px 0;
+	// }
+	// .history__desc_slide_content {
+	// 	width: 90%;
+	// }
+	// .history__desc_title {
+	// 	margin-bottom: 46px !important;
+	// }
 	.organ__desc_title {
 		margin-bottom: 46px !important;
 	}
@@ -730,9 +730,9 @@
 		margin-bottom: 46px !important;
 		font-size: 5rem;
 	}
-	.mission__title {
-		margin-bottom: 48px;
-	}
+	// .mission__title {
+	// 	margin-bottom: 48px;
+	// }
 	.organ {
 		padding-top: 80px;
 		padding-bottom: 48px;
@@ -791,21 +791,21 @@
 		width: 128px;
 		height: 128px;
 	}
-	.personal__content {
-		margin-top: 120px;
-		padding-top: 24px;
-		flex-direction: column-reverse;
-		gap: 2rem;
-	}
-	.personal__slider {
-		width: 100%;
-	}
-	.personal__slider_control {
-		width: 100%;
-	}
-	.personal__slide_text {
-		margin-top: 56px;
-	}
+	// .personal__content {
+	// 	margin-top: 120px;
+	// 	padding-top: 24px;
+	// 	flex-direction: column-reverse;
+	// 	gap: 2rem;
+	// }
+	// .personal__slider {
+	// 	width: 100%;
+	// }
+	// .personal__slider_control {
+	// 	width: 100%;
+	// }
+	// .personal__slide_text {
+	// 	margin-top: 56px;
+	// }
 	.advs {
 		padding-top: 64px;
 		padding-bottom: 32px;
@@ -838,24 +838,24 @@
 	.feedback__form_col {
 		width: 100%;
 	}
-	.rules {
-		padding-top: 2.5rem;
-		padding-bottom: 7rem;
-	}
-	.rules__item_num {
-		.line {
-			height: 360px;
-		}
-		.number {
-			font-size: 6.5rem;
-		}
-	}
-	.rules__item_content {
-		padding-left: 45px;
-	}
-	.rules__item_title {
-		margin-top: 10px;
-	}
+	// .rules {
+	// 	padding-top: 2.5rem;
+	// 	padding-bottom: 7rem;
+	// }
+	// .rules__item_num {
+	// 	.line {
+	// 		height: 360px;
+	// 	}
+	// 	.number {
+	// 		font-size: 6.5rem;
+	// 	}
+	// }
+	// .rules__item_content {
+	// 	padding-left: 45px;
+	// }
+	// .rules__item_title {
+	// 	margin-top: 10px;
+	// }
 	.program__top {
 		margin-bottom: 48px;
 	}
@@ -918,30 +918,30 @@
 			width: calc(52 / 171 * 100%);
 		}
 	}
-	.performer{
-        &__images {
-            width: calc((100% - 32px) / 24 * 12);
-            margin: 0;
-        }
-        & .about {
+	// .performer{
+    //     &__images {
+    //         width: calc((100% - 32px) / 24 * 12);
+    //         margin: 0;
+    //     }
+    //     & .about {
 
-            &__desc {
+    //         &__desc {
     
-                &_col {
+    //             &_col {
     
-                    &.performer__news {
-                        width: calc((100% - 32px) / 24 * 12);
-                    }
-                }
+    //                 &.performer__news {
+    //                     width: calc((100% - 32px) / 24 * 12);
+    //                 }
+    //             }
     
-                &_title {
-                }
+    //             &_title {
+    //             }
                 
-                &_text {
-                }
-            }
-        }
-	}
+    //             &_text {
+    //             }
+    //         }
+    //     }
+	// }
 }
 @media screen and (max-width: 1200px) and (min-aspect-ratio: 16/8.8) {
 	.fs__slide_tags {
