@@ -640,30 +640,30 @@
 		}
 	}
 
-	.calendar__days {
-		grid-gap: .625rem .75rem;
-	}
+	// .calendar__days {
+	// 	grid-gap: .625rem .75rem;
+	// }
 
-	.calendar__day {
-		flex-direction: column-reverse;
-		align-items: flex-start;
-		padding-top: .75rem;
-		gap: 5px;
-	}
+	// .calendar__day {
+	// 	flex-direction: column-reverse;
+	// 	align-items: flex-start;
+	// 	padding-top: .75rem;
+	// 	gap: 5px;
+	// }
 
-	.calendar__day.active {
-		&::before {
-			width: calc(100% + .625rem);
-			height: calc(100% + .75rem + 1px);
-		}
-	}
+	// .calendar__day.active {
+	// 	&::before {
+	// 		width: calc(100% + .625rem);
+	// 		height: calc(100% + .75rem + 1px);
+	// 	}
+	// }
 
-	.calendar__day.hover {
-		&::before {
-			width: calc(100% + .625rem);
-			height: calc(100% + .75rem + 1px);
-		}
-	}
+	// .calendar__day.hover {
+	// 	&::before {
+	// 		width: calc(100% + .625rem);
+	// 		height: calc(100% + .75rem + 1px);
+	// 	}
+	// }
 
 	.accordion.accordion_l {
 		.accordion__content {
@@ -844,15 +844,15 @@
 		}
 	}
 
-	.calendar__form {
-		padding: 16px 0 24px;
-	}
+	// .calendar__form {
+	// 	padding: 16px 0 24px;
+	// }
 
-	.calendar__form_control {
-		flex-direction: column;
-		gap: 34px;
-		margin-bottom: 1.5rem;
-	}
+	// .calendar__form_control {
+	// 	flex-direction: column;
+	// 	gap: 34px;
+	// 	margin-bottom: 1.5rem;
+	// }
 
 	.filter__form_field {
 		.btn_filter_icon {
@@ -863,22 +863,22 @@
 		}
 	}
 
-	.calendar__form_events {
-		justify-content: space-between;
-		width: 100%;
-	}
+	// .calendar__form_events {
+	// 	justify-content: space-between;
+	// 	width: 100%;
+	// }
 
-	.calendar__months {
-		width: 100%;
-	}
+	// .calendar__months {
+	// 	width: 100%;
+	// }
 
-	.calendar__months.months {
-		width: 100%;
-	}
+	// .calendar__months.months {
+	// 	width: 100%;
+	// }
 
-	.calendar__months.years {
-		width: 100%;
-	}
+	// .calendar__months.years {
+	// 	width: 100%;
+	// }
 
 	// .halls__slider_images {
 	// 	height: 320px;

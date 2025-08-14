@@ -809,35 +809,35 @@
 		padding: 4px 0;
 	}
 
-	.calendar__form {
-		padding: 32px 0 36px;
-	}
+	// .calendar__form {
+	// 	padding: 32px 0 36px;
+	// }
 
-	.calendar__form_control {
-		margin-bottom: 1.75rem;
-	}
+	// .calendar__form_control {
+	// 	margin-bottom: 1.75rem;
+	// }
 
-	.calendar__weekdays {
-		grid-gap: 1rem;
-	}
+	// .calendar__weekdays {
+	// 	grid-gap: 1rem;
+	// }
 
-	.calendar__days {
-		grid-gap: 1rem;
-	}
+	// .calendar__days {
+	// 	grid-gap: 1rem;
+	// }
 
-	.calendar__day.active {
-		&::before {
-			width: calc(100% + 1rem);
-			height: calc(100% + 1rem + 1px);
-		}
-	}
+	// .calendar__day.active {
+	// 	&::before {
+	// 		width: calc(100% + 1rem);
+	// 		height: calc(100% + 1rem + 1px);
+	// 	}
+	// }
 
-	.calendar__day.hover {
-		&::before {
-			width: calc(100% + 1rem);
-			height: calc(100% + 1rem + 1px);
-		}
-	}
+	// .calendar__day.hover {
+	// 	&::before {
+	// 		width: calc(100% + 1rem);
+	// 		height: calc(100% + 1rem + 1px);
+	// 	}
+	// }
 
 	// .halls__slide {
 	// 	padding: 64px 26px;
