@@ -59,6 +59,7 @@
 		opacity: 0;
 	}
 }
+
 [data-scroll] {
 	.title-anim-content {
 		transform: translateY(100%);
@@ -66,11 +67,13 @@
 		opacity: 0;
 	}
 }
+
 [data-scroll].is-inview {
 	.title-anim-content {
 		animation: fadeInUp 1.3s forwards;
 	}
 }
+
 .fs__page-title[data-scroll].is-inview {
 	.title-anim-content {
 		animation: fadeInUp 1.3s forwards;
@@ -84,6 +87,7 @@
 		animation: fadeInUp 1.3s 0.4s forwards;
 	}
 }
+
 // .contacts__title[data-scroll] {
 // 	.title-anim-content {
 // 		opacity: 0;
@@ -1429,7 +1433,7 @@
 			}
 		}
 
-		> .icon {
+		>.icon {
 			display: flex;
 			width: 32px;
 			height: 32px;
@@ -1453,35 +1457,221 @@
 	}
 }
 
-.filter_calendar {
-	.loader {
-		position: absolute;
-		align-items: center;
-		justify-content: center;
-		width: 100%;
-		height: 100%;
-		background: rgba(255, 255, 255, 0.5);
-		z-index: 10;
-		display: none;
+// .calendar__form_control {
+// 	display: flex;
+// 	align-items: center;
+// 	margin-bottom: 1.5rem;
+// 	padding-top: 2rem;
+// 	gap: 1rem;
+// }
 
-		&::before {
-			content: "";
-			box-sizing: border-box;
-			inset: 0;
-			border-radius: 50%;
-			border: 5px solid var(--clr-black);
-			animation: rotation 1s linear infinite;
-			width: 48px;
-			height: 48px;
-			border-radius: 50%;
-			border-bottom-color: transparent;
-		}
-	}
+// .calendar__form_nums {
+// 	padding-bottom: 2rem;
+// }
 
-	.loader.active {
-		display: flex;
-	}
-}
+// .calendar__form_events {
+// 	display: flex;
+// 	align-items: center;
+// 	gap: 20px;
+// }
+
+// .calendar__months {
+// 	display: flex;
+// 	align-items: center;
+// 	gap: 10px;
+
+// 	.swiper_next {
+// 		width: 24px;
+// 		height: 100%;
+// 		display: flex;
+// 		align-items: center;
+// 		justify-content: center;
+// 		cursor: pointer;
+// 		flex-shrink: 0;
+
+// 		svg {
+// 			path {
+// 				transition: all 0.5s;
+// 				stroke: var(--clr-black);
+// 			}
+// 		}
+
+// 		&:hover {
+// 			svg {
+// 				path {
+// 					stroke-opacity: 0.4;
+// 				}
+// 			}
+// 		}
+// 	}
+
+// 	.swiper_prev {
+// 		width: 24px;
+// 		height: 100%;
+// 		display: flex;
+// 		align-items: center;
+// 		justify-content: center;
+// 		cursor: pointer;
+// 		flex-shrink: 0;
+
+// 		svg {
+// 			path {
+// 				transition: all 0.5s;
+// 				stroke: var(--clr-black);
+// 			}
+// 		}
+
+// 		&:hover {
+// 			svg {
+// 				path {
+// 					stroke-opacity: 0.4;
+// 				}
+// 			}
+// 		}
+// 	}
+// }
+
+// .calendar__months.months {
+// 	width: 275px;
+// }
+
+// .calendar__months.years {
+// 	width: 165px;
+// }
+
+// .calendar__months_slide {
+// 	text-align: center;
+// 	text-transform: lowercase;
+// }
+
+// .calendar__weekdays {
+// 	width: 100%;
+// 	display: grid;
+// 	padding: 0.5rem 0;
+// 	grid-template-columns: repeat(7, 1fr);
+// 	grid-gap: 1rem;
+// }
+
+// .calendar__days {
+// 	width: 100%;
+// 	display: grid;
+// 	grid-template-columns: repeat(7, 1fr);
+// 	grid-template-rows: repeat(5, 1fr);
+// 	grid-gap: 1rem 1rem;
+// }
+
+// .calendar__day {
+// 	.numbers_sm {
+// 		font-size: clamp(2rem, 1.7rem + 1.5vw, 3.5rem);
+// 		width: calc(35 / 171 * 100%);
+// 	}
+
+// 	padding-top: 0.75rem;
+// 	border-top: 1px solid var(--clr-light-gray);
+// 	display: flex;
+// 	align-items: flex-start;
+// 	cursor: pointer;
+// 	transition: all 0.5s;
+// 	position: relative;
+
+// 	&:hover {
+// 		color: var(--clr-black-40);
+// 		border-color: var(--clr-black);
+// 	}
+
+// 	.events_num {
+// 		width: 40px;
+// 		height: 40px;
+// 		border-radius: 50%;
+// 		background: var(--clr-black-5);
+// 		display: flex;
+// 		align-items: center;
+// 		justify-content: center;
+// 		flex-shrink: 0;
+// 		transition: all 0.5s;
+// 	}
+// }
+
+// .calendar__day.NewsCalToday {
+// 	border-color: var(--clr-black);
+// }
+
+// .calendar__day.active {
+// 	&::before {
+// 		content: "";
+// 		position: absolute;
+// 		display: block;
+// 		width: calc(100% + 1rem);
+// 		height: calc(100% + 1rem + 2px);
+// 		top: -2px;
+// 		left: 50%;
+// 		transform: translateX(-50%);
+// 		background: var(--clr-black-5);
+// 	}
+
+// 	border-color: var(--clr-black);
+
+// 	.events_num {
+// 		background: var(--clr-black);
+// 		color: var(--clr-white);
+// 	}
+// }
+
+// .calendar__day.hover {
+// 	&::before {
+// 		content: "";
+// 		position: absolute;
+// 		display: block;
+// 		width: calc(100% + 1rem);
+// 		height: calc(100% + 1rem + 2px);
+// 		top: -2px;
+// 		left: 50%;
+// 		transform: translateX(-50%);
+// 		background: var(--clr-black-5);
+// 	}
+// }
+
+// .calendar__day.prev_month {
+// 	color: var(--clr-black-5);
+// 	pointer-events: none;
+// }
+
+// .calendar__day.no_events {
+// 	color: var(--clr-black-5);
+// }
+
+// .calendar__weekday {
+// 	text-transform: lowercase;
+// }
+// .filter_calendar {
+// 	.loader {
+// 		position: absolute;
+// 		align-items: center;
+// 		justify-content: center;
+// 		width: 100%;
+// 		height: 100%;
+// 		background: rgba(255, 255, 255, 0.5);
+// 		z-index: 10;
+// 		display: none;
+
+// 		&::before {
+// 			content: "";
+// 			box-sizing: border-box;
+// 			inset: 0;
+// 			border-radius: 50%;
+// 			border: 5px solid var(--clr-black);
+// 			animation: rotation 1s linear infinite;
+// 			width: 48px;
+// 			height: 48px;
+// 			border-radius: 50%;
+// 			border-bottom-color: transparent;
+// 		}
+// 	}
+
+// 	.loader.active {
+// 		display: flex;
+// 	}
+// }
 
 .filter__form_fields {
 	display: flex;
@@ -1571,223 +1761,37 @@
 	cursor: pointer;
 
 	input {
-		&:checked + .tag_opera {
+		&:checked+.tag_opera {
 			background: var(--clr-tag-opera-opacity);
 			border-color: var(--clr-tag-opera-opacity);
 		}
 
-		&:checked + .tag_lectures {
+		&:checked+.tag_lectures {
 			background: var(--clr-tag-lectures-opacity);
 			border-color: var(--clr-tag-lectures-opacity);
 		}
 
-		&:checked + .tag_festival {
+		&:checked+.tag_festival {
 			background: var(--clr-tag-festival-opacity);
 			border-color: var(--clr-tag-festival-opacity);
 		}
 
-		&:checked + .tag_children {
+		&:checked+.tag_children {
 			background: var(--clr-tag-children-opacity);
 			border-color: var(--clr-tag-children-opacity);
 		}
 
-		&:checked + .tag_theaters {
+		&:checked+.tag_theaters {
 			background: var(--clr-tag-theaters-opacity);
 			border-color: var(--clr-tag-theaters-opacity);
 		}
 
-		&:checked + .tag_card {
+		&:checked+.tag_card {
 			background: var(--clr-black-10);
 		}
 	}
 }
 
-.calendar__form_control {
-	display: flex;
-	align-items: center;
-	margin-bottom: 1.5rem;
-	padding-top: 2rem;
-	gap: 1rem;
-}
-
-.calendar__form_nums {
-	padding-bottom: 2rem;
-}
-
-.calendar__form_events {
-	display: flex;
-	align-items: center;
-	gap: 20px;
-}
-
-.calendar__months {
-	display: flex;
-	align-items: center;
-	gap: 10px;
-
-	.swiper_next {
-		width: 24px;
-		height: 100%;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		cursor: pointer;
-		flex-shrink: 0;
-
-		svg {
-			path {
-				transition: all 0.5s;
-				stroke: var(--clr-black);
-			}
-		}
-
-		&:hover {
-			svg {
-				path {
-					stroke-opacity: 0.4;
-				}
-			}
-		}
-	}
-
-	.swiper_prev {
-		width: 24px;
-		height: 100%;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		cursor: pointer;
-		flex-shrink: 0;
-
-		svg {
-			path {
-				transition: all 0.5s;
-				stroke: var(--clr-black);
-			}
-		}
-
-		&:hover {
-			svg {
-				path {
-					stroke-opacity: 0.4;
-				}
-			}
-		}
-	}
-}
-
-.calendar__months.months {
-	width: 275px;
-}
-
-.calendar__months.years {
-	width: 165px;
-}
-
-.calendar__months_slide {
-	text-align: center;
-	text-transform: lowercase;
-}
-
-.calendar__weekdays {
-	width: 100%;
-	display: grid;
-	padding: 0.5rem 0;
-	grid-template-columns: repeat(7, 1fr);
-	grid-gap: 1rem;
-}
-
-.calendar__days {
-	width: 100%;
-	display: grid;
-	grid-template-columns: repeat(7, 1fr);
-	grid-template-rows: repeat(5, 1fr);
-	grid-gap: 1rem 1rem;
-}
-
-.calendar__day {
-	.numbers_sm {
-		font-size: clamp(2rem, 1.7rem + 1.5vw, 3.5rem);
-		width: calc(35 / 171 * 100%);
-	}
-
-	padding-top: 0.75rem;
-	border-top: 1px solid var(--clr-light-gray);
-	display: flex;
-	align-items: flex-start;
-	cursor: pointer;
-	transition: all 0.5s;
-	position: relative;
-
-	&:hover {
-		color: var(--clr-black-40);
-		border-color: var(--clr-black);
-	}
-
-	.events_num {
-		width: 40px;
-		height: 40px;
-		border-radius: 50%;
-		background: var(--clr-black-5);
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		flex-shrink: 0;
-		transition: all 0.5s;
-	}
-}
-
-.calendar__day.NewsCalToday {
-	border-color: var(--clr-black);
-}
-
-.calendar__day.active {
-	&::before {
-		content: "";
-		position: absolute;
-		display: block;
-		width: calc(100% + 1rem);
-		height: calc(100% + 1rem + 2px);
-		top: -2px;
-		left: 50%;
-		transform: translateX(-50%);
-		background: var(--clr-black-5);
-	}
-
-	border-color: var(--clr-black);
-
-	.events_num {
-		background: var(--clr-black);
-		color: var(--clr-white);
-	}
-}
-
-.calendar__day.hover {
-	&::before {
-		content: "";
-		position: absolute;
-		display: block;
-		width: calc(100% + 1rem);
-		height: calc(100% + 1rem + 2px);
-		top: -2px;
-		left: 50%;
-		transform: translateX(-50%);
-		background: var(--clr-black-5);
-	}
-}
-
-.calendar__day.prev_month {
-	color: var(--clr-black-5);
-	pointer-events: none;
-}
-
-.calendar__day.no_events {
-	color: var(--clr-black-5);
-}
-
-.calendar__weekday {
-	text-transform: lowercase;
-}
 
 .festival {
 	margin-bottom: 56px;
@@ -1961,7 +1965,7 @@
 	display: flex;
 	gap: 10px;
 
-	> .btn_slider {
+	>.btn_slider {
 		&:hover {
 			svg {
 				path {
@@ -2339,7 +2343,7 @@
 		flex-direction: column;
 		align-items: flex-start;
 
-		> div {
+		>div {
 			&:not(:last-of-type) {
 				margin-bottom: 84px;
 			}
@@ -3449,7 +3453,7 @@
 
 .location.tour {
 	.location__images_slide {
-		> svg {
+		>svg {
 			width: 100%;
 			height: 100%;
 		}
@@ -3500,7 +3504,7 @@
 
 .location_page {
 	.location__images_slide {
-		> svg {
+		>svg {
 			height: 100%;
 		}
 
@@ -6701,7 +6705,7 @@
 	}
 
 	&:hover {
-		> .menu__item_img {
+		>.menu__item_img {
 			img {
 				visibility: visible;
 				opacity: 1;
@@ -7182,7 +7186,7 @@ body.infokiosk {
 			text-align: center;
 			flex-direction: column;
 
-			> div {
+			>div {
 				width: 100%;
 			}
 
@@ -7440,7 +7444,7 @@ body {
 }
 
 font {
-	> font {
+	>font {
 		background-color: transparent !important;
 		box-shadow: none !important;
 		box-sizing: inherit;
